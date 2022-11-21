@@ -16,6 +16,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 @SuppressWarnings("serial")
 @Component
 public class VentanaPrincipal extends JFrame {
@@ -53,6 +54,7 @@ public class VentanaPrincipal extends JFrame {
 		menuBar.setBackground(new Color(102, 205, 170));
 		setJMenuBar(menuBar);
 		
+		//***********
 		JMenu mnNewMenu = new JMenu("            Catálogo          ");
 		mnNewMenu.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
 		menuBar.add(mnNewMenu);
@@ -79,15 +81,30 @@ public class VentanaPrincipal extends JFrame {
 		mntmNewMenuItem_2.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
 		mnNewMenu.add(mntmNewMenuItem_2);
 		
+		//***********
 		JMenu mnNewMenu_1 = new JMenu("      Clientes      ");
-		mnNewMenu_1.addActionListener(new ActionListener() {
+		mnNewMenu_1.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
+		menuBar.add(mnNewMenu_1);
+		
+		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Ver");
+		mntmNewMenuItem_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlPrincipal.obtenerDatos();
 			}
 		});
-		mnNewMenu_1.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
-		menuBar.add(mnNewMenu_1);
+		mntmNewMenuItem_5.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
+		mnNewMenu_1.add(mntmNewMenuItem_5);
 		
+		JMenuItem mntmNewMenuItem_6 = new JMenuItem("Agregar"); 
+		mntmNewMenuItem_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlPrincipal.agregarCliente();
+			}
+		}); 
+		mntmNewMenuItem_6.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
+		mnNewMenu_1.add(mntmNewMenuItem_6);
+		
+		//***********
 		JMenu mnNewMenu_2 = new JMenu("        Ventas        ");
 		mnNewMenu_2.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
 		menuBar.add(mnNewMenu_2);
@@ -120,7 +137,7 @@ public class VentanaPrincipal extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblIcono = new JLabel("");
-		lblIcono.setIcon(new ImageIcon("C:\\Users\\Abi\\Downloads\\Service%20Tec\\src\\main\\java\\imagen\\compu.png"));
+		lblIcono.setIcon(new ImageIcon("D:\\Archivos\\Documentos\\SPRING TOOL SUITE\\workspace\\Service Tec\\src\\main\\java\\mx\\uam\\ayd\\imagen\\minilogo computadora.png"));
 		lblIcono.setBounds(283, 49, 163, 134);
 		contentPane.add(lblIcono);
 		
@@ -132,7 +149,7 @@ public class VentanaPrincipal extends JFrame {
 		
 		JLabel lblFondo = new JLabel("");
 		lblFondo.setBounds(0, 0, 520, 234);
-		lblFondo.setIcon(new ImageIcon("C:\\Users\\Abi\\Downloads\\Service%20Tec\\src\\main\\java\\imagen\\fondoP2.jpg"));
+		lblFondo.setIcon(new ImageIcon("D:\\Archivos\\Documentos\\SPRING TOOL SUITE\\workspace\\Service Tec\\src\\main\\java\\mx\\uam\\ayd\\imagen\\fondoP2.jpg"));
 		contentPane.add(lblFondo);
 	}
 	public void muestra(ControlPrincipal control) {

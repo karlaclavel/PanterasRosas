@@ -42,6 +42,7 @@ public class ProyectoApplication {
 	
 	@Autowired
 	ClienteRepository clienteRepository;
+	
 	@Autowired
 	CompraRepository compraRepository;
 	/**
@@ -114,6 +115,13 @@ public class ProyectoApplication {
 		cliente1.setDireccionEntrega("Calle 33 #113 Col. Santa Cruz Meyehualco");
 		clienteRepository.save(cliente1);
 		
+		Cliente cliente2=new Cliente();
+		cliente2.setNombreCompleto("Sara");
+		cliente2.setTelefono("5525689528");
+		cliente2.setCorreo("sara456@gmail.com");
+		cliente2.setDireccionEntrega("Calle 34 #125 Col. Santa Cruz Meyehualco");
+		clienteRepository.save(cliente2);
+		
 		var productoPrueba = new Producto();
 		 
 		productoPrueba.setNombre("Core i3");
@@ -139,10 +147,6 @@ public class ProyectoApplication {
 		
 		compraRepository.save(compraPrueba);
 		
-		
-		
-		
-		
-
+	
 		}
 }
