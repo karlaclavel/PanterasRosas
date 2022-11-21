@@ -50,43 +50,59 @@ public class VentanaPrincipal extends JFrame {
 		setBounds(100, 100, 450, 300);
 		
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBackground(new Color(102, 205, 170));
+		menuBar.setBackground(new Color(255, 255, 224));
 		setJMenuBar(menuBar);
 		
-		JMenu mnNewMenu = new JMenu("            Catálogo          ");
-		mnNewMenu.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
-		menuBar.add(mnNewMenu);
+		JMenu MenuCatalogo = new JMenu("            Catálogo          ");
+		MenuCatalogo.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
+		menuBar.add(MenuCatalogo);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Agregar ");
-		mntmNewMenuItem.addActionListener(new ActionListener() {
+		JMenuItem botonAgregarCatalogo = new JMenuItem("Agregar ");
+		botonAgregarCatalogo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlPrincipal.agregarProducto();
 			}
 		});
-		mntmNewMenuItem.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
-		mnNewMenu.add(mntmNewMenuItem);
+		botonAgregarCatalogo.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
+		MenuCatalogo.add(botonAgregarCatalogo);
 		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Modificar");
-		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+		JMenuItem BotonModificarCatalogo = new JMenuItem("Modificar");
+		BotonModificarCatalogo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlPrincipal.modificarProducto();
 			}
 		});
-		mntmNewMenuItem_1.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
-		mnNewMenu.add(mntmNewMenuItem_1);
+		BotonModificarCatalogo.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
+		MenuCatalogo.add(BotonModificarCatalogo);
 		
-		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Eliminar");
-		mntmNewMenuItem_2.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
-		mnNewMenu.add(mntmNewMenuItem_2);
+		JMenuItem BotonEliminarCatalogo = new JMenuItem("Eliminar");
+		BotonEliminarCatalogo.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
+		MenuCatalogo.add(BotonEliminarCatalogo);
 		
-		JMenu mnNewMenu_1 = new JMenu("      Clientes      ");
-		mnNewMenu_1.addActionListener(new ActionListener() {
+		JMenu MenuClientes = new JMenu("Clientes");
+		/*MenuClientes.addActionListener(new ActionListener() {
+			/*public void actionPerformed(ActionEvent e) {
+				controlPrincipal.obtenerDatos();
+				//System.out.println("sistema");
+			}
+		});*/
+		MenuClientes.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
+		menuBar.add(MenuClientes);
+		botonAgregarCatalogo.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
+		MenuCatalogo.add(botonAgregarCatalogo);
+		
+		JMenuItem BotonModificarCliente = new JMenuItem("Ver");
+		BotonModificarCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlPrincipal.obtenerDatos();
 			}
 		});
-		mnNewMenu_1.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
-		menuBar.add(mnNewMenu_1);
+		BotonModificarCliente.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
+		MenuClientes.add(BotonModificarCliente);
+		
+		/*JMenuItem BotonEliminarClientes = new JMenuItem("Eliminar");
+		BotonEliminarClientes.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
+		MenuClientes.add(BotonEliminarClientes);*/
 		
 		JMenu mnNewMenu_2 = new JMenu("        Ventas        ");
 		mnNewMenu_2.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
@@ -113,7 +129,7 @@ public class VentanaPrincipal extends JFrame {
 		mnNewMenu_2.add(mntmNewMenuItem_4);
 		
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(143, 188, 143));
+		contentPane.setBackground(new Color(225,216,234));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
