@@ -32,13 +32,14 @@ public class ServicioCliente {
 	
 	public boolean agregaCliente (String nombre, String telefono, String correo, String direccion) {
 
-		Cliente cliente = clienteRepository.findByNombre(nombre);	
+		Cliente cliente = clienteRepository.findByNombreCompleto(nombre);	
 		
 		if (cliente != null) 
 			throw new IllegalArgumentException ("El cliente ya fue registrado");
 		
-		cliente = new Cliente ();
+		log.info("Agregando Cliente con nombre: " + nombre + ", teléfono: " + telefono + "correo: " + correo + "dirección" + direccion);
 		
+		cliente = new Cliente ();
 		cliente.setNombreCompleto(nombre);
 		cliente.setTelefono (telefono);
 		cliente.setCorreo(correo);
@@ -54,10 +55,10 @@ public class ServicioCliente {
 	 * Contrato:
 	 * @return Una lista con todos los clientes existentes
 	 *         Una lista vacía
-	A
+	
 	 */	
 	public List <Cliente> recuperaTodosClientes(){ 
-		System.out.println("clienteRepository = " + clienteRepository);
+		//System.out.println("clienteRepository = " + clienteRepository);
 		
 		List <Cliente> listaClientes =new ArrayList<>();
 		
@@ -66,5 +67,5 @@ public class ServicioCliente {
 		}
 		return listaClientes;
 	}
-	
+
 }

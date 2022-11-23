@@ -25,7 +25,7 @@ public interface ClienteRepository extends CrudRepository<Cliente, Long> {
 	
 	public Cliente findByIdCliente(long idCliente); //**//
 	
-	public Cliente findByNombre(String nombre); //**//
+	public Cliente findByNombreCompleto(String nombre); //**//
 	
 	public List <Cliente> findAll(); // El Repository recupera a una lista de clientes  
 

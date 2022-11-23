@@ -7,6 +7,8 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -31,6 +33,10 @@ class ServicioClienteTest {
 	private ClienteRepository clienteRepository;
 	@InjectMocks
 	private ServicioCliente servicioClienteDatos;
+	
+	private ServicioCliente servicioCliente;
+	
+	private Cliente clienteprueba;
 
 	@Test
 	void testRecuperaTodosClientes() {
@@ -73,5 +79,31 @@ class ServicioClienteTest {
 				when(clienteRepository.findAll()).thenReturn(listaClientes);
 				clientes = servicioClienteDatos.recuperaTodosClientes();
 				assertEquals(3,clientes.size());
+				
+	}
+	
+	@BeforeEach
+	void setUp () throws Exception {
+		
+		clienteprueba = new Cliente ();
+		
+		clienteprueba.setNombreCompleto("Juan");
+		clienteprueba.setTelefono("5561330399");
+		clienteprueba.setCorreo("juan123@gmail.com");
+		clienteprueba.setDireccionEntrega("Calle 33 #113 Col. Santa Cruz Meyehualco");
+	}
+	
+	
+	@Test
+	void testAgregaCliente () {
+		
+		// Prueba: Comprobar si AgregarCliente funciona correctamente
+		
+		when (clienteRepository.findByNombreCompleto("Juan")).thenReturn(clienteprueba);
+		
+		boolean resultado = servicioCliente.agregaCliente("Juan", "55601330399", "juan123@gmail.com", "Calle 33 #133 Col. Santa Cruz Meyehualco");
+		
+		assertEquals(true, resultado); 
+		
 	}
 }

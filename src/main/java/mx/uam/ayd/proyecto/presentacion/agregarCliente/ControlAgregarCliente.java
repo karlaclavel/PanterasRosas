@@ -1,15 +1,28 @@
 package mx.uam.ayd.proyecto.presentacion.agregarCliente;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import mx.uam.ayd.proyecto.negocio.ServicioCliente;
 
+/**
+ * 
+ * Módulo de control para la historia de usuario AgregarCliente
+ *  
+ * @author karlaclavel
+ *
+ */
+
+
+@Component
 public class ControlAgregarCliente {
 	
+	@Autowired
 	private ServicioCliente servicioCliente;
 	
+	@Autowired
 	private VentanaAgregarCliente ventana;
 
 	public void inicia() {
-		
 		ventana.muestra(this);
 	}
 	
@@ -21,6 +34,7 @@ public class ControlAgregarCliente {
 				ventana.muestraDialogoConMensaje("Cliente agregado");
 				termina();
 			} else {
+				ventana.muestraDialogoConMensaje("Cliente no fue agregado");
 				termina();
 			}
 

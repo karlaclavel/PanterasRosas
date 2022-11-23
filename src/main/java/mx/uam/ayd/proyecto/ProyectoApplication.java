@@ -122,6 +122,7 @@ public class ProyectoApplication {
 		cliente2.setDireccionEntrega("Calle 34 #125 Col. Santa Cruz Meyehualco");
 		clienteRepository.save(cliente2);
 		
+		
 		var productoPrueba = new Producto();
 		 
 		productoPrueba.setNombre("Core i3");
