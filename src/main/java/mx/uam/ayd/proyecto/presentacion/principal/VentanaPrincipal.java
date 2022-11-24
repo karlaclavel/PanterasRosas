@@ -1,4 +1,5 @@
 package mx.uam.ayd.proyecto.presentacion.principal;
+
 import javax.swing.JFrame;
 
 import javax.swing.JPanel;
@@ -82,18 +83,13 @@ public class VentanaPrincipal extends JFrame {
 		mntmNewMenuItem_2.setBackground(new Color(204, 153, 204));
 		mntmNewMenuItem_2.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
 		mnNewMenu.add(mntmNewMenuItem_2);
-		
-		JMenuItem mntmNewMenuItem_5 = new JMenuItem("    Ver");
-		mntmNewMenuItem_5.setBackground(new Color(204, 153, 204));
-		mntmNewMenuItem_5.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
-		mnNewMenu.add(mntmNewMenuItem_5);
-		
+	
 		JMenu mnNewMenu_1 = new JMenu("      Clientes      ");
 		mnNewMenu_1.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
 		menuBar.add(mnNewMenu_1);
 		
 		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Ver");
-    mntmNewMenuItem_5.setBackground(new Color(204, 153, 204));
+		mntmNewMenuItem_5.setBackground(new Color(204, 153, 204));
 		mntmNewMenuItem_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlPrincipal.obtenerDatos();
@@ -110,11 +106,6 @@ public class VentanaPrincipal extends JFrame {
 		}); 
 		mntmNewMenuItem_6.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
 		mnNewMenu_1.add(mntmNewMenuItem_6);
-		
-		JMenuItem mntmNewMenuItem_7 = new JMenuItem("Lista");
-		mntmNewMenuItem_7.setBackground(new Color(204, 153, 204));
-		mntmNewMenuItem_7.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
-		mnNewMenu_1.add(mntmNewMenuItem_7);
 		
 		JMenu mnNewMenu_3 = new JMenu("       Personal       ");
 		mnNewMenu_3.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
@@ -161,7 +152,7 @@ public class VentanaPrincipal extends JFrame {
 		panel.setLayout(null);
 		
 		JLabel lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon("C:\\Users\\hp\\Downloads\\Service Tec (Proc. Unificado)\\src\\main\\java\\mx\\uam\\ayd\\imagen\\logo.png"));
+		lblLogo.setIcon(new ImageIcon("D:\\Archivos\\Documentos\\SPRING TOOL SUITE\\workspace\\Service Tec\\src\\main\\java\\mx\\uam\\ayd\\imagen\\logo.png"));
 		lblLogo.setBounds(231, 30, 132, 133);
 		panel.add(lblLogo);
 		
@@ -174,7 +165,7 @@ public class VentanaPrincipal extends JFrame {
 		JLabel lblFondo = new JLabel("");
 		lblFondo.setBounds(0, 0, 560, 257);
 		panel.add(lblFondo);
-		lblFondo.setIcon(new ImageIcon("C:\\Users\\hp\\Downloads\\Service Tec (Proc. Unificado)\\src\\main\\java\\mx\\uam\\ayd\\imagen\\fondo (1).jpg"));
+		lblFondo.setIcon(new ImageIcon("D:\\Archivos\\Documentos\\SPRING TOOL SUITE\\workspace\\Service Tec\\src\\main\\java\\mx\\uam\\ayd\\imagen\\fondo (1).jpg"));
 	
   }
   
