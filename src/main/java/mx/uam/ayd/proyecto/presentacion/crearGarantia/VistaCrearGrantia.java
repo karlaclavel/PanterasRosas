@@ -68,7 +68,7 @@ public class VistaCrearGrantia extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 597, 561);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(204, 51, 0));
+		contentPane.setBackground(new Color(225,216,234));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -178,7 +178,13 @@ public class VistaCrearGrantia extends JFrame {
 		contentPane.add(lblNewLabel_3_4_1);
 		
 		JButton btnNewButton_1 = new JButton("Finalizar la garantia");
-		btnNewButton_1.setBounds(340, 432, 154, 23);
+		btnNewButton_1.setBounds(280, 450, 145, 23);
+		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Cancelar");
+		btnNewButton_2.setBounds(440, 450, 100, 23);
+		contentPane.add(btnNewButton_2);
+		
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -208,7 +214,14 @@ public class VistaCrearGrantia extends JFrame {
 				}
 			}
 		});
-		contentPane.add(btnNewButton_1);
+		
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlCrearGarantia.termina();
+			}
+		});
+			
+		
 	}
 	
 	public void muestra(ControlCrearGarantia control) {

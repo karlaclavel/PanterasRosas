@@ -55,7 +55,7 @@ public class VentanaObtenerDatos extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(102, 205, 170));
+		contentPane.setBackground(new Color(225, 216, 234));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
 		setTitle("Menú principal/ServiceTEC");
@@ -108,7 +108,7 @@ public class VentanaObtenerDatos extends JFrame {
 		txtListaDeClientes = new JTextField();
 		txtListaDeClientes.setHorizontalAlignment(SwingConstants.CENTER);
 		txtListaDeClientes.setFont(new Font("Sitka Subheading", Font.PLAIN, 18));
-		txtListaDeClientes.setBackground(new Color(127, 255, 212));
+		txtListaDeClientes.setBackground(new Color(216,191,216));
 		txtListaDeClientes.setText("Lista de clientes");
 		txtListaDeClientes.setBounds(0, 0, 434, 29);
 		contentPane.add(txtListaDeClientes);

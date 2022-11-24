@@ -51,6 +51,7 @@ public class ControlCrearGarantia {
 		try {
 			 servicioGarantia.creaGarantia(compra, nombreCompleto, fecha, calle, numExt, numInt, descipEquipo);
 			 ventanaCrearGarantia.muestraDialogoConMensaje("Garantia creada correctamente");
+			 termina();
 		} catch (Exception e) {
 			// TODO: handle exception
 			ventanaCrearGarantia.muestraDialogoConMensaje("La garantia no pudo ser creada "+ e.getMessage());
