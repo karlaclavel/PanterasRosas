@@ -64,9 +64,9 @@ public class VentanaPrincipal extends JFrame {
 				controlPrincipal.agregarProducto();
 			}
 		});
-		mntmNewMenuItem.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
+   	mntmNewMenuItem.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
 		mnNewMenu.add(mntmNewMenuItem);
-		
+
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Modificar");
 		mntmNewMenuItem_1.setBackground(new Color(204, 153, 204));
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
@@ -76,7 +76,7 @@ public class VentanaPrincipal extends JFrame {
 		});
 		mntmNewMenuItem_1.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
 		mnNewMenu.add(mntmNewMenuItem_1);
-		
+
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Eliminar");
 		mntmNewMenuItem_2.setBackground(new Color(204, 153, 204));
 		mntmNewMenuItem_2.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
@@ -139,13 +139,13 @@ public class VentanaPrincipal extends JFrame {
 		mntmNewMenuItem_3.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
 		mntmNewMenuItem_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				controlPrincipal.creaGarantia();
 			}
 		});
 		mnNewMenu_2.add(mntmNewMenuItem_3);
 		getContentPane().setLayout(null);
-		
+
+
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 560, 257);
 		getContentPane().add(panel);
@@ -166,7 +166,8 @@ public class VentanaPrincipal extends JFrame {
 		lblFondo.setBounds(0, 0, 560, 257);
 		panel.add(lblFondo);
 		lblFondo.setIcon(new ImageIcon("C:\\Users\\hp\\Downloads\\Service Tec (Proc. Unificado)\\src\\main\\java\\mx\\uam\\ayd\\imagen\\fondo (1).jpg"));
-	}
+	
+  }
 	public void muestra(ControlPrincipal control) {
 		
 		controlPrincipal = control;
