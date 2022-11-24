@@ -16,11 +16,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import java.awt.BorderLayout;
+import javax.swing.SwingConstants;
 @SuppressWarnings("serial")
 @Component
 public class VentanaPrincipal extends JFrame {
-
-	private JPanel contentPane;
 	
 	
 	private ControlPrincipal controlPrincipal;
@@ -47,10 +47,10 @@ public class VentanaPrincipal extends JFrame {
 	public VentanaPrincipal() {
 		setTitle("Menú principal/ServiceTEC");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 576, 323);
 		
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBackground(new Color(102, 205, 170));
+		menuBar.setBackground(new Color(153, 102, 204));
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("            Catálogo          ");
@@ -58,6 +58,7 @@ public class VentanaPrincipal extends JFrame {
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Agregar ");
+		mntmNewMenuItem.setBackground(new Color(204, 153, 204));
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlPrincipal.agregarProducto();
@@ -67,6 +68,7 @@ public class VentanaPrincipal extends JFrame {
 		mnNewMenu.add(mntmNewMenuItem);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Modificar");
+		mntmNewMenuItem_1.setBackground(new Color(204, 153, 204));
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlPrincipal.modificarProducto();
@@ -76,8 +78,14 @@ public class VentanaPrincipal extends JFrame {
 		mnNewMenu.add(mntmNewMenuItem_1);
 		
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Eliminar");
+		mntmNewMenuItem_2.setBackground(new Color(204, 153, 204));
 		mntmNewMenuItem_2.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
 		mnNewMenu.add(mntmNewMenuItem_2);
+		
+		JMenuItem mntmNewMenuItem_5 = new JMenuItem("    Ver");
+		mntmNewMenuItem_5.setBackground(new Color(204, 153, 204));
+		mntmNewMenuItem_5.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
+		mnNewMenu.add(mntmNewMenuItem_5);
 		
 		JMenu mnNewMenu_1 = new JMenu("      Clientes      ");
 		mnNewMenu_1.addActionListener(new ActionListener() {
@@ -88,11 +96,46 @@ public class VentanaPrincipal extends JFrame {
 		mnNewMenu_1.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
 		menuBar.add(mnNewMenu_1);
 		
+		JMenuItem mntmNewMenuItem_6 = new JMenuItem("Agregar");
+		mntmNewMenuItem_6.setBackground(new Color(204, 153, 204));
+		mntmNewMenuItem_6.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
+		mnNewMenu_1.add(mntmNewMenuItem_6);
+		
+		JMenuItem mntmNewMenuItem_7 = new JMenuItem("Lista");
+		mntmNewMenuItem_7.setBackground(new Color(204, 153, 204));
+		mntmNewMenuItem_7.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
+		mnNewMenu_1.add(mntmNewMenuItem_7);
+		
+		JMenu mnNewMenu_3 = new JMenu("       Personal       ");
+		mnNewMenu_3.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
+		menuBar.add(mnNewMenu_3);
+		
+		JMenuItem mntmNewMenuItem_8 = new JMenuItem("Agregar ");
+		mntmNewMenuItem_8.setBackground(new Color(204, 153, 204));
+		mntmNewMenuItem_8.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
+		mnNewMenu_3.add(mntmNewMenuItem_8);
+		
+		JMenuItem mntmNewMenuItem_9 = new JMenuItem("Modificar ");
+		mntmNewMenuItem_9.setBackground(new Color(204, 153, 204));
+		mntmNewMenuItem_9.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
+		mnNewMenu_3.add(mntmNewMenuItem_9);
+		
+		JMenuItem mntmNewMenuItem_10 = new JMenuItem("Eliminar");
+		mntmNewMenuItem_10.setBackground(new Color(204, 153, 204));
+		mntmNewMenuItem_10.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
+		mnNewMenu_3.add(mntmNewMenuItem_10);
+		
+		JMenuItem mntmNewMenuItem_11 = new JMenuItem("Lista");
+		mntmNewMenuItem_11.setBackground(new Color(204, 153, 204));
+		mntmNewMenuItem_11.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
+		mnNewMenu_3.add(mntmNewMenuItem_11);
+		
 		JMenu mnNewMenu_2 = new JMenu("        Ventas        ");
 		mnNewMenu_2.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
 		menuBar.add(mnNewMenu_2);
 		
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Garantía ");
+		mntmNewMenuItem_3.setBackground(new Color(204, 153, 204));
 		mntmNewMenuItem_3.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
 		mntmNewMenuItem_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -101,39 +144,28 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 		mnNewMenu_2.add(mntmNewMenuItem_3);
+		getContentPane().setLayout(null);
 		
-		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Más Vendidos ");
-		mntmNewMenuItem_4.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
-		mntmNewMenuItem_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				controlPrincipal.listaProductosMasComprados();
-			}
-		});
-		mnNewMenu_2.add(mntmNewMenuItem_4);
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 560, 257);
+		getContentPane().add(panel);
+		panel.setLayout(null);
 		
-		contentPane = new JPanel();
-		contentPane.setBackground(new Color(143, 188, 143));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		JLabel lblLogo = new JLabel("");
+		lblLogo.setIcon(new ImageIcon("C:\\Users\\hp\\Downloads\\Service Tec (Proc. Unificado)\\src\\main\\java\\mx\\uam\\ayd\\imagen\\logo.png"));
+		lblLogo.setBounds(231, 30, 132, 133);
+		panel.add(lblLogo);
 		
-		JLabel lblIcono = new JLabel("");
-		lblIcono.setIcon(new ImageIcon("C:\\Users\\Abi\\Downloads\\Service%20Tec\\src\\main\\java\\imagen\\compu.png"));
-		lblIcono.setBounds(283, 49, 163, 134);
-		contentPane.add(lblIcono);
-		
-		JLabel lblTitulo = new JLabel("ServiceTEC");
-		lblTitulo.setFont(new Font("Yu Gothic UI", Font.BOLD, 32));
-		lblTitulo.setForeground(Color.WHITE);
-		lblTitulo.setBounds(121, 68, 163, 85);
-		contentPane.add(lblTitulo);
+		JLabel lblTitulo = new JLabel("Service Tec");
+		lblTitulo.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 45));
+		lblTitulo.setForeground(new Color(255, 255, 255));
+		lblTitulo.setBounds(192, 141, 213, 60);
+		panel.add(lblTitulo);
 		
 		JLabel lblFondo = new JLabel("");
-		lblFondo.setBounds(0, 0, 520, 234);
-		lblFondo.setIcon(new ImageIcon("C:\\Users\\Abi\\Downloads\\Service%20Tec\\src\\main\\java\\imagen\\fondoP2.jpg"));
-		contentPane.add(lblFondo);
+		lblFondo.setBounds(0, 0, 560, 257);
+		panel.add(lblFondo);
+		lblFondo.setIcon(new ImageIcon("C:\\Users\\hp\\Downloads\\Service Tec (Proc. Unificado)\\src\\main\\java\\mx\\uam\\ayd\\imagen\\fondo (1).jpg"));
 	}
 	public void muestra(ControlPrincipal control) {
 		
