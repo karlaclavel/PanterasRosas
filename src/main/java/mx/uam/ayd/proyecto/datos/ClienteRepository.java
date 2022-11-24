@@ -1,4 +1,4 @@
-package mx.uam.ayd.proyecto.datos;
+ package mx.uam.ayd.proyecto.datos;
 
 import java.util.List;
 
@@ -22,10 +22,14 @@ public interface ClienteRepository extends CrudRepository<Cliente, Long> {
 	 * 
 	 */
 	public List <Compra> findByCompras(Cliente cliente);
-	public Cliente findByIdCliente(long idCliente);
 	
-	public List <Cliente>findAll(); // El Repository recupera a una lista de clientes  
+	public Cliente findByIdCliente(long idCliente); //**//
 	
-	//public Cliente findByAll();
+	public Cliente findByNombreCompleto(String nombre); //**//
+	
+	public List <Cliente> findAll(); // El Repository recupera a una lista de clientes  
+
+	
+	
 	
 }

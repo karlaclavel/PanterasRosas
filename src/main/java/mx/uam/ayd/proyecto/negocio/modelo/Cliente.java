@@ -28,6 +28,7 @@ import lombok.Data;
 public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private long idCliente;
 
 	private String contraseña;
@@ -44,7 +45,8 @@ public class Cliente {
 	 @JoinColumn(name= "idCompra")
 	 private final List <Compra> compras = new ArrayList <> ();
     
-    
-    
+	 @OneToMany(targetEntity = Cliente.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)  
+	 @JoinColumn(name= "idCliente")
+	 private final List <Cliente> clientes = new ArrayList <> ();
 
 }

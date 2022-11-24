@@ -16,13 +16,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
 @SuppressWarnings("serial")
 @Component
 public class VentanaPrincipal extends JFrame {
-	
-	
+
 	private ControlPrincipal controlPrincipal;
 
 	/**
@@ -53,6 +53,7 @@ public class VentanaPrincipal extends JFrame {
 		menuBar.setBackground(new Color(153, 102, 204));
 		setJMenuBar(menuBar);
 		
+		//***********
 		JMenu mnNewMenu = new JMenu("            Catálogo          ");
 		mnNewMenu.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
 		menuBar.add(mnNewMenu);
@@ -88,16 +89,25 @@ public class VentanaPrincipal extends JFrame {
 		mnNewMenu.add(mntmNewMenuItem_5);
 		
 		JMenu mnNewMenu_1 = new JMenu("      Clientes      ");
-		mnNewMenu_1.addActionListener(new ActionListener() {
+		mnNewMenu_1.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
+		menuBar.add(mnNewMenu_1);
+		
+		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Ver");
+    mntmNewMenuItem_5.setBackground(new Color(204, 153, 204));
+		mntmNewMenuItem_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlPrincipal.obtenerDatos();
 			}
 		});
-		mnNewMenu_1.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
-		menuBar.add(mnNewMenu_1);
+		mntmNewMenuItem_5.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
+		mnNewMenu_1.add(mntmNewMenuItem_5);
 		
-		JMenuItem mntmNewMenuItem_6 = new JMenuItem("Agregar");
-		mntmNewMenuItem_6.setBackground(new Color(204, 153, 204));
+		JMenuItem mntmNewMenuItem_6 = new JMenuItem("Agregar"); 
+		mntmNewMenuItem_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlPrincipal.agregarCliente();
+			}
+		}); 
 		mntmNewMenuItem_6.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
 		mnNewMenu_1.add(mntmNewMenuItem_6);
 		
@@ -145,7 +155,6 @@ public class VentanaPrincipal extends JFrame {
 		mnNewMenu_2.add(mntmNewMenuItem_3);
 		getContentPane().setLayout(null);
 
-
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 560, 257);
 		getContentPane().add(panel);
@@ -168,6 +177,7 @@ public class VentanaPrincipal extends JFrame {
 		lblFondo.setIcon(new ImageIcon("C:\\Users\\hp\\Downloads\\Service Tec (Proc. Unificado)\\src\\main\\java\\mx\\uam\\ayd\\imagen\\fondo (1).jpg"));
 	
   }
+  
 	public void muestra(ControlPrincipal control) {
 		
 		controlPrincipal = control;

@@ -3,6 +3,7 @@ package mx.uam.ayd.proyecto.presentacion.principal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import mx.uam.ayd.proyecto.presentacion.agregarCliente.ControlAgregarCliente;
 import mx.uam.ayd.proyecto.presentacion.agregarProducto.ControlAgregarProducto;
 import mx.uam.ayd.proyecto.presentacion.crearGarantia.ControlCrearGarantia;
 import mx.uam.ayd.proyecto.presentacion.modificarProducto.ControlModificarProducto;
@@ -29,6 +30,9 @@ public class ControlPrincipal{
 	
 	@Autowired
 	private ControlVizualizarProducto controlVizualizarProducto;
+	
+	@Autowired
+	private ControlAgregarCliente controlAgregarCliente;
 	
 	
 	/**
@@ -81,6 +85,15 @@ public class ControlPrincipal{
 	public void listaProductosMasComprados() {
 		
 		controlVizualizarProducto.inicia();
-		
+
 	}
+
+	/**
+	 * Método que arranca la historia de usuario "Agregar Clientes"
+	 * 
+	 */
+	public void agregarCliente() {
+		controlAgregarCliente.inicia();
+	}
+	
 }

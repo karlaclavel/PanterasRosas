@@ -11,6 +11,7 @@ import mx.uam.ayd.proyecto.datos.ProductoRepository;
 import mx.uam.ayd.proyecto.datos.SeccionCatalogoRepository;
 import mx.uam.ayd.proyecto.negocio.modelo.Producto;
 import mx.uam.ayd.proyecto.negocio.modelo.SeccionCatalogo;
+
 /**
  * Servicio relacionado con los productos
  * 
