@@ -11,7 +11,7 @@ import mx.uam.ayd.proyecto.negocio.modelo.SeccionCatalogo;
 /**
  * Servicio relacionado con las secciones del catalogo
  * 
- * @author abigailmorales 
+ * @author erikamaya
  *
  */
 @Service

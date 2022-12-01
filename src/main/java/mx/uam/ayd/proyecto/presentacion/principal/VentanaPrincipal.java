@@ -152,7 +152,7 @@ public class VentanaPrincipal extends JFrame {
 		panel.setLayout(null);
 		
 		JLabel lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon("D:\\Archivos\\Documentos\\SPRING TOOL SUITE\\workspace\\Service Tec\\src\\main\\java\\mx\\uam\\ayd\\imagen\\logo.png"));
+		lblLogo.setIcon(new ImageIcon("C:\\Users\\hp\\Documents\\ERIKA\\NOVENO TRIMESTRE\\PanterasRosas\\src\\main\\java\\mx\\uam\\ayd\\imagen\\logo.png"));
 		lblLogo.setBounds(231, 30, 132, 133);
 		panel.add(lblLogo);
 		
@@ -165,7 +165,7 @@ public class VentanaPrincipal extends JFrame {
 		JLabel lblFondo = new JLabel("");
 		lblFondo.setBounds(0, 0, 560, 257);
 		panel.add(lblFondo);
-		lblFondo.setIcon(new ImageIcon("D:\\Archivos\\Documentos\\SPRING TOOL SUITE\\workspace\\Service Tec\\src\\main\\java\\mx\\uam\\ayd\\imagen\\fondo (1).jpg"));
+		lblFondo.setIcon(new ImageIcon("C:\\Users\\hp\\Documents\\ERIKA\\NOVENO TRIMESTRE\\PanterasRosas\\src\\main\\java\\mx\\uam\\ayd\\imagen\\fondo (1).jpg"));
 	
   }
   
