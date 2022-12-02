@@ -66,7 +66,7 @@ public class VentanaPrincipal extends JFrame {
 				controlPrincipal.agregarProducto();
 			}
 		});
-   	mntmNewMenuItem.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
+		mntmNewMenuItem.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
 		mnNewMenu.add(mntmNewMenuItem);
 
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Modificar");
