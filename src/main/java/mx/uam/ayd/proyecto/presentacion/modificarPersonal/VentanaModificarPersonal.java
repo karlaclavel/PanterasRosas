@@ -37,7 +37,7 @@ public class VentanaModificarPersonal extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/**public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -48,7 +48,7 @@ public class VentanaModificarPersonal extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
@@ -134,14 +134,14 @@ public class VentanaModificarPersonal extends JFrame {
 		ButtonAceptar.setForeground(new Color(0, 0, 0));
 		ButtonAceptar.setBackground(new Color(255, 228, 225));
 		ButtonAceptar.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
-		ButtonAceptar.setBounds(184, 227, 89, 23);
+		ButtonAceptar.setBounds(161, 227, 112, 23);
 		contentPane.add(ButtonAceptar);
 		
 		JButton ButtonCancelar = new JButton("Cancelar");
 		ButtonCancelar.setForeground(Color.BLACK);
 		ButtonCancelar.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
 		ButtonCancelar.setBackground(new Color(255, 228, 225));
-		ButtonCancelar.setBounds(305, 226, 97, 23);
+		ButtonCancelar.setBounds(283, 226, 119, 23);
 		contentPane.add(ButtonCancelar);
 	}
 	
