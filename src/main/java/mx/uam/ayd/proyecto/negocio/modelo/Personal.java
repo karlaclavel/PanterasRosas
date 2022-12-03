@@ -11,9 +11,8 @@ import lombok.Data;
 /**
  * Entidad de negocio Personal
  * 
- * @author abigailmorales
+ * @author berelucas
  * @author erikamaya
- * @author eduardocastro
  *
  */
 
