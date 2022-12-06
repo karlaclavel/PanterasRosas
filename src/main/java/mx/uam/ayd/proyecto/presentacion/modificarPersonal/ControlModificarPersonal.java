@@ -38,19 +38,7 @@ public class ControlModificarPersonal {
 	
 	/**
 	 * 
-	 * Manda a llamar al método obtenerPersonal() del módulo ServicioPersonal pasandole los mismos parámetros recibidos 
-	 * 
-	 * @param nombre
-	 * @return personal seleccionado  
-	 */
-	
-	public Personal obtenerPersonal(String nombre) {
-		Personal personal=servicioPersonal.obtenerPersonal(nombre);
-		return personal; 
-	}
-	/**
-	 * 
-	 * Manda a llamar al método obtenerPersonal() del módulo ServicioPersonal pasandole los mismos parámetros recibidos 
+	 * Manda a llamar al método modificaPersonal() del módulo ServicioPersonal pasandole los mismos parámetros recibidos 
 	 * 
 	 * @param nombre
 	 * @param apellido
@@ -58,11 +46,11 @@ public class ControlModificarPersonal {
 	 * @param cargo
 	 * @return Mensaje de exito o de error 
 	 */
-	public void modificaPersonal(String personal, String nombre, String apellido, String telefono, String cargo) {
+	public void modificaPersonal(String personal, String nombre, String correo, String telefono, String puesto) {
 
 		try {
 
-			servicioPersonal.modificaPersonal(personal, nombre, apellido, telefono, cargo);
+			servicioPersonal.modificaPersonal(personal, nombre, correo, telefono, puesto);
 
 			ventana.muestraDialogoConMensaje("El personal con nombre: "+personal+" ha sido modificado exitosamente");
 			termina();
@@ -72,6 +60,19 @@ public class ControlModificarPersonal {
 		}
 
 		termina();
+	}
+	
+	/**
+	 * 
+	 * Manda a llamar al método obtenerPersonal() del módulo ServicioPersonal pasandole los mismos parámetros recibidos 
+	 * 
+	 * @param nombre
+	 * @return personal seleccionado  
+	 */
+	
+	public Personal obtenerPersonal(String nombre) {
+		Personal personal=servicioPersonal.obtenerPersonal(nombre);
+		return personal; 
 	}
 	
 	/**

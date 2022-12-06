@@ -27,6 +27,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JRadioButton;
 
 
 @SuppressWarnings("serial")
@@ -34,10 +35,12 @@ import java.awt.event.ActionEvent;
 public class VentanaModificarPersonal extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField_Apellido;
-	private JTextField textField_Nombre;
+	private JTextField textField_Correo;
+	private JTextField textField_NombreCompleto;
 	private JTextField textField_telefono;
-	private JTextField textField_Cargo;
+	private JTextField textField_Puesto;
+	private JRadioButton rdbtnVerInformacion; 
+	
 	private ControlModificarPersonal control;
 	private JComboBox <String> comboBoxPersonal; 
 	private String personalSeleccionado="";
@@ -64,7 +67,7 @@ public class VentanaModificarPersonal extends JFrame {
 	public VentanaModificarPersonal() {
 		setTitle("Modificar Personal");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 460, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(225, 216, 234));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -73,7 +76,7 @@ public class VentanaModificarPersonal extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblTitulo = new JLabel("Modificar Personal ");
-		lblTitulo.setBounds(103, 10, 228, 32);
+		lblTitulo.setBounds(122, 11, 228, 32);
 		lblTitulo.setForeground(new Color(199, 21, 133));
 		lblTitulo.setFont(new Font("Sitka Subheading", Font.BOLD, 25));
 		contentPane.add(lblTitulo);
@@ -85,7 +88,7 @@ public class VentanaModificarPersonal extends JFrame {
 		
 		comboBoxPersonal = new JComboBox();
 		comboBoxPersonal.setForeground(new Color(128, 0, 128));
-		comboBoxPersonal.setBounds(267, 42, 157, 22);
+		comboBoxPersonal.setBounds(267, 42, 138, 22);
 		contentPane.add(comboBoxPersonal);
 		
 		JLabel lblSelecciona = new JLabel("Ingresa los nuevos datos a modificar ");
@@ -94,27 +97,27 @@ public class VentanaModificarPersonal extends JFrame {
 		lblSelecciona.setBounds(10, 70, 252, 22);
 		contentPane.add(lblSelecciona);
 		
-		JLabel lblNombre = new JLabel("Nombre (s)");
-		lblNombre.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		lblNombre.setBounds(20, 103, 71, 14);
-		contentPane.add(lblNombre);
+		JLabel lblNombreCompleto = new JLabel("Nombre ");
+		lblNombreCompleto.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+		lblNombreCompleto.setBounds(20, 103, 71, 14);
+		contentPane.add(lblNombreCompleto);
 		
-		textField_Apellido = new JTextField();
-		textField_Apellido.setForeground(new Color(0, 0, 0));
-		textField_Apellido.setBounds(87, 138, 315, 20);
-		contentPane.add(textField_Apellido);
-		textField_Apellido.setColumns(10);
+		textField_Correo = new JTextField();
+		textField_Correo.setForeground(new Color(0, 0, 0));
+		textField_Correo.setBounds(87, 138, 345, 20);
+		contentPane.add(textField_Correo);
+		textField_Correo.setColumns(10);
 		
-		JLabel lblApellidos = new JLabel("Apellido (s)");
-		lblApellidos.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		lblApellidos.setBounds(20, 140, 71, 14);
-		contentPane.add(lblApellidos);
+		JLabel lblCorreo = new JLabel("Correo");
+		lblCorreo.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+		lblCorreo.setBounds(20, 140, 71, 14);
+		contentPane.add(lblCorreo);
 		
-		textField_Nombre = new JTextField();
-		textField_Nombre.setForeground(new Color(0, 0, 0));
-		textField_Nombre.setColumns(10);
-		textField_Nombre.setBounds(87, 101, 315, 20);
-		contentPane.add(textField_Nombre);
+		textField_NombreCompleto = new JTextField();
+		textField_NombreCompleto.setForeground(new Color(0, 0, 0));
+		textField_NombreCompleto.setColumns(10);
+		textField_NombreCompleto.setBounds(87, 101, 345, 20);
+		contentPane.add(textField_NombreCompleto);
 		
 		JLabel lbltelefono = new JLabel("Teléfono ");
 		lbltelefono.setFont(new Font("Times New Roman", Font.PLAIN, 14));
@@ -124,30 +127,30 @@ public class VentanaModificarPersonal extends JFrame {
 		textField_telefono = new JTextField();
 		textField_telefono.setForeground(new Color(0, 0, 0));
 		textField_telefono.setColumns(10);
-		textField_telefono.setBounds(76, 175, 119, 20);
+		textField_telefono.setBounds(87, 175, 157, 20);
 		contentPane.add(textField_telefono);
 		
-		JLabel lblcargo = new JLabel("Cargo ");
-		lblcargo.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		lblcargo.setBounds(220, 176, 71, 17);
-		contentPane.add(lblcargo);
+		JLabel lblPuesto = new JLabel("Puesto");
+		lblPuesto.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+		lblPuesto.setBounds(254, 176, 47, 17);
+		contentPane.add(lblPuesto);
 		
-		textField_Cargo = new JTextField();
-		textField_Cargo.setForeground(new Color(0, 0, 0));
-		textField_Cargo.setColumns(10);
-		textField_Cargo.setBounds(270, 175, 132, 20);
-		contentPane.add(textField_Cargo);
+		textField_Puesto = new JTextField();
+		textField_Puesto.setForeground(new Color(0, 0, 0));
+		textField_Puesto.setColumns(10);
+		textField_Puesto.setBounds(299, 175, 133, 20);
+		contentPane.add(textField_Puesto);
 		
 		JButton ButtonAceptar = new JButton("Aceptar");
 		ButtonAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				control.modificaPersonal(personalSeleccionado,textField_Nombre.getText(),textField_Apellido.getText(),textField_telefono.getText(),textField_Cargo.getText());
+				control.modificaPersonal(personalSeleccionado,textField_NombreCompleto.getText(),textField_Correo.getText(),textField_telefono.getText(),textField_Puesto.getText());
 			}
 		});
 		ButtonAceptar.setForeground(new Color(0, 0, 0));
 		ButtonAceptar.setBackground(new Color(255, 228, 225));
 		ButtonAceptar.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
-		ButtonAceptar.setBounds(161, 227, 112, 23);
+		ButtonAceptar.setBounds(100, 226, 112, 23);
 		contentPane.add(ButtonAceptar);
 		
 		JButton ButtonCancelar = new JButton("Cancelar");
@@ -159,18 +162,41 @@ public class VentanaModificarPersonal extends JFrame {
 		ButtonCancelar.setForeground(Color.BLACK);
 		ButtonCancelar.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
 		ButtonCancelar.setBackground(new Color(255, 228, 225));
-		ButtonCancelar.setBounds(283, 226, 119, 23);
+		ButtonCancelar.setBounds(249, 226, 119, 23);
 		contentPane.add(ButtonCancelar);
+		
+		rdbtnVerInformacion = new JRadioButton("");
+		rdbtnVerInformacion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(rdbtnVerInformacion.isSelected()) {
+					muestraInformacionPersonal();
+				}else {
+					
+					textField_NombreCompleto.setEditable(true);
+					textField_Correo.setEditable(true);
+					textField_telefono.setEditable(true);
+					textField_Puesto.setEditable(true);
+					comboBoxPersonal.setEnabled(true); 
+					
+					textField_NombreCompleto.setText("");
+	    			textField_Correo.setText("");
+	    			textField_telefono.setText("");
+	    			textField_Puesto.setText("");
+				}
+			}
+		});
+		rdbtnVerInformacion.setBounds(411, 42, 21, 23);
+		contentPane.add(rdbtnVerInformacion);
 	}
 	
         public void muestra(ControlModificarPersonal control, List <Personal> personal) {
 		
 		this.control = control;
 		
-		textField_Nombre.setText("");
-		textField_Apellido.setText("");
+		textField_NombreCompleto.setText("");
+		textField_Correo.setText("");
 		textField_telefono.setText("");
-		textField_Cargo.setText("");
+		textField_Puesto.setText("");
 		
 		DefaultComboBoxModel <String> comboBoxModel = new DefaultComboBoxModel <>();
 		
@@ -190,20 +216,20 @@ public class VentanaModificarPersonal extends JFrame {
     		seccionDelPersonal=personal.getNombre();
     		
     		if(personal!=null) {
-    			textField_Nombre.setText(personal.getNombre());
-    			textField_Apellido.setText(personal.getApellido());
+    			textField_NombreCompleto.setText(personal.getNombre());
+    			textField_Correo.setText(personal.getCorreo());
     			textField_telefono.setText(personal.getTelefonoPersonal());
-    			textField_Cargo.setText(personal.getCargo());
+    			textField_Puesto.setText(personal.getPuesto());
     		}else {
-    			textField_Nombre.setText("");
-    			textField_Apellido.setText("");
+    			textField_NombreCompleto.setText("");
+    			textField_Correo.setText("");
     			textField_telefono.setText("");
-    			textField_Cargo.setText("");
+    			textField_Puesto.setText("");
     		}
-    		textField_Nombre.setEditable(false);
-			textField_Apellido.setEditable(false);
+    		textField_NombreCompleto.setEditable(false);
+			textField_Correo.setEditable(false);
 			textField_telefono.setEditable(false);
-			textField_Cargo.setEditable(false);
+			textField_Puesto.setEditable(false);
     		comboBoxPersonal.setEnabled(false);
     	}
         

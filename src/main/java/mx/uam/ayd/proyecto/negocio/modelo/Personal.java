@@ -25,11 +25,11 @@ public class Personal {
 	
 	private String nombre;
 	
-	private String apellido;
+	//private String apellido;
     
 	private String telefonoPersonal;
     
-	private String cargo;
+	private String puesto;
 	
 	private String correo;
        
