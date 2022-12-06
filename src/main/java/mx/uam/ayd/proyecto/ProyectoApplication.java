@@ -8,10 +8,12 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 
 import mx.uam.ayd.proyecto.datos.ClienteRepository;
 import mx.uam.ayd.proyecto.datos.CompraRepository;
+import mx.uam.ayd.proyecto.datos.PersonalRepository;
 import mx.uam.ayd.proyecto.datos.ProductoRepository;
 import mx.uam.ayd.proyecto.datos.SeccionCatalogoRepository;
 import mx.uam.ayd.proyecto.negocio.modelo.Cliente;
 import mx.uam.ayd.proyecto.negocio.modelo.Compra;
+import mx.uam.ayd.proyecto.negocio.modelo.Personal;
 import mx.uam.ayd.proyecto.negocio.modelo.Producto;
 import mx.uam.ayd.proyecto.negocio.modelo.SeccionCatalogo;
 import mx.uam.ayd.proyecto.presentacion.principal.ControlPrincipal;
@@ -42,6 +44,9 @@ public class ProyectoApplication {
 	
 	@Autowired
 	ClienteRepository clienteRepository;
+	
+	@Autowired
+	PersonalRepository personalRepository;
 	
 	@Autowired
 	CompraRepository compraRepository;
@@ -122,6 +127,26 @@ public class ProyectoApplication {
 		cliente2.setDireccionEntrega("Calle 34 #125 Col. Santa Cruz Meyehualco");
 		clienteRepository.save(cliente2);
 		
+		Personal personal1=new Personal();
+		personal1.setNombre("Erika");
+		personal1.setApellido("Maya");
+		personal1.setTelefonoPersonal("5561330399");
+		personal1.setCargo("Administradora");
+		personalRepository.save(personal1);
+		
+		Personal personal2=new Personal();
+		personal2.setNombre("Berenice");
+		personal2.setApellido("Lucas");
+		personal2.setTelefonoPersonal("5556789032");
+		personal2.setCargo("Gerente");
+		personalRepository.save(personal2);
+		
+		Personal personal3=new Personal();
+		personal3.setNombre("Veronica");
+		personal3.setApellido("Silva");
+		personal3.setTelefonoPersonal("5590654455");
+		personal3.setCargo("Vendedor");
+		personalRepository.save(personal3);
 		
 		var productoPrueba = new Producto();
 		 

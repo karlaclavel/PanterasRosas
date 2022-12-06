@@ -30,5 +30,7 @@ public class Personal {
 	private String telefonoPersonal;
     
 	private String cargo;
+	
+	private String correo;
        
 }

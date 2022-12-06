@@ -3,6 +3,7 @@ package mx.uam.ayd.proyecto.presentacion.modificarPersonal;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -34,5 +35,52 @@ public class ControlModificarPersonal {
 		List <Personal> personal = servicioPersonal.consultarPersonal(); 
 		ventana.muestra(this, personal);
 	}
+	
+	/**
+	 * 
+	 * Manda a llamar al método obtenerPersonal() del módulo ServicioPersonal pasandole los mismos parámetros recibidos 
+	 * 
+	 * @param nombre
+	 * @return personal seleccionado  
+	 */
+	
+	public Personal obtenerPersonal(String nombre) {
+		Personal personal=servicioPersonal.obtenerPersonal(nombre);
+		return personal; 
+	}
+	/**
+	 * 
+	 * Manda a llamar al método obtenerPersonal() del módulo ServicioPersonal pasandole los mismos parámetros recibidos 
+	 * 
+	 * @param nombre
+	 * @param apellido
+	 * @param telefono
+	 * @param cargo
+	 * @return Mensaje de exito o de error 
+	 */
+	public void modificaPersonal(String personal, String nombre, String apellido, String telefono, String cargo) {
+
+		try {
+
+			servicioPersonal.modificaPersonal(personal, nombre, apellido, telefono, cargo);
+
+			ventana.muestraDialogoConMensaje("El personal con nombre: "+personal+" ha sido modificado exitosamente");
+			termina();
+
+		} catch (Exception ex) {
+			ventana.muestraDialogoConMensaje("Error al modificar al personal seleccionado: " + ex.getMessage());
+		}
+
+		termina();
+	}
+	
+	/**
+	 * Termina la historia de usuario 10 
+	 * 
+	 */
+	public void termina() {
+		ventana.setVisible(false);		
+	}
+	
 
 }
