@@ -14,6 +14,7 @@ import mx.uam.ayd.proyecto.negocio.modelo.Cliente;
 import mx.uam.ayd.proyecto.negocio.modelo.Compra;
 import mx.uam.ayd.proyecto.negocio.modelo.Producto;
 import mx.uam.ayd.proyecto.negocio.modelo.SeccionCatalogo;
+import mx.uam.ayd.proyecto.presentacion.IniciarSesion.ControlIniciarSesion;
 import mx.uam.ayd.proyecto.presentacion.principal.ControlPrincipal;
 
 
@@ -34,6 +35,7 @@ public class ProyectoApplication {
 	@Autowired
 	ControlPrincipal controlPrincipal;
 	
+	
 	@Autowired
 	SeccionCatalogoRepository seccionCatalogoRepository; 
 	
@@ -45,6 +47,7 @@ public class ProyectoApplication {
 	
 	@Autowired
 	CompraRepository compraRepository;
+	
 	/**
 	 * 
 	 * Método principal

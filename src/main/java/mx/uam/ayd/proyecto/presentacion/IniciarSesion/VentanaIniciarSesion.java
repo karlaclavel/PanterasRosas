@@ -31,22 +31,19 @@ public class VentanaIniciarSesion extends JFrame {
 
 	private JPanel contentPane;
 	
+	private ControlIniciarSesion controlSesion;
+	private ControlPrincipal control;
+	
 	private JTextField textFieldUsuario;
 	private JTextField textFieldContraseña;
 	
-	private ControlIniciarSesion controlsesion;
-	private ControlPrincipal control;
-	
 	
 	public VentanaIniciarSesion() {
-		
-		JFrame ventana = new JFrame ("Ventana");
-		ventana.setSize(300, 400);
-		ventana.setResizable(false);
-		ventana.setVisible(true);
-		
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(300, 400);
 		setTitle("Iniciar Sesión");
+		setResizable(false);
 		setBounds(100, 100, 330, 400);
 		
 		contentPane = new JPanel();
@@ -112,10 +109,11 @@ public class VentanaIniciarSesion extends JFrame {
 					textFieldUsuario.requestFocus();
 				}
 				else {
-					if (user.equals(controlsesion.usuario) && pass.equals(controlsesion.contraseña)) {
-						controlsesion.ValidarDatos(user, pass);
+					
+					if (user.equals("admin") && pass.equals("123")) {
 						control.inicia();
 					}
+					
 					textFieldUsuario.setText("");
 					textFieldContraseña.setText("");
 				}
@@ -123,17 +121,9 @@ public class VentanaIniciarSesion extends JFrame {
 			
 		});
 		
-
-		
 	}
 	
-	public void muestra(ControlIniciarSesion control) {
-		
-		this.controlsesion = control;
-		
-		textFieldUsuario.setText("");
-		textFieldContraseña.setText("");
-		
+	public void muestra(ControlPrincipal control) {
 		setVisible(true);
 		
 	}

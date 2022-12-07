@@ -2,6 +2,7 @@ package mx.uam.ayd.proyecto.presentacion.principal;
 
 import javax.swing.JFrame;
 
+
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -20,6 +21,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
+
 @SuppressWarnings("serial")
 @Component
 public class VentanaPrincipal extends JFrame {
@@ -46,6 +48,7 @@ public class VentanaPrincipal extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaPrincipal() {
+		
 		setTitle("Menú principal/ServiceTEC");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 576, 323);

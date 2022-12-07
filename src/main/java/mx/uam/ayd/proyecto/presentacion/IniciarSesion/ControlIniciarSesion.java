@@ -20,19 +20,20 @@ public class ControlIniciarSesion {
 
 	private ControlPrincipal control;
 	
-	private VentanaIniciarSesion is;
+	private VentanaIniciarSesion ventana;
 	
-	String usuario = "PANROSA-ADMIN";
-	String contraseña = "BVEKUAMIS22";
+	String usuario = "admin";
+	String contraseña = "123";
 	
-	
-	public void ValidarDatos(String user, String pass) {
+	/*
+	public void validaDatos(String user, String pass) {
 		// TODO Auto-generated method stub
-		if (user.equals(usuario)) {
-			is.dispose();
+		if (user == usuario && pass == contraseña) {
+			control.inicia();
+			ventana.dispose();
 		}
 		
-	}
+	}*/
 	
 	
 }

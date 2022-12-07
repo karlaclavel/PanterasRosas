@@ -3,6 +3,7 @@ package mx.uam.ayd.proyecto.presentacion.principal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import mx.uam.ayd.proyecto.presentacion.IniciarSesion.VentanaIniciarSesion;
 import mx.uam.ayd.proyecto.presentacion.agregarCliente.ControlAgregarCliente;
 import mx.uam.ayd.proyecto.presentacion.agregarProducto.ControlAgregarProducto;
 import mx.uam.ayd.proyecto.presentacion.crearGarantia.ControlCrearGarantia;
@@ -14,13 +15,13 @@ import mx.uam.ayd.proyecto.presentacion.vizualizarProducto.ControlVizualizarProd
 public class ControlPrincipal{
 	
 	@Autowired
+	private VentanaIniciarSesion ventana;
+	
+	@Autowired
 	private ControlAgregarProducto controlAgregarProducto; 
 	
 	@Autowired
 	private ControlModificarProducto controlModificarProducto; 
-	
-	@Autowired
-	private VentanaPrincipal ventana;
 	
 	@Autowired
 	private ControlObtenerDatos controlObtenerDatos;
@@ -36,7 +37,7 @@ public class ControlPrincipal{
 	
 	
 	/**
-	 * Inicia el flujo de control de la ventana principal
+	 * Inicia el flujo de control de la ventana de inicio de sesion
 	 * 
 	 */
 	public void inicia() {
