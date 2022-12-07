@@ -16,7 +16,7 @@ import mx.uam.ayd.proyecto.presentacion.vizualizarProducto.ControlVizualizarProd
 public class ControlPrincipal{
 	
 	@Autowired
-	private VentanaIniciarSesion ventana;
+	private VentanaPrincipal ventana;
 	
 	@Autowired
 	private ControlAgregarProducto controlAgregarProducto; 

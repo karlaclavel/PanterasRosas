@@ -31,15 +31,34 @@ import javax.swing.SwingConstants;
 @Component
 public class VentanaIniciarSesion extends JFrame {
 	
-	private ControlIniciarSesion controlIS;
-	private ControlPrincipal control;
+	private ControlIniciarSesion controlIniciarSesion;
+	@Autowired
+	private ControlPrincipal controlPrincipal;
 	
 	private JPanel contentPane;
 	private JTextField textUsuario;
 	private JTextField textContraseña;
-
 	
-	
+	/**
+	 * Launch the application.
+	 */
+	/**
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					VentanaAgregarCliente frame = new VentanaAgregarCliente();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	*/
+	/**
+	 * Create the frame.
+	 */
 	
 	public VentanaIniciarSesion() {
 
@@ -116,8 +135,10 @@ public class VentanaIniciarSesion extends JFrame {
 					textUsuario.requestFocus();
 				}
 				else {
-					if (user.equals("ADMIN-PANROSA") && pass.equals("UAMI2022")) {
+					if (user.equals("A") && pass.equals("1")) {
 						muestraDialogoConMensaje ("Usuario y contraseña correctos");
+						controlPrincipal.inicia();
+						dispose();
 					} 
 					else {
 						muestraDialogoConMensaje ("Su usuario y constraseña es incorrecto");
@@ -125,7 +146,6 @@ public class VentanaIniciarSesion extends JFrame {
 					
 					textUsuario.setText("");
 					textContraseña.setText("");
-				
 				}
 		
 			}
@@ -133,14 +153,15 @@ public class VentanaIniciarSesion extends JFrame {
 		
 	}
 
-	
-	public void muestra(ControlPrincipal control) {
-		setVisible(true);
-		
-	}
 
 	public void muestraDialogoConMensaje(String mensaje) {
 		JOptionPane.showMessageDialog(this , mensaje);
+		
+	}
+
+	public void muestra(ControlIniciarSesion control) {
+		this.controlIniciarSesion = control;
+		setVisible(true);
 		
 	}
 

@@ -36,6 +36,9 @@ public class ProyectoApplication {
 	ControlPrincipal controlPrincipal;
 	
 	@Autowired
+	ControlIniciarSesion controlSesion;
+	
+	@Autowired
 	SeccionCatalogoRepository seccionCatalogoRepository; 
 	
 	@Autowired
@@ -73,7 +76,7 @@ public class ProyectoApplication {
 		
 		inicializaBD();
 		
-		controlPrincipal.inicia();
+		controlSesion.inicia();
 	}
 	
 	

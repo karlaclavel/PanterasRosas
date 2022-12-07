@@ -19,28 +19,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class ControlIniciarSesion {
 	
-
-	private ControlPrincipal control;
-	
-
+	@Autowired
 	private VentanaIniciarSesion ventana;
-	
-	String usuario = "ADMINPANROSA";
-	String contraseña = "UAMI";
-	
-/*
-	public  void validarDatos(String nombre, String pass) {
-			if (nombre == usuario && pass == contraseña) {
-				control.inicia();
-				ventana.dispose();
-			}
-	}
-
 
 	public void inicia() {
+		// TODO Auto-generated method stub
 		ventana.muestra(this);
 	}
-	
-	*/
 	
 } 
