@@ -99,7 +99,7 @@ public class VentanaIniciarSesion extends JFrame {
 		
 		JLabel lblNewLabelLogo = new JLabel("");
 		lblNewLabelLogo.setBounds(90, 10, 125, 110);
-		lblNewLabelLogo.setIcon(new ImageIcon("\\Service Tec\\src\\main\\java\\mx\\uam\\ayd\\imagen\\logo.png"));
+		lblNewLabelLogo.setIcon(new ImageIcon("D:\\Archivos\\Documentos\\SPRING TOOL SUITE\\workspace\\Service Tec\\src\\main\\java\\mx\\uam\\ayd\\imagen\\logo.png"));
 		contentPane.add(lblNewLabelLogo);
 		
 		/******** CUADROS DE TEXTO ******/
