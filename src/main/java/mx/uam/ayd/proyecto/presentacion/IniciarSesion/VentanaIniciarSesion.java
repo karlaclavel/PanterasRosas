@@ -131,12 +131,12 @@ public class VentanaIniciarSesion extends JFrame {
 				
 				
 				if (user.equals("") || pass.equals("")) {
-					muestraDialogoConMensaje ("Ingrese Usuario y Contraseña correctos");
+					muestraDialogoConMensaje ("Ingrese Usuario y Contraseña");
 					textUsuario.requestFocus();
 				}
 				else {
-					if (user.equals("A") && pass.equals("1")) {
-						muestraDialogoConMensaje ("Usuario y contraseña correctos");
+					if (user.equals("ADMIN_PANROSA") && pass.equals("UAMI2022")) {
+						muestraDialogoConMensaje ("Su usuario y contraseña correctos");
 						controlPrincipal.inicia();
 						dispose();
 					} 
@@ -147,7 +147,6 @@ public class VentanaIniciarSesion extends JFrame {
 					textUsuario.setText("");
 					textContraseña.setText("");
 				}
-		
 			}
 		});
 		
