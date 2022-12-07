@@ -3,6 +3,7 @@ package mx.uam.ayd.proyecto.presentacion.principal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import mx.uam.ayd.proyecto.presentacion.IniciarSesion.ControlIniciarSesion;
 import mx.uam.ayd.proyecto.presentacion.IniciarSesion.VentanaIniciarSesion;
 import mx.uam.ayd.proyecto.presentacion.agregarCliente.ControlAgregarCliente;
 import mx.uam.ayd.proyecto.presentacion.agregarProducto.ControlAgregarProducto;
@@ -96,5 +97,6 @@ public class ControlPrincipal{
 	public void agregarCliente() {
 		controlAgregarCliente.inicia();
 	}
+	
 	
 }

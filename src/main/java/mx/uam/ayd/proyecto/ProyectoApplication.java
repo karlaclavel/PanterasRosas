@@ -35,7 +35,6 @@ public class ProyectoApplication {
 	@Autowired
 	ControlPrincipal controlPrincipal;
 	
-	
 	@Autowired
 	SeccionCatalogoRepository seccionCatalogoRepository; 
 	

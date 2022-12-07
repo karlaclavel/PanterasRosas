@@ -102,6 +102,7 @@ public class VentanaPrincipal extends JFrame {
 		mnNewMenu_1.add(mntmNewMenuItem_5);
 		
 		JMenuItem mntmNewMenuItem_6 = new JMenuItem("Agregar"); 
+		mntmNewMenuItem_6.setBackground(new Color(204, 153, 204));
 		mntmNewMenuItem_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlPrincipal.agregarCliente();
@@ -174,7 +175,7 @@ public class VentanaPrincipal extends JFrame {
   
 	public void muestra(ControlPrincipal control) {
 		
-		controlPrincipal = control;
+		this.controlPrincipal = control;
 		setVisible(true);
 	}
 }

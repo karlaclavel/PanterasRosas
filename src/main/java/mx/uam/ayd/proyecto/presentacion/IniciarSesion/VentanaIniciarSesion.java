@@ -2,12 +2,15 @@ package mx.uam.ayd.proyecto.presentacion.IniciarSesion;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import mx.uam.ayd.proyecto.presentacion.agregarCliente.ControlAgregarCliente;
 import mx.uam.ayd.proyecto.presentacion.principal.ControlPrincipal;
+import mx.uam.ayd.proyecto.presentacion.principal.VentanaPrincipal;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -28,14 +31,14 @@ import javax.swing.SwingConstants;
 @Component
 public class VentanaIniciarSesion extends JFrame {
 	
-
-	private JPanel contentPane;
-	
-	private ControlIniciarSesion controlSesion;
+	private ControlIniciarSesion controlIS;
 	private ControlPrincipal control;
 	
-	private JTextField textFieldUsuario;
-	private JTextField textFieldContraseña;
+	private JPanel contentPane;
+	private JTextField textUsuario;
+	private JTextField textContraseña;
+
+	
 	
 	
 	public VentanaIniciarSesion() {
@@ -82,46 +85,54 @@ public class VentanaIniciarSesion extends JFrame {
 		
 		/******** CUADROS DE TEXTO ******/
 		
-		textFieldUsuario = new JTextField();
-		textFieldUsuario.setBounds(136, 210, 131, 19);
-		contentPane.add(textFieldUsuario);
-		textFieldUsuario.setColumns(10);
+		textUsuario = new JTextField();
+		textUsuario.setBounds(136, 210, 131, 19);
+		contentPane.add(textUsuario);
+		textUsuario.setColumns(10);
 		
-		textFieldContraseña = new JTextField();
-		textFieldContraseña.setBounds(136, 244, 131, 19);
-		contentPane.add(textFieldContraseña);
-		textFieldContraseña.setColumns(10);
+		textContraseña = new JPasswordField();
+		textContraseña.setBounds(136, 244, 131, 19);
+		contentPane.add(textContraseña);
+		textContraseña.setColumns(10);
 		
 		/******** LISTENERS ******/
 		
-		JButton btnNewButtonAceptar = new JButton("Aceptar");
-		btnNewButtonAceptar.setBounds(122, 300, 85, 21);
-		contentPane.add(btnNewButtonAceptar);
+		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.setBounds(122, 300, 85, 21);
+		contentPane.add(btnAceptar);
 		
-		btnNewButtonAceptar.addActionListener(new ActionListener() {
+		
+		btnAceptar.addActionListener(new ActionListener() {
+
+			@Override
 			public void actionPerformed(ActionEvent e) {
+			
+				String user = textUsuario.getText();
+				String pass = textContraseña.getText();
 				
-				String user = textFieldUsuario.getText();
-				String pass = textFieldContraseña.getText();
 				
 				if (user.equals("") || pass.equals("")) {
-					muestraDialogoConMensaje ("Acceso Denegado! \n Ingrese Usuario y Contraseña correctos");
-					textFieldUsuario.requestFocus();
+					muestraDialogoConMensaje ("Ingrese Usuario y Contraseña correctos");
+					textUsuario.requestFocus();
 				}
 				else {
+					if (user.equals("ADMIN-PANROSA") && pass.equals("UAMI2022")) {
+						muestraDialogoConMensaje ("Usuario y contraseña correctos");
+					} 
+					else {
+						muestraDialogoConMensaje ("Su usuario y constraseña es incorrecto");
+					} 
 					
-					if (user.equals("admin") && pass.equals("123")) {
-						control.inicia();
-					}
-					
-					textFieldUsuario.setText("");
-					textFieldContraseña.setText("");
+					textUsuario.setText("");
+					textContraseña.setText("");
+				
 				}
+		
 			}
-			
 		});
 		
 	}
+
 	
 	public void muestra(ControlPrincipal control) {
 		setVisible(true);
