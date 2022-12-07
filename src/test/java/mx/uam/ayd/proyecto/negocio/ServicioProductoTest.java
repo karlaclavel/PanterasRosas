@@ -1,6 +1,7 @@
 package mx.uam.ayd.proyecto.negocio;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;

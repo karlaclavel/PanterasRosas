@@ -166,6 +166,7 @@ public class VentanaModificarPersonal extends JFrame {
 		contentPane.add(ButtonCancelar);
 		
 		rdbtnVerInformacion = new JRadioButton("");
+		rdbtnVerInformacion.setBackground(new Color(255, 182, 193));
 		rdbtnVerInformacion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(rdbtnVerInformacion.isSelected()) {
