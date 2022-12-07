@@ -9,6 +9,7 @@ import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -17,6 +18,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 import javax.swing.border.EmptyBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import org.springframework.stereotype.Component;
 
@@ -37,6 +39,7 @@ public class VentanaAgregarProducto extends JFrame {
 	private JTextArea textAreaDescripcionProducto;
 
 	private ControlAgregarProducto control;
+	private String PathImagen;
 	/**
 	 * Launch the application.
 	 
@@ -69,113 +72,127 @@ public class VentanaAgregarProducto extends JFrame {
 		SpringLayout sl_contentPane = new SpringLayout();
 		contentPane.setLayout(sl_contentPane);
 		
-		JLabel lblNewLabel = new JLabel("Seccion del producto *");
-		lblNewLabel.setForeground(new Color(255, 255, 255));
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel, 103, SpringLayout.NORTH, contentPane);
-		contentPane.add(lblNewLabel);
+		JLabel labelSeccionProducto = new JLabel("Seccion del producto *");
+		labelSeccionProducto.setForeground(new Color(255, 255, 255));
+		sl_contentPane.putConstraint(SpringLayout.NORTH, labelSeccionProducto, 103, SpringLayout.NORTH, contentPane);
+		contentPane.add(labelSeccionProducto);
 		
 		comboBoxSeccionCatalogo = new JComboBox<>();
-		sl_contentPane.putConstraint(SpringLayout.WEST, comboBoxSeccionCatalogo, 6, SpringLayout.EAST, lblNewLabel);
+		sl_contentPane.putConstraint(SpringLayout.WEST, comboBoxSeccionCatalogo, 6, SpringLayout.EAST, labelSeccionProducto);
 		sl_contentPane.putConstraint(SpringLayout.EAST, comboBoxSeccionCatalogo, -231, SpringLayout.EAST, contentPane);
 		contentPane.add(comboBoxSeccionCatalogo);
 		
-		JLabel lblNewLabel_1 = new JLabel("Agregar Producto");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel_1, 10, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, lblNewLabel_1, -170, SpringLayout.EAST, contentPane);
-		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setFont(new Font("Script MT Bold", Font.PLAIN, 28));
-		contentPane.add(lblNewLabel_1);
+		JLabel labelAgregarProducto = new JLabel("Agregar Producto");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, labelAgregarProducto, 10, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, labelAgregarProducto, -170, SpringLayout.EAST, contentPane);
+		labelAgregarProducto.setForeground(new Color(255, 255, 255));
+		labelAgregarProducto.setFont(new Font("Script MT Bold", Font.PLAIN, 28));
+		contentPane.add(labelAgregarProducto);
 		
-		JLabel lblNewLabel_2 = new JLabel("Nombre del producto *");
-		lblNewLabel_2.setForeground(new Color(255, 255, 255));
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel_2, 142, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel_2, 32, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel, 0, SpringLayout.WEST, lblNewLabel_2);
-		contentPane.add(lblNewLabel_2);
+		JLabel labelNombreProducto = new JLabel("Nombre del producto *");
+		labelNombreProducto.setForeground(new Color(255, 255, 255));
+		sl_contentPane.putConstraint(SpringLayout.NORTH, labelNombreProducto, 142, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, labelNombreProducto, 32, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, labelSeccionProducto, 0, SpringLayout.WEST, labelNombreProducto);
+		contentPane.add(labelNombreProducto);
 		
-		JLabel lblNewLabel_3 = new JLabel("Rellena los siguientes campos.");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel_3, 69, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, comboBoxSeccionCatalogo, 16, SpringLayout.SOUTH, lblNewLabel_3);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel_3, 0, SpringLayout.WEST, lblNewLabel);
-		lblNewLabel_3.setForeground(new Color(255, 255, 255));
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		contentPane.add(lblNewLabel_3);
+		JLabel labelRellenarCampos = new JLabel("Rellena los siguientes campos.");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, labelRellenarCampos, 69, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, comboBoxSeccionCatalogo, 16, SpringLayout.SOUTH, labelRellenarCampos);
+		sl_contentPane.putConstraint(SpringLayout.WEST, labelRellenarCampos, 0, SpringLayout.WEST, labelSeccionProducto);
+		labelRellenarCampos.setForeground(new Color(255, 255, 255));
+		labelRellenarCampos.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		contentPane.add(labelRellenarCampos);
 		
-		JLabel lblNewLabel_4 = new JLabel("*Campos obligatorios");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel_4, 0, SpringLayout.NORTH, lblNewLabel_3);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel_4, 6, SpringLayout.EAST, lblNewLabel_3);
-		lblNewLabel_4.setForeground(new Color(255, 255, 255));
-		contentPane.add(lblNewLabel_4);
+		JLabel labelCamposObligatorios = new JLabel("*Campos obligatorios");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, labelCamposObligatorios, 0, SpringLayout.NORTH, labelRellenarCampos);
+		sl_contentPane.putConstraint(SpringLayout.WEST, labelCamposObligatorios, 6, SpringLayout.EAST, labelRellenarCampos);
+		labelCamposObligatorios.setForeground(new Color(255, 255, 255));
+		contentPane.add(labelCamposObligatorios);
 		
 		textFieldNombreProducto = new JTextField();
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, comboBoxSeccionCatalogo, -18, SpringLayout.NORTH, textFieldNombreProducto);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, textFieldNombreProducto, -3, SpringLayout.NORTH, lblNewLabel_2);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, textFieldNombreProducto, -3, SpringLayout.NORTH, labelNombreProducto);
 		sl_contentPane.putConstraint(SpringLayout.WEST, textFieldNombreProducto, 0, SpringLayout.WEST, comboBoxSeccionCatalogo);
 		sl_contentPane.putConstraint(SpringLayout.EAST, textFieldNombreProducto, -116, SpringLayout.EAST, contentPane);
 		contentPane.add(textFieldNombreProducto);
 		textFieldNombreProducto.setColumns(10);
 		
-		JLabel lblNewLabel_5 = new JLabel("Marca del producto *");
-		lblNewLabel_5.setForeground(new Color(255, 255, 255));
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel_5, 20, SpringLayout.SOUTH, lblNewLabel_2);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel_5, 0, SpringLayout.WEST, lblNewLabel);
-		contentPane.add(lblNewLabel_5);
+		JLabel labelMarcaProducto = new JLabel("Marca del producto *");
+		labelMarcaProducto.setForeground(new Color(255, 255, 255));
+		sl_contentPane.putConstraint(SpringLayout.NORTH, labelMarcaProducto, 20, SpringLayout.SOUTH, labelNombreProducto);
+		sl_contentPane.putConstraint(SpringLayout.WEST, labelMarcaProducto, 0, SpringLayout.WEST, labelSeccionProducto);
+		contentPane.add(labelMarcaProducto);
 		
 		textFieldMarcaProducto = new JTextField();
-		sl_contentPane.putConstraint(SpringLayout.NORTH, textFieldMarcaProducto, -3, SpringLayout.NORTH, lblNewLabel_5);
-		sl_contentPane.putConstraint(SpringLayout.WEST, textFieldMarcaProducto, 16, SpringLayout.EAST, lblNewLabel_5);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, textFieldMarcaProducto, -3, SpringLayout.NORTH, labelMarcaProducto);
+		sl_contentPane.putConstraint(SpringLayout.WEST, textFieldMarcaProducto, 16, SpringLayout.EAST, labelMarcaProducto);
 		sl_contentPane.putConstraint(SpringLayout.EAST, textFieldMarcaProducto, 0, SpringLayout.EAST, textFieldNombreProducto);
 		contentPane.add(textFieldMarcaProducto);
 		textFieldMarcaProducto.setColumns(10);
 		
-		JLabel lblNewLabel_6 = new JLabel("Descripción *");
-		lblNewLabel_6.setForeground(new Color(255, 255, 255));
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel_6, 22, SpringLayout.SOUTH, lblNewLabel_5);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel_6, 0, SpringLayout.WEST, lblNewLabel);
-		contentPane.add(lblNewLabel_6);
+		JLabel labelDescripcion = new JLabel("Descripción *");
+		labelDescripcion.setForeground(new Color(255, 255, 255));
+		sl_contentPane.putConstraint(SpringLayout.NORTH, labelDescripcion, 22, SpringLayout.SOUTH, labelMarcaProducto);
+		sl_contentPane.putConstraint(SpringLayout.WEST, labelDescripcion, 0, SpringLayout.WEST, labelSeccionProducto);
+		contentPane.add(labelDescripcion);
 		
 		textAreaDescripcionProducto = new JTextArea();
-		sl_contentPane.putConstraint(SpringLayout.NORTH, textAreaDescripcionProducto, 0, SpringLayout.NORTH, lblNewLabel_6);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, textAreaDescripcionProducto, 0, SpringLayout.NORTH, labelDescripcion);
 		sl_contentPane.putConstraint(SpringLayout.WEST, textAreaDescripcionProducto, 0, SpringLayout.WEST, comboBoxSeccionCatalogo);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, textAreaDescripcionProducto, 85, SpringLayout.NORTH, lblNewLabel_6);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, textAreaDescripcionProducto, 85, SpringLayout.NORTH, labelDescripcion);
 		sl_contentPane.putConstraint(SpringLayout.EAST, textAreaDescripcionProducto, 0, SpringLayout.EAST, textFieldNombreProducto);
 		contentPane.add(textAreaDescripcionProducto);
 		
-		JLabel lblNewLabel_5_1 = new JLabel("Precio del producto *");
-		lblNewLabel_5_1.setForeground(new Color(255, 255, 255));
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel_5_1, 96, SpringLayout.SOUTH, lblNewLabel_6);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel_5_1, 0, SpringLayout.WEST, lblNewLabel);
-		contentPane.add(lblNewLabel_5_1);
+		JLabel labelPrecioProducto = new JLabel("Precio del producto *");
+		labelPrecioProducto.setForeground(new Color(255, 255, 255));
+		sl_contentPane.putConstraint(SpringLayout.NORTH, labelPrecioProducto, 96, SpringLayout.SOUTH, labelDescripcion);
+		sl_contentPane.putConstraint(SpringLayout.WEST, labelPrecioProducto, 0, SpringLayout.WEST, labelSeccionProducto);
+		contentPane.add(labelPrecioProducto);
 		
 		textFieldPecioProducto = new JTextField();
-		sl_contentPane.putConstraint(SpringLayout.NORTH, textFieldPecioProducto, -3, SpringLayout.NORTH, lblNewLabel_5_1);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, textFieldPecioProducto, -3, SpringLayout.NORTH, labelPrecioProducto);
 		sl_contentPane.putConstraint(SpringLayout.WEST, textFieldPecioProducto, 0, SpringLayout.WEST, comboBoxSeccionCatalogo);
 		textFieldPecioProducto.setColumns(10);
 		contentPane.add(textFieldPecioProducto);
 		
-		JLabel lblNewLabel_5_1_1 = new JLabel("Descuento del producto ");
-		lblNewLabel_5_1_1.setForeground(new Color(255, 255, 255));
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel_5_1_1, 0, SpringLayout.NORTH, lblNewLabel_5_1);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel_5_1_1, 31, SpringLayout.EAST, textFieldPecioProducto);
-		contentPane.add(lblNewLabel_5_1_1);
+		JLabel labelDescuentoProducto = new JLabel("Descuento del producto ");
+		labelDescuentoProducto.setForeground(new Color(255, 255, 255));
+		sl_contentPane.putConstraint(SpringLayout.NORTH, labelDescuentoProducto, 0, SpringLayout.NORTH, labelPrecioProducto);
+		sl_contentPane.putConstraint(SpringLayout.WEST, labelDescuentoProducto, 31, SpringLayout.EAST, textFieldPecioProducto);
+		contentPane.add(labelDescuentoProducto);
 		
 		textFieldDescuentoProducto = new JTextField();
-		sl_contentPane.putConstraint(SpringLayout.NORTH, textFieldDescuentoProducto, -3, SpringLayout.NORTH, lblNewLabel_5_1);
-		sl_contentPane.putConstraint(SpringLayout.WEST, textFieldDescuentoProducto, 5, SpringLayout.EAST, lblNewLabel_5_1_1);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, textFieldDescuentoProducto, -3, SpringLayout.NORTH, labelPrecioProducto);
+		sl_contentPane.putConstraint(SpringLayout.WEST, textFieldDescuentoProducto, 5, SpringLayout.EAST, labelDescuentoProducto);
 		textFieldDescuentoProducto.setColumns(10);
 		contentPane.add(textFieldDescuentoProducto);
 		
-		JLabel lblNewLabel_7 = new JLabel("Número en existencia *");
-		lblNewLabel_7.setForeground(new Color(255, 255, 255));
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel_7, 22, SpringLayout.SOUTH, lblNewLabel_5_1);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel_7, 0, SpringLayout.WEST, lblNewLabel);
-		contentPane.add(lblNewLabel_7);
+		JLabel labelNumeroExistencia = new JLabel("Número en existencia *");
+		labelNumeroExistencia.setForeground(new Color(255, 255, 255));
+		sl_contentPane.putConstraint(SpringLayout.NORTH, labelNumeroExistencia, 22, SpringLayout.SOUTH, labelPrecioProducto);
+		sl_contentPane.putConstraint(SpringLayout.WEST, labelNumeroExistencia, 0, SpringLayout.WEST, labelSeccionProducto);
+		contentPane.add(labelNumeroExistencia);
 		
 		textFieldNumeroEnExistenciaProducto = new JTextField();
-		sl_contentPane.putConstraint(SpringLayout.NORTH, textFieldNumeroEnExistenciaProducto, -3, SpringLayout.NORTH, lblNewLabel_7);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, textFieldNumeroEnExistenciaProducto, -3, SpringLayout.NORTH, labelNumeroExistencia);
 		sl_contentPane.putConstraint(SpringLayout.EAST, textFieldNumeroEnExistenciaProducto, 0, SpringLayout.EAST, textFieldPecioProducto);
 		textFieldNumeroEnExistenciaProducto.setColumns(10);
 		contentPane.add(textFieldNumeroEnExistenciaProducto);
+		
+		/*Boton agregar imagen
+		JLabel labelAgregarImagen = new JLabel("Agregar Imagen");
+		labelAgregarImagen.setForeground(new Color(255, 255, 255));
+		sl_contentPane.putConstraint(SpringLayout.NORTH, labelAgregarImagen, 22, SpringLayout.SOUTH, labelDescuentoProducto);
+		sl_contentPane.putConstraint(SpringLayout.EAST, labelAgregarImagen, 0, SpringLayout.EAST, textFieldNumeroEnExistenciaProducto);
+		contentPane.add(labelAgregarImagen);
+		
+		JButton btnAgregarImagen = new JButton("Agregar Imagen");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnAgregarImagen, -3, SpringLayout.NORTH, textFieldDescuentoProducto);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnAgregarImagen, 0, SpringLayout.EAST,labelAgregarImagen );
+		textFieldNumeroEnExistenciaProducto.setColumns(10);
+		contentPane.add(textFieldNumeroEnExistenciaProducto);
+		*//////////////////////////////////////////
 		
 		JButton btnAgregar = new JButton("Agregar");
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnAgregar, -26, SpringLayout.SOUTH, contentPane);
@@ -187,6 +204,30 @@ public class VentanaAgregarProducto extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnCancelar, 26, SpringLayout.EAST, btnAgregar);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnCancelar, 0, SpringLayout.SOUTH, btnAgregar);
 		contentPane.add(btnCancelar);
+		
+		JLabel labelAgregarImagen = new JLabel("Agregar Imagen");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, labelAgregarImagen, 0, SpringLayout.NORTH, labelNumeroExistencia);
+		sl_contentPane.putConstraint(SpringLayout.EAST, labelAgregarImagen, 0, SpringLayout.EAST, labelDescuentoProducto);
+		labelAgregarImagen.setForeground(Color.WHITE);
+		contentPane.add(labelAgregarImagen);
+		
+		JButton btnSubirImagen = new JButton("Subir");
+		btnSubirImagen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser chooser = new JFileChooser();
+		        FileNameExtensionFilter filter = new FileNameExtensionFilter(
+		                "JPG & GIF Images", "jpg", "gif");
+		        chooser.setFileFilter(filter);
+		        int returnVal = chooser.showOpenDialog(null);
+		        if(returnVal == JFileChooser.APPROVE_OPTION) {
+		            PathImagen= chooser.getSelectedFile().getAbsolutePath();
+		       }
+			}
+		});
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnSubirImagen, 0, SpringLayout.NORTH, labelNumeroExistencia);
+		sl_contentPane.putConstraint(SpringLayout.WEST, btnSubirImagen, 0, SpringLayout.WEST, textFieldDescuentoProducto);
+		btnSubirImagen.setBackground(Color.WHITE);
+		contentPane.add(btnSubirImagen);
 		
 		
 		//Listeners
@@ -200,10 +241,10 @@ public class VentanaAgregarProducto extends JFrame {
 					
 					if(textFieldDescuentoProducto.getText().equals("")) {
 						control.agregaProducto(textFieldNombreProducto.getText(), textFieldMarcaProducto.getText(), textAreaDescripcionProducto.getText(), textFieldPecioProducto.getText(),
-								"0",textFieldNumeroEnExistenciaProducto.getText(), (String) comboBoxSeccionCatalogo.getSelectedItem());
+								"0",textFieldNumeroEnExistenciaProducto.getText(), (String) comboBoxSeccionCatalogo.getSelectedItem(), PathImagen);
 					}else {
 						control.agregaProducto(textFieldNombreProducto.getText(), textFieldMarcaProducto.getText(), textAreaDescripcionProducto.getText(), textFieldPecioProducto.getText(),
-								textFieldDescuentoProducto.getText(),textFieldNumeroEnExistenciaProducto.getText(), (String) comboBoxSeccionCatalogo.getSelectedItem());
+								textFieldDescuentoProducto.getText(),textFieldNumeroEnExistenciaProducto.getText(), (String) comboBoxSeccionCatalogo.getSelectedItem(), PathImagen);
 					}
 				}
 			}
@@ -214,6 +255,7 @@ public class VentanaAgregarProducto extends JFrame {
 				control.termina();
 			}
 		});
+		
 		
 	}
 	

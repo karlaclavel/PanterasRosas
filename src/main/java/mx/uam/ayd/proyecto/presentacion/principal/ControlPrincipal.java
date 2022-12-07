@@ -8,6 +8,7 @@ import mx.uam.ayd.proyecto.presentacion.agregarProducto.ControlAgregarProducto;
 import mx.uam.ayd.proyecto.presentacion.crearGarantia.ControlCrearGarantia;
 import mx.uam.ayd.proyecto.presentacion.modificarProducto.ControlModificarProducto;
 import mx.uam.ayd.proyecto.presentacion.obtenerDatos.ControlObtenerDatos;
+import mx.uam.ayd.proyecto.presentacion.verCatalogo.ControlVerCatalogo;
 import mx.uam.ayd.proyecto.presentacion.vizualizarProducto.ControlVizualizarProducto;
 
 @Component
@@ -30,6 +31,11 @@ public class ControlPrincipal{
 	
 	@Autowired
 	private ControlVizualizarProducto controlVizualizarProducto;
+	
+	@Autowired
+	private ControlVerCatalogo controlVerCatalogo;
+	
+	
 	
 	@Autowired
 	private ControlAgregarCliente controlAgregarCliente;
@@ -86,6 +92,10 @@ public class ControlPrincipal{
 		
 		controlVizualizarProducto.inicia();
 
+	}
+	
+	public void VerCatalogo() {
+		controlVerCatalogo.inicia();
 	}
 
 	/**

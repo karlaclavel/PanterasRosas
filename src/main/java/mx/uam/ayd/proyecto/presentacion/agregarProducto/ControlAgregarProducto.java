@@ -55,13 +55,13 @@ public class ControlAgregarProducto {
 	 * @param seccion
 	 * @return Dialogo con mensaje 
 	 */
-	public void agregaProducto(String nombre, String marca, String descripcion,String precio, String descuento, String existencia, String seccion) {
+	public void agregaProducto(String nombre, String marca, String descripcion,String precio, String descuento, String existencia, String seccion, String imagen) {
 		
 		
 		try {
 
 			if (servicioProducto.agregaProducto(nombre, marca, descripcion, precio, descuento, existencia,
-					seccion) != false) {
+					seccion, imagen) != false) {
 
 				ventana.muestraDialogoConMensaje("Producto agregado exitosamente");
 				termina();

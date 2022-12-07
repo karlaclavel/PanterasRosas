@@ -83,6 +83,18 @@ public class VentanaPrincipal extends JFrame {
 		mntmNewMenuItem_2.setBackground(new Color(204, 153, 204));
 		mntmNewMenuItem_2.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
 		mnNewMenu.add(mntmNewMenuItem_2);
+		
+		JMenuItem mntmNewMenuItem_30 = new JMenuItem("Ver");
+		mntmNewMenuItem_30.setBackground(new Color(204, 153, 204));
+		mntmNewMenuItem_30.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlPrincipal.VerCatalogo();		
+				}
+		});
+		mntmNewMenuItem_30.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
+		mnNewMenu.add(mntmNewMenuItem_30);
+		
+		
 	
 		JMenu mnNewMenu_1 = new JMenu("      Clientes      ");
 		mnNewMenu_1.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
