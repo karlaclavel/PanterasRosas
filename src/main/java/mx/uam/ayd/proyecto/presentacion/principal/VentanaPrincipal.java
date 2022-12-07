@@ -3,8 +3,6 @@ package mx.uam.ayd.proyecto.presentacion.principal;
 import javax.swing.JFrame;
 
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
 import org.springframework.stereotype.Component;
 
 import javax.swing.JMenuBar;
@@ -17,9 +15,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import java.awt.BorderLayout;
-import javax.swing.SwingConstants;
+
+
 @SuppressWarnings("serial")
 @Component
 public class VentanaPrincipal extends JFrame {
@@ -111,10 +108,15 @@ public class VentanaPrincipal extends JFrame {
 		mnNewMenu_3.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
 		menuBar.add(mnNewMenu_3);
 		
-		JMenuItem mntmNewMenuItem_8 = new JMenuItem("Agregar ");
-		mntmNewMenuItem_8.setBackground(new Color(204, 153, 204));
-		mntmNewMenuItem_8.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
-		mnNewMenu_3.add(mntmNewMenuItem_8);
+		JMenuItem BotonAgregarPersonal = new JMenuItem("Agregar ");
+		BotonAgregarPersonal.setBackground(new Color(204, 153, 204));
+		BotonAgregarPersonal.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
+		mnNewMenu_3.add(BotonAgregarPersonal);
+		BotonAgregarPersonal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlPrincipal.agregarPersonal();
+			}
+		}); 
 		
 		JMenuItem mntmNewMenuItem_9 = new JMenuItem("Modificar ");
 		mntmNewMenuItem_9.setBackground(new Color(204, 153, 204));

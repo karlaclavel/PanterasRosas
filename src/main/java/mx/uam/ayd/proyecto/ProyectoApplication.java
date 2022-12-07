@@ -8,6 +8,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 
 import mx.uam.ayd.proyecto.datos.ClienteRepository;
 import mx.uam.ayd.proyecto.datos.CompraRepository;
+import mx.uam.ayd.proyecto.datos.PersonalRepository;
 import mx.uam.ayd.proyecto.datos.ProductoRepository;
 import mx.uam.ayd.proyecto.datos.SeccionCatalogoRepository;
 import mx.uam.ayd.proyecto.negocio.modelo.Cliente;
@@ -45,6 +46,9 @@ public class ProyectoApplication {
 	
 	@Autowired
 	CompraRepository compraRepository;
+	
+	@Autowired
+	PersonalRepository personalRepository;
 	/**
 	 * 
 	 * Método principal
