@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import mx.uam.ayd.proyecto.presentacion.IniciarSesion.ControlIniciarSesion;
 import mx.uam.ayd.proyecto.presentacion.IniciarSesion.VentanaIniciarSesion;
 import mx.uam.ayd.proyecto.presentacion.agregarCliente.ControlAgregarCliente;
+import mx.uam.ayd.proyecto.presentacion.agregarPersonal.ControlAgregarPersonal;
 import mx.uam.ayd.proyecto.presentacion.agregarProducto.ControlAgregarProducto;
 import mx.uam.ayd.proyecto.presentacion.crearGarantia.ControlCrearGarantia;
 import mx.uam.ayd.proyecto.presentacion.modificarProducto.ControlModificarProducto;
@@ -38,9 +39,12 @@ public class ControlPrincipal{
 	private ControlVerCatalogo controlVerCatalogo;
 	
 	
-	
 	@Autowired
 	private ControlAgregarCliente controlAgregarCliente;
+	
+	@SuppressWarnings("unused")
+	@Autowired
+	private ControlAgregarPersonal controlAgregarPersonal;
 	
 	
 	/**
@@ -106,6 +110,15 @@ public class ControlPrincipal{
 	 */
 	public void agregarCliente() {
 		controlAgregarCliente.inicia();
+	}
+	
+	/**
+	 * Método que arranca la historia de usuario "Agregar Personal"
+	 * 
+	 */
+	
+	public void agregarPersonal() {
+		controlAgregarPersonal.inicia();
 	}
 	
 	
