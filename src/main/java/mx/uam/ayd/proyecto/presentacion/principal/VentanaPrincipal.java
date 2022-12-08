@@ -111,10 +111,15 @@ public class VentanaPrincipal extends JFrame {
 		mnNewMenu_3.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
 		menuBar.add(mnNewMenu_3);
 		
-		JMenuItem mntmNewMenuItem_8 = new JMenuItem("Agregar ");
-		mntmNewMenuItem_8.setBackground(new Color(204, 153, 204));
-		mntmNewMenuItem_8.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
-		mnNewMenu_3.add(mntmNewMenuItem_8);
+		JMenuItem BotonAgregarPersonal = new JMenuItem("Agregar ");
+		BotonAgregarPersonal.setBackground(new Color(204, 153, 204));
+		BotonAgregarPersonal.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
+		mnNewMenu_3.add(BotonAgregarPersonal);
+		BotonAgregarPersonal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlPrincipal.agregarPersonal();
+			}
+		}); 
 		
 		JMenuItem mntmNewMenuItem_9 = new JMenuItem("Modificar ");
 		mntmNewMenuItem_9.addActionListener(new ActionListener() {

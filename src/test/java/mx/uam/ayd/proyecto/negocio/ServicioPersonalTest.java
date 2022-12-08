@@ -112,6 +112,19 @@ class ServicioPersonalTest {
 		
 	}
 	
+	@Test
+	void testAgregaPersonal () {
+		
+		// Prueba: Comprobar si AgregarPersonal funciona correctamente
+		
+		when (personalRepository.findByNombre("Juan")).thenReturn(personalPrueba);
+		
+		boolean resultado = servicioPersonal.agregaPersonal("Juan", "55601330399", "juan123@gmail.com", "Encargado");
+		
+		assertEquals(true, resultado); 
+		
+	}
+	
 	
 
 }

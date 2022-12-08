@@ -91,7 +91,27 @@ public class ServicioPersonal {
 		
 		return personal;
 
-}
+     }
+	
+	public boolean agregaPersonal(String nombre, String telefono, String correo, String puesto) {
+
+		Personal personal = personalRepository.findByNombre(nombre);	
+		
+		if (personal != null) 
+			throw new IllegalArgumentException ("El personal ya fue registrado");
+		
+		log.info("Agregando personal con nombre: " + nombre + ", teléfono: " + telefono + "correo: " + correo + "dirección" + puesto);
+		
+		personal = new Personal ();
+		personal.setNombre(nombre);
+		personal.setTelefonoPersonal(telefono);
+		personal.setCorreo(correo);
+		personal.setPuesto(puesto);
+		
+		personalRepository.save(personal);
+		
+		return true;
+	}
 	
 	
 }
