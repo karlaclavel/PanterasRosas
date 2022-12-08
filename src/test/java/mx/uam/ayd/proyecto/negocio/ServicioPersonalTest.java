@@ -28,7 +28,7 @@ public class ServicioPersonalTest {
 		
 		when (personalRepository.findByNombreCompleto("Juan")).thenReturn(personalprueba);
 		
-		boolean resultado = servicioPersonal.agregaPersonal("Juan", "55601330399", "juan123@gmail.com", Encargado");
+		boolean resultado = servicioPersonal.agregaPersonal("Juan", "55601330399", "juan123@gmail.com", "Encargado");
 		
 		assertEquals(true, resultado); 
 		

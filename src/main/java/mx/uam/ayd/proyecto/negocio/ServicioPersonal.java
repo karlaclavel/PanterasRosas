@@ -12,6 +12,8 @@ import mx.uam.ayd.proyecto.negocio.modelo.Personal;
  * Servicio relacionado con el Cliente
  * 
  * @author erikamaya 
+ * @author Berenice 
+ * 
  * 
  */
 
@@ -50,14 +52,14 @@ public class ServicioPersonal {
 	}
 	
 	/**
-	 * Recupera todos los clientes existentes 
+	 * Recupera todos los empleados existentes 
 	 * Contrato:
-	 * @return Una lista con todos los clientes existentes
+	 * @return Una lista con todos los empleados existentes
 	 *         Una lista vacía
 	
 	 */	
-	public List <Personal> recuperaTodosClientes(){ 
-		//System.out.println("clienteRepository = " + clienteRepository);
+	public List <Personal> recuperaTodosPersonal(){ 
+		
 		
 		List <Personal> listaPersonal =new ArrayList<>();
 		

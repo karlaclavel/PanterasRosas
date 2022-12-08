@@ -6,9 +6,9 @@ import mx.uam.ayd.proyecto.negocio.ServicioPersonal;
 
 /**
  * 
- * Módulo de control para la historia de usuario AgregarCliente
+ * Módulo de control para la historia de usuario AgregarPersonal
  *  
- * @author karlaclavel
+ * @author Berenice
  *
  */
 
