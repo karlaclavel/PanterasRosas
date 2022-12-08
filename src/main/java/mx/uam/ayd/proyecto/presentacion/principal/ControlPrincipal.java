@@ -3,6 +3,8 @@ package mx.uam.ayd.proyecto.presentacion.principal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import mx.uam.ayd.proyecto.presentacion.IniciarSesion.ControlIniciarSesion;
+import mx.uam.ayd.proyecto.presentacion.IniciarSesion.VentanaIniciarSesion;
 import mx.uam.ayd.proyecto.presentacion.agregarCliente.ControlAgregarCliente;
 import mx.uam.ayd.proyecto.presentacion.agregarPersonal.ControlAgregarPersonal;
 import mx.uam.ayd.proyecto.presentacion.agregarProducto.ControlAgregarProducto;
@@ -10,19 +12,20 @@ import mx.uam.ayd.proyecto.presentacion.crearGarantia.ControlCrearGarantia;
 import mx.uam.ayd.proyecto.presentacion.modificarPersonal.ControlModificarPersonal;
 import mx.uam.ayd.proyecto.presentacion.modificarProducto.ControlModificarProducto;
 import mx.uam.ayd.proyecto.presentacion.obtenerDatos.ControlObtenerDatos;
+import mx.uam.ayd.proyecto.presentacion.verCatalogo.ControlVerCatalogo;
 import mx.uam.ayd.proyecto.presentacion.vizualizarProducto.ControlVizualizarProducto;
 
 @Component
 public class ControlPrincipal{
 	
 	@Autowired
+	private VentanaPrincipal ventana;
+	
+	@Autowired
 	private ControlAgregarProducto controlAgregarProducto; 
 	
 	@Autowired
 	private ControlModificarProducto controlModificarProducto; 
-	
-	@Autowired
-	private VentanaPrincipal ventana;
 	
 	@Autowired
 	private ControlObtenerDatos controlObtenerDatos;
@@ -32,6 +35,10 @@ public class ControlPrincipal{
 	
 	@Autowired
 	private ControlVizualizarProducto controlVizualizarProducto;
+	
+	@Autowired
+	private ControlVerCatalogo controlVerCatalogo;
+	
 	
 	@Autowired
 	private ControlAgregarCliente controlAgregarCliente;
@@ -44,7 +51,7 @@ public class ControlPrincipal{
 	
 	
 	/**
-	 * Inicia el flujo de control de la ventana principal
+	 * Inicia el flujo de control de la ventana de inicio de sesion
 	 * 
 	 */
 	public void inicia() {
@@ -95,6 +102,10 @@ public class ControlPrincipal{
 		controlVizualizarProducto.inicia();
 
 	}
+	
+	public void VerCatalogo() {
+		controlVerCatalogo.inicia();
+	}
 
 	/**
 	 * Método que arranca la historia de usuario "Agregar Clientes"
@@ -111,11 +122,13 @@ public class ControlPrincipal{
 	public void modificarPersonal() {
 		controlModificarPersonal.inicia();
 	}
+  
 	/**
 	 * Método que arranca la historia de usuario "Agregar Personal"
 	 * 
 	 */
-	public void agregarPersonal() {
+	}
+  public void agregarPersonal() {
 		controlAgregarPersonal.inicia();
 	}
 	

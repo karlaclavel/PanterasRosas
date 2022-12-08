@@ -18,6 +18,7 @@ import mx.uam.ayd.proyecto.negocio.modelo.Personal;
  * @author berelucas
  *
  */
+
 @Slf4j
 @Service
 public class ServicioPersonal {
@@ -38,7 +39,7 @@ public class ServicioPersonal {
 		List <Personal> todoPersonal = new ArrayList<>();
 		
 		for(Personal personal:personalRepository.findAll()) {
-			todoPersonal.add(personal);
+		  	todoPersonal.add(personal);
 		}
 				
 		return todoPersonal;
@@ -96,13 +97,14 @@ public class ServicioPersonal {
 	public boolean agregaPersonal(String nombre, String telefono, String correo, String puesto) {
 
 		Personal personal = personalRepository.findByNombre(nombre);	
-		
+
 		if (personal != null) 
 			throw new IllegalArgumentException ("El personal ya fue registrado");
 		
 		log.info("Agregando personal con nombre: " + nombre + ", teléfono: " + telefono + "correo: " + correo + "dirección" + puesto);
 		
 		personal = new Personal ();
+
 		personal.setNombre(nombre);
 		personal.setTelefonoPersonal(telefono);
 		personal.setCorreo(correo);
@@ -112,6 +114,5 @@ public class ServicioPersonal {
 		
 		return true;
 	}
-	
-	
+
 }

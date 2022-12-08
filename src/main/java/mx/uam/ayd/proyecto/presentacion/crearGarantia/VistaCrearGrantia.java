@@ -30,9 +30,6 @@ public class VistaCrearGrantia extends JFrame {
 	
 	private ControlCrearGarantia controlCrearGarantia;
 	
-	private ControlPrincipal controlPrincipal;
-	
-	private VentanaPrincipal ventana;
 
 	private JPanel contentPane;
 	private JTextField textField;

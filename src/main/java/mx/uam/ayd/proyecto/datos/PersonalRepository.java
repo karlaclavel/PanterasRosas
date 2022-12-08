@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
+import mx.uam.ayd.proyecto.negocio.modelo.Compra;
 import mx.uam.ayd.proyecto.negocio.modelo.Personal;
 
 
