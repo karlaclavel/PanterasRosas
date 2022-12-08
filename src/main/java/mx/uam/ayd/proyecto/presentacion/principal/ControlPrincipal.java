@@ -127,7 +127,7 @@ public class ControlPrincipal{
 	 * Método que arranca la historia de usuario "Agregar Personal"
 	 * 
 	 */
-	}
+	
   public void agregarPersonal() {
 		controlAgregarPersonal.inicia();
 	}

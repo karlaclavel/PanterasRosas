@@ -55,9 +55,6 @@ public class ProyectoApplication {
 	@Autowired
 	CompraRepository compraRepository;
 	
-	@Autowired
-	PersonalRepository personalRepository;
-
 	/**
 	 * 
 	 * Método principal

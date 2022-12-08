@@ -80,7 +80,7 @@ class ServicioProductoTest {
 		when(seccionCatalogoRepository.findByNombre("Procesador")).thenReturn(seccionCatalogoPrueba);
 		
 		boolean resultado = servicioProducto.agregaProducto("Core i2", "Intel", "10100F Comet Lake Quad - Procesador de sobremesa, Core 3,6 GHz, 6 MB, LGA 1200, 65W, 4C / 8T",
-				 "1499.90", "15", "7", "Procesador"); 
+				 "1499.90", "15", "7", "Procesador", null); 
 		
 		assertEquals(true, resultado); 
 		
@@ -90,7 +90,7 @@ class ServicioProductoTest {
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
 
 			servicioProducto.agregaProducto("Core i3", "Intel", "10100F Comet Lake Quad - Procesador de sobremesa, Core 3,6 GHz, 6 MB, LGA 1200, 65W, 4C / 8T",
-					 "1499.90", "15", "7", "Procesador");
+					 "1499.90", "15", "7", "Procesador", null);
 
 		});		
 	
@@ -109,11 +109,11 @@ class ServicioProductoTest {
 		// Prueba 2: Verificar que el metodo validarMaximoProductos() funcione correctamente si ya se ha llegado al limite maximo de registros de productos por seccion
 		
 		servicioProducto.agregaProducto("Core i3", "Intel", "10100F Comet Lake Quad - Procesador de sobremesa, Core 3,6 GHz, 6 MB, LGA 1200, 65W, 4C / 8T",
-				 "1499.90", "15", "7", "Procesador"); 
+				 "1499.90", "15", "7", "Procesador", null); 
 		servicioProducto.agregaProducto("Core i5", "Intel", "10100F Comet Lake Quad - Procesador de sobremesa, Core 3,6 GHz, 6 MB, LGA 1200, 65W, 4C / 8T",
-				 "1499.90", "15", "7", "Procesador");
+				 "1499.90", "15", "7", "Procesador", null);
 		servicioProducto.agregaProducto("Core i7", "Intel", "10100F Comet Lake Quad - Procesador de sobremesa, Core 3,6 GHz, 6 MB, LGA 1200, 65W, 4C / 8T",
-				 "1499.90", "15", "7", "Procesador");
+				 "1499.90", "15", "7", "Procesador", null);
 		
 		resultado = servicioProducto.validarMaximoProductos("Procesador");
 		
