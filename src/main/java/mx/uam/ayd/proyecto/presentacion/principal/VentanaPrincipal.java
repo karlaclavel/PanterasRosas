@@ -2,6 +2,7 @@ package mx.uam.ayd.proyecto.presentacion.principal;
 
 import javax.swing.JFrame;
 
+
 import javax.swing.JPanel;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +16,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
-
+import javax.swing.JButton;
+import java.awt.BorderLayout;
+import javax.swing.SwingConstants;
 
 @SuppressWarnings("serial")
 @Component
@@ -43,6 +46,7 @@ public class VentanaPrincipal extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaPrincipal() {
+		
 		setTitle("Menú principal/ServiceTEC");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 576, 323);
@@ -63,7 +67,7 @@ public class VentanaPrincipal extends JFrame {
 				controlPrincipal.agregarProducto();
 			}
 		});
-   	mntmNewMenuItem.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
+		mntmNewMenuItem.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
 		mnNewMenu.add(mntmNewMenuItem);
 
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Modificar");
@@ -80,6 +84,18 @@ public class VentanaPrincipal extends JFrame {
 		mntmNewMenuItem_2.setBackground(new Color(204, 153, 204));
 		mntmNewMenuItem_2.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
 		mnNewMenu.add(mntmNewMenuItem_2);
+		
+		JMenuItem mntmNewMenuItem_30 = new JMenuItem("Ver");
+		mntmNewMenuItem_30.setBackground(new Color(204, 153, 204));
+		mntmNewMenuItem_30.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlPrincipal.VerCatalogo();		
+				}
+		});
+		mntmNewMenuItem_30.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
+		mnNewMenu.add(mntmNewMenuItem_30);
+		
+		
 	
 		JMenu mnNewMenu_1 = new JMenu("      Clientes      ");
 		mnNewMenu_1.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
@@ -96,6 +112,7 @@ public class VentanaPrincipal extends JFrame {
 		mnNewMenu_1.add(mntmNewMenuItem_5);
 		
 		JMenuItem mntmNewMenuItem_6 = new JMenuItem("Agregar"); 
+		mntmNewMenuItem_6.setBackground(new Color(204, 153, 204));
 		mntmNewMenuItem_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlPrincipal.agregarCliente();
@@ -173,7 +190,7 @@ public class VentanaPrincipal extends JFrame {
   
 	public void muestra(ControlPrincipal control) {
 		
-		controlPrincipal = control;
+		this.controlPrincipal = control;
 		setVisible(true);
 	}
 }

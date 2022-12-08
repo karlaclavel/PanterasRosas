@@ -36,5 +36,7 @@ public class Producto {
 	private String marca;
 	
 	private double descuento;
+	
+	private String imagen;
 
 }

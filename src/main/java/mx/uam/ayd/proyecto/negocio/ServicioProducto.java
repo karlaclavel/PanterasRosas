@@ -49,7 +49,7 @@ public class ServicioProducto {
 	 */
 	
 	public boolean agregaProducto(String nombre, String marca, String descripcion, String precio, String descuento,
-			String existencia, String seccion) {
+			String existencia, String seccion, String imagen) {
 
 		// Regla de negocio: No se permite agregar dos productos con el mismo nombre
 
@@ -69,7 +69,7 @@ public class ServicioProducto {
 
 			log.info("Agregando producto con nombre: " + nombre + ", marca:" + marca + ", descripcion:" + descripcion
 					+ ", precio:" + precio + ", descuento:" + descuento + ", existencia:" + existencia + ", seccion:"
-					+ seccion);
+					+ seccion+ "imagen:"+imagen);
 
 			producto = new Producto();
 
@@ -79,6 +79,7 @@ public class ServicioProducto {
 			producto.setPrecio(Double.parseDouble(precio));
 			producto.setDescuento(Double.parseDouble(descuento));
 			producto.setExistencia(Integer.parseInt(existencia));
+			producto.setImagen(imagen);
 
 			productoRepository.save(producto);
 			seccionCatalogo.addProducto(producto);
