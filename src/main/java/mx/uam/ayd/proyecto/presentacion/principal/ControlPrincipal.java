@@ -9,6 +9,7 @@ import mx.uam.ayd.proyecto.presentacion.agregarCliente.ControlAgregarCliente;
 import mx.uam.ayd.proyecto.presentacion.agregarPersonal.ControlAgregarPersonal;
 import mx.uam.ayd.proyecto.presentacion.agregarProducto.ControlAgregarProducto;
 import mx.uam.ayd.proyecto.presentacion.crearGarantia.ControlCrearGarantia;
+import mx.uam.ayd.proyecto.presentacion.modificarPersonal.ControlModificarPersonal;
 import mx.uam.ayd.proyecto.presentacion.modificarProducto.ControlModificarProducto;
 import mx.uam.ayd.proyecto.presentacion.obtenerDatos.ControlObtenerDatos;
 import mx.uam.ayd.proyecto.presentacion.verCatalogo.ControlVerCatalogo;
@@ -42,7 +43,9 @@ public class ControlPrincipal{
 	@Autowired
 	private ControlAgregarCliente controlAgregarCliente;
 	
-	@SuppressWarnings("unused")
+	@Autowired
+	private ControlModificarPersonal controlModificarPersonal;
+	
 	@Autowired
 	private ControlAgregarPersonal controlAgregarPersonal;
 	
@@ -113,13 +116,20 @@ public class ControlPrincipal{
 	}
 	
 	/**
+	 * Método que arranca la historia de usuario "Modificar Personal"
+	 * 
+	 */
+	public void modificarPersonal() {
+		controlModificarPersonal.inicia();
+	}
+  
+	/**
 	 * Método que arranca la historia de usuario "Agregar Personal"
 	 * 
 	 */
-	
-	public void agregarPersonal() {
+	}
+  public void agregarPersonal() {
 		controlAgregarPersonal.inicia();
 	}
-	
 	
 }

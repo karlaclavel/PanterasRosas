@@ -131,6 +131,7 @@ public class VentanaAgregarPersonal extends JFrame {
 	
 	/*
 	 * Este método nos muestra la ventana de la HU "Agregar Personal"
+   *
 	 */
 	public void muestra(ControlAgregarPersonal control) {
 		

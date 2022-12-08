@@ -13,6 +13,7 @@ import mx.uam.ayd.proyecto.datos.ProductoRepository;
 import mx.uam.ayd.proyecto.datos.SeccionCatalogoRepository;
 import mx.uam.ayd.proyecto.negocio.modelo.Cliente;
 import mx.uam.ayd.proyecto.negocio.modelo.Compra;
+import mx.uam.ayd.proyecto.negocio.modelo.Personal;
 import mx.uam.ayd.proyecto.negocio.modelo.Producto;
 import mx.uam.ayd.proyecto.negocio.modelo.SeccionCatalogo;
 import mx.uam.ayd.proyecto.presentacion.IniciarSesion.ControlIniciarSesion;
@@ -47,6 +48,9 @@ public class ProyectoApplication {
 	
 	@Autowired
 	ClienteRepository clienteRepository;
+	
+	@Autowired
+	PersonalRepository personalRepository;
 	
 	@Autowired
 	CompraRepository compraRepository;
@@ -131,6 +135,33 @@ public class ProyectoApplication {
 		cliente2.setDireccionEntrega("Calle 34 #125 Col. Santa Cruz Meyehualco");
 		clienteRepository.save(cliente2);
 		
+		Personal personal1=new Personal();
+		personal1.setNombre("Erika Maya");
+		personal1.setCorreo("erikamaya840@gmail.com");
+		personal1.setTelefonoPersonal("5561330399");
+		personal1.setPuesto("Diseñadora");
+		personalRepository.save(personal1);
+		
+		Personal personal2=new Personal();
+		personal2.setNombre("Berenice Lucas");
+		personal2.setCorreo("berelu123@gmail.com");
+		personal2.setTelefonoPersonal("5556789032");
+		personal2.setPuesto("Gerente");
+		personalRepository.save(personal2);
+		
+		Personal personal3=new Personal();
+		personal3.setNombre("Veronica Sliva");
+		personal3.setCorreo("veroSil98@gmail.com");
+		personal3.setTelefonoPersonal("5590654455");
+		personal3.setPuesto("Contadora");
+		personalRepository.save(personal3);
+		
+		Personal personal4=new Personal();
+		personal4.setNombre("Karla Clavel");
+		personal4.setCorreo("Karla456@gmail.com");
+		personal4.setTelefonoPersonal("5523435678");
+		personal4.setPuesto("Administradora");
+		personalRepository.save(personal4);
 		
 		var productoPrueba = new Producto();
 		 

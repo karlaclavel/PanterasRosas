@@ -18,9 +18,8 @@ import lombok.Data;
 /**
  * Entidad de negocio Personal
  * 
- * @author abigailmorales
+ * @author berelucas
  * @author erikamaya
- * @author eduardocastro
  *
  */
 
@@ -29,24 +28,17 @@ import lombok.Data;
 public class Personal {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	private long idPersonal;
-
-	private String contraseña;
 	
-	private String correo; 
+	private String nombre;
 	
-	private String nombreCompleto;
-	
-	private String telefono;
-	
-	private String cargo;
+	//private String apellido;
     
-	@OneToMany(targetEntity = Personal.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)  
-	 @JoinColumn(name= "idCompra")
-	 private final List <Compra> compras = new ArrayList <> ();
-   
-	 @OneToMany(targetEntity = Personal.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)  
-	 @JoinColumn(name= "idPersonal")
-	 private final List <Personal> personal = new ArrayList <> ();
-
+	private String telefonoPersonal;
+    
+	private String puesto;
+	
+	private String correo;
+  
 }
