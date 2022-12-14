@@ -25,6 +25,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+import java.awt.SystemColor;
 
 
 @SuppressWarnings("serial")
@@ -63,10 +64,10 @@ public class VentanaIniciarSesion extends JFrame {
 	public VentanaIniciarSesion() {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(300, 400);
-		setTitle("Iniciar Sesión");
+		setSize(335, 450);
 		setResizable(false);
-		setBounds(100, 100, 330, 400);
+		setTitle("Iniciar Sesión");
+		setBounds(100, 100, 335, 450);
 		
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(237, 216, 218));
@@ -99,7 +100,7 @@ public class VentanaIniciarSesion extends JFrame {
 		
 		JLabel lblNewLabelLogo = new JLabel("");
 		lblNewLabelLogo.setBounds(90, 10, 125, 110);
-		lblNewLabelLogo.setIcon(new ImageIcon("D:\\Archivos\\Documentos\\SPRING TOOL SUITE\\workspace\\Service Tec\\src\\main\\java\\mx\\uam\\ayd\\imagen\\logo.png"));
+		lblNewLabelLogo.setIcon(new ImageIcon(VentanaIniciarSesion.class.getResource("/mx/uam/ayd/imagen/logo.png")));
 		contentPane.add(lblNewLabelLogo);
 		
 		/******** CUADROS DE TEXTO ******/
@@ -117,7 +118,7 @@ public class VentanaIniciarSesion extends JFrame {
 		/******** LISTENERS ******/
 		
 		JButton btnAceptar = new JButton("Aceptar");
-		btnAceptar.setBounds(122, 300, 85, 21);
+		btnAceptar.setBounds(115, 284, 85, 21);
 		contentPane.add(btnAceptar);
 		
 		
@@ -150,8 +151,23 @@ public class VentanaIniciarSesion extends JFrame {
 			}
 		});
 		
-	}
+		JButton btnRecuperar = new JButton("Recuperar contraseña");
+		btnRecuperar.setBackground(new Color(216, 227, 237));
+		btnRecuperar.setIcon(new ImageIcon(VentanaIniciarSesion.class.getResource("/mx/uam/ayd/imagen/candado.png")));
+		btnRecuperar.setBounds(50, 328, 217, 41);
+		contentPane.add(btnRecuperar);
+		
+		btnRecuperar.addActionListener(new ActionListener() {
 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+			
+		});
+		
+	}
 
 	public void muestraDialogoConMensaje(String mensaje) {
 		JOptionPane.showMessageDialog(this , mensaje);
@@ -163,5 +179,4 @@ public class VentanaIniciarSesion extends JFrame {
 		setVisible(true);
 		
 	}
-
 }

@@ -48,6 +48,8 @@ public class VentanaPrincipal extends JFrame {
 	public VentanaPrincipal() {
 		
 		setTitle("Menú principal/ServiceTEC");
+		setSize (576, 323);
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 576, 323);
 		
@@ -176,7 +178,7 @@ public class VentanaPrincipal extends JFrame {
 		panel.setLayout(null);
 		
 		JLabel lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon("D:\\Archivos\\Documentos\\SPRING TOOL SUITE\\workspace\\Service Tec\\src\\main\\java\\mx\\uam\\ayd\\imagen\\logo.png"));
+		lblLogo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/mx/uam/ayd/imagen/logo.png")));
 		lblLogo.setBounds(231, 30, 132, 133);
 		panel.add(lblLogo);
 		
@@ -189,7 +191,7 @@ public class VentanaPrincipal extends JFrame {
 		JLabel lblFondo = new JLabel("");
 		lblFondo.setBounds(0, 0, 560, 257);
 		panel.add(lblFondo);
-		lblFondo.setIcon(new ImageIcon("D:\\Archivos\\Documentos\\SPRING TOOL SUITE\\workspace\\Service Tec\\src\\main\\java\\mx\\uam\\ayd\\imagen\\fondo (1).jpg"));
+		lblFondo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/mx/uam/ayd/imagen/fondo (1).jpg")));
 	
   }
   
