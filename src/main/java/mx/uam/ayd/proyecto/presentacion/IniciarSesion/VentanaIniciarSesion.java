@@ -22,6 +22,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
@@ -32,6 +33,7 @@ import java.awt.SystemColor;
 @Component
 public class VentanaIniciarSesion extends JFrame {
 	
+	protected static final String JoptionPane = null;
 	private ControlIniciarSesion controlIniciarSesion;
 	@Autowired
 	private ControlPrincipal controlPrincipal;
@@ -39,6 +41,9 @@ public class VentanaIniciarSesion extends JFrame {
 	private JPanel contentPane;
 	private JTextField textUsuario;
 	private JTextField textContraseña;
+	String usuario = "ADMIN_PANROSA";
+	String contraseña = "UAMI2022";	
+	int numero; 
 	
 	/**
 	 * Launch the application.
@@ -136,7 +141,7 @@ public class VentanaIniciarSesion extends JFrame {
 					textUsuario.requestFocus();
 				}
 				else {
-					if (user.equals("ADMIN_PANROSA") && pass.equals("UAMI2022")) {
+					if (user.equals(usuario) && pass.equals(contraseña)) {
 						muestraDialogoConMensaje ("Su usuario y contraseña correctos");
 						controlPrincipal.inicia();
 						dispose();
@@ -161,8 +166,22 @@ public class VentanaIniciarSesion extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				muestraDialogoConMensaje ("Codigo de verificación enviado a el correo electronico registrado");
 				
 				
+				Random random = new Random();
+				numero = random.nextInt((99999 - 10000) + 1) + 10000;
+				
+				System.out.println("" + numero);
+				int codigo = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresa el codigo de verificación: ", "Código de verificación", JOptionPane.QUESTION_MESSAGE));
+				
+				
+				if (codigo == numero) 
+					muestraDialogoConMensaje ("La contraseña es  UAMI2022 ");
+				else 
+					muestraDialogoConMensaje ("Codigo de verificación incorrecto");
+				
+			
 			}
 			
 		});
