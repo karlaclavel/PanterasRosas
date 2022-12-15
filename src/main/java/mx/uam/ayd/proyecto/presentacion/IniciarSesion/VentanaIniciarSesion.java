@@ -22,8 +22,17 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Properties;
 import java.util.Random;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.NoSuchProviderException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.awt.SystemColor;
@@ -166,11 +175,52 @@ public class VentanaIniciarSesion extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				muestraDialogoConMensaje ("Codigo de verificación enviado a el correo electronico registrado");
 				
+				muestraDialogoConMensaje ("Codigo de verificación enviado al correo electronico registrado");
 				
 				Random random = new Random();
 				numero = random.nextInt((99999 - 10000) + 1) + 10000;
+				
+				String correo_emisor = "servicetec.panrosa@gmail.com";
+				String contraseña_emisor = "pjxsgcpippforbfs";
+				String correo_receptor = "karla.clavel1@gmail.com";
+				String asunto = "SERVICE TEC [ Recuperación de contraseña ]";
+				String mensaje = ("Usuario: ADMIN_PANROSA \nCodigo de recuperación: " + numero);
+				
+				Properties propiedades = new Properties();
+				
+				propiedades.put("mail.smtp.host", "smtp.gmail.com");
+				propiedades.put ("mail.smtp.ssl.trust", "smtp.gmail.com");
+				//propiedades.setProperty ("mail.smtp.host", "smtp.gmail.com");
+				propiedades.setProperty("mail.smtp.starttls.enable", "true");
+				propiedades.setProperty("mail.smtp.port", "587");
+				//propiedades.setProperty("mail.smtp.host", "smtp.gmail.com");
+				propiedades.setProperty("mail.smtp.user", correo_emisor);
+				propiedades.setProperty("mail.smtp.ssl.protocols", "TLSv1.2");
+				propiedades.setProperty("mail.smtp.auth", "true");
+				
+				Session session = Session.getDefaultInstance(propiedades);
+						
+				try {
+					
+					MimeMessage message = new MimeMessage (session);
+					
+					message.setFrom(new InternetAddress(correo_emisor));
+					message.addRecipient(Message.RecipientType.TO, new InternetAddress(correo_receptor));
+					message.setSubject(asunto);
+					message.setText(mensaje);
+					
+					Transport t = session.getTransport("smtp");
+					t.connect(correo_emisor, contraseña_emisor);
+					t.sendMessage(message, message.getRecipients(Message.RecipientType.TO));
+					t.close();
+				
+				} catch (AddressException ad) {
+					System.out.print("Exception: " + ad);
+				} catch (MessagingException me) {
+					System.out.print("Exception: " + me);
+				}
+				
 				
 				System.out.println("" + numero);
 				int codigo = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresa el codigo de verificación: ", "Código de verificación", JOptionPane.QUESTION_MESSAGE));
@@ -180,7 +230,6 @@ public class VentanaIniciarSesion extends JFrame {
 					muestraDialogoConMensaje ("La contraseña es  UAMI2022 ");
 				else 
 					muestraDialogoConMensaje ("Codigo de verificación incorrecto");
-				
 			
 			}
 			
