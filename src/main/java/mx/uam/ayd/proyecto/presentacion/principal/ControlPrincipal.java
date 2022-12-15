@@ -9,6 +9,7 @@ import mx.uam.ayd.proyecto.presentacion.agregarCliente.ControlAgregarCliente;
 import mx.uam.ayd.proyecto.presentacion.agregarPersonal.ControlAgregarPersonal;
 import mx.uam.ayd.proyecto.presentacion.agregarProducto.ControlAgregarProducto;
 import mx.uam.ayd.proyecto.presentacion.crearGarantia.ControlCrearGarantia;
+import mx.uam.ayd.proyecto.presentacion.eliminarPersonal.ControlEliminarPersonal;
 import mx.uam.ayd.proyecto.presentacion.modificarPersonal.ControlModificarPersonal;
 import mx.uam.ayd.proyecto.presentacion.modificarProducto.ControlModificarProducto;
 import mx.uam.ayd.proyecto.presentacion.obtenerDatos.ControlObtenerDatos;
@@ -49,6 +50,8 @@ public class ControlPrincipal{
 	@Autowired
 	private ControlAgregarPersonal controlAgregarPersonal;
 	
+	@Autowired
+	private ControlEliminarPersonal controlEliminarPersonal;
 	
 	/**
 	 * Inicia el flujo de control de la ventana de inicio de sesion
@@ -131,5 +134,12 @@ public class ControlPrincipal{
   public void agregarPersonal() {
 		controlAgregarPersonal.inicia();
 	}
+     /**
+	 * Método que arranca la historia de usuario "Eliminar Personal"
+	 * 
+	 */
+  public void eliminarPersonal() {
+	  controlEliminarPersonal.inicia();
+  }
 	
 }

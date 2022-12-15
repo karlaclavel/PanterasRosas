@@ -45,6 +45,8 @@ public class VentanaModificarPersonal extends JFrame {
 	private JComboBox <String> comboBoxPersonal; 
 	private String personalSeleccionado="";
 	private String seccionDelPersonal=""; 
+	
+	
 	/**
 	 * Launch the application.
 	 */

@@ -1,6 +1,7 @@
 package mx.uam.ayd.proyecto.presentacion.eliminarPersonal;
 
 import java.awt.Color;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -28,11 +29,13 @@ public class VentanaEliminarPersonal extends JFrame {
 	private JTextField textField_Correo;
 	private JTextField textField_Telefono;
 	private JTextField textField_Puesto;
-
+	
+	private ControlEliminarPersonal control;  
+	
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/**public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -153,5 +156,10 @@ public class VentanaEliminarPersonal extends JFrame {
 		btnCnacelar.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
 		btnCnacelar.setBounds(277, 247, 110, 23);
 		contentPane.add(btnCnacelar);
+	}
+	
+	public void muestra(ControlEliminarPersonal control) {
+		this.control= control;
+		setVisible(true);
 	}
 }
