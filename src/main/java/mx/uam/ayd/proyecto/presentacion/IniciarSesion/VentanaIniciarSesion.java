@@ -33,6 +33,7 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.awt.SystemColor;
@@ -53,6 +54,7 @@ public class VentanaIniciarSesion extends JFrame {
 	String usuario = "ADMIN_PANROSA";
 	String contraseña = "UAMI2022";	
 	int numero; 
+	
 	
 	/**
 	 * Launch the application.
@@ -176,6 +178,7 @@ public class VentanaIniciarSesion extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
+				
 				muestraDialogoConMensaje ("Codigo de verificación enviado al correo electronico registrado");
 				
 				Random random = new Random();
@@ -191,10 +194,8 @@ public class VentanaIniciarSesion extends JFrame {
 				
 				propiedades.put("mail.smtp.host", "smtp.gmail.com");
 				propiedades.put ("mail.smtp.ssl.trust", "smtp.gmail.com");
-				//propiedades.setProperty ("mail.smtp.host", "smtp.gmail.com");
 				propiedades.setProperty("mail.smtp.starttls.enable", "true");
 				propiedades.setProperty("mail.smtp.port", "587");
-				//propiedades.setProperty("mail.smtp.host", "smtp.gmail.com");
 				propiedades.setProperty("mail.smtp.user", correo_emisor);
 				propiedades.setProperty("mail.smtp.ssl.protocols", "TLSv1.2");
 				propiedades.setProperty("mail.smtp.auth", "true");
@@ -221,21 +222,25 @@ public class VentanaIniciarSesion extends JFrame {
 					System.out.print("Exception: " + me);
 				}
 				
-				
 				System.out.println("" + numero);
-				int codigo = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresa el codigo de verificación: ", "Código de verificación", JOptionPane.QUESTION_MESSAGE));
+				try {
+					int codigo = Integer.parseInt(JOptionPane.showInputDialog
+						(null, "Ingresa el codigo de verificación: ", "Código de verificación", JOptionPane.PLAIN_MESSAGE));
+					if (codigo == numero) 
+						muestraDialogoConMensaje ("La contraseña es  UAMI2022 ");
+					else 
+						muestraDialogoConMensaje ("Codigo de verificación incorrecto");
 				
+				} catch (Exception ex) {
+					System.out.println("");
+				}
 				
-				if (codigo == numero) 
-					muestraDialogoConMensaje ("La contraseña es  UAMI2022 ");
-				else 
-					muestraDialogoConMensaje ("Codigo de verificación incorrecto");
-			
 			}
 			
 		});
 		
 	}
+	
 
 	public void muestraDialogoConMensaje(String mensaje) {
 		JOptionPane.showMessageDialog(this , mensaje);

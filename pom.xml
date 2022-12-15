@@ -47,7 +47,7 @@
       		<artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         
-        <!-- javax.mail  -->
+        <!-- Correo electronico -->
 		<dependency>
     		<groupId>com.sun.mail</groupId>
     		<artifactId>javax.mail</artifactId>
