@@ -222,15 +222,18 @@ public class VentanaIniciarSesion extends JFrame {
 					System.out.print("Exception: " + me);
 				}
 				
-				System.out.println("" + numero);
-				try {
-					int codigo = Integer.parseInt(JOptionPane.showInputDialog
-						(null, "Ingresa el codigo de verificación: ", "Código de verificación", JOptionPane.PLAIN_MESSAGE));
-					if (codigo == numero) 
-						muestraDialogoConMensaje ("La contraseña es  UAMI2022 ");
-					else 
-						muestraDialogoConMensaje ("Codigo de verificación incorrecto");
 				
+				try {
+					int codigo = Integer.parseInt(JOptionPane.showInputDialog (null, "Ingresa el codigo de verificación: ", "Código de verificación", JOptionPane.PLAIN_MESSAGE));
+						
+					while (codigo != numero) {
+						muestraDialogoConMensaje ("Codigo de verificación incorrecto");
+						codigo = Integer.parseInt(JOptionPane.showInputDialog (null, "Ingresa el codigo de verificación: ", "Código de verificación", JOptionPane.PLAIN_MESSAGE));
+						
+						if (codigo == numero) 
+							muestraDialogoConMensaje ("La contraseña es  UAMI2022 ");
+					}
+					
 				} catch (Exception ex) {
 					System.out.println("");
 				}
