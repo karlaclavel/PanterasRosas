@@ -2,22 +2,26 @@ package mx.uam.ayd.proyecto.presentacion.eliminarPersonal;
 
 import java.awt.Color;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import org.springframework.stereotype.Component;
+
+import mx.uam.ayd.proyecto.negocio.modelo.Personal;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
-import javax.swing.SwingConstants;
 import javax.swing.JSeparator;
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
@@ -29,9 +33,10 @@ public class VentanaEliminarPersonal extends JFrame {
 	private JTextField textField_Correo;
 	private JTextField textField_Telefono;
 	private JTextField textField_Puesto;
+	private JComboBox <String> comboBoxPersonal;
 	
 	private ControlEliminarPersonal control;  
-	
+	private String personalSeleccionado="";
 	/**
 	 * Launch the application.
 	 */
@@ -78,13 +83,32 @@ public class VentanaEliminarPersonal extends JFrame {
 		lblSelecPersonal.setBounds(13, 57, 244, 14);
 		contentPane.add(lblSelecPersonal);
 		
-		JComboBox comboBoxPersonal = new JComboBox();
-		comboBoxPersonal.setBounds(254, 54, 121, 22);
+		comboBoxPersonal = new JComboBox();
+		comboBoxPersonal.setBounds(254, 54, 144, 22);
 		contentPane.add(comboBoxPersonal);
 		
 		JRadioButton rdbtnVerInformacion = new JRadioButton("");
+		rdbtnVerInformacion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(rdbtnVerInformacion.isSelected()) {
+					muestraInformacionPersonal();
+                }else {
+					
+					textField_NombreCompleto.setEditable(true);
+					textField_Correo.setEditable(true);
+					textField_Telefono.setEditable(true);
+					textField_Puesto.setEditable(true);
+					comboBoxPersonal.setEnabled(true); 
+					
+					textField_NombreCompleto.setText("");
+	    			textField_Correo.setText("");
+	    			textField_Telefono.setText("");
+	    			textField_Puesto.setText("");
+				}
+			}
+		});
 		rdbtnVerInformacion.setBackground(new Color(255, 182, 193));
-		rdbtnVerInformacion.setBounds(385, 53, 30, 23);
+		rdbtnVerInformacion.setBounds(404, 53, 21, 23);
 		contentPane.add(rdbtnVerInformacion);
 		
 		JLabel lblAviso = new JLabel("¡Antes de eliminar, por favor verifique que los datos correspondan al personal seleccionado!");
@@ -138,7 +162,7 @@ public class VentanaEliminarPersonal extends JFrame {
 		
 		textField_Puesto = new JTextField();
 		textField_Puesto.setColumns(10);
-		textField_Puesto.setBounds(277, 203, 145, 20);
+		textField_Puesto.setBounds(277, 203, 148, 20);
 		contentPane.add(textField_Puesto);
 		
 		JButton btnNewButton = new JButton("Eliminar ");
@@ -158,8 +182,73 @@ public class VentanaEliminarPersonal extends JFrame {
 		contentPane.add(btnCnacelar);
 	}
 	
-	public void muestra(ControlEliminarPersonal control) {
+	
+	
+	/**
+	 * @name muestra
+	 * muestra() es un método que le indica a la ventanaEliminarPersonal que se muestre cuando inicia la HU-10
+	 * @param  control 
+	 * @param una lista del personal registrado en la base de datos 
+	 *  
+	 */
+	
+	public void muestra(ControlEliminarPersonal control, List <Personal> personal) {
+		
 		this.control= control;
+		
+		textField_NombreCompleto.setText("");
+		textField_Correo.setText("");
+		textField_Telefono.setText("");
+		textField_Puesto.setText("");
+		
+		DefaultComboBoxModel <String> comboBoxModel = new DefaultComboBoxModel <>();
+		
+		for(Personal personalLista:personal) {
+			comboBoxModel.addElement(personalLista.getNombre());
+		}
+		
+		comboBoxPersonal.setModel(comboBoxModel);
+
 		setVisible(true);
 	}
+	
+	/**
+	 * @name muestraInformacioPersonal
+	 * muestraInformacionPersonal() es un método que muestra la informacion del Personal seleccionado
+	 *  
+	 */
+	
+	public void muestraInformacionPersonal() {
+		
+		personalSeleccionado = (String) comboBoxPersonal.getSelectedItem();
+		Personal personal=control.obtenerPersonal(personalSeleccionado);
+		
+		if(personal!=null) {
+			textField_NombreCompleto.setText(personal.getNombre());
+			textField_Correo.setText(personal.getCorreo());
+			textField_Telefono.setText(personal.getTelefonoPersonal());
+			textField_Puesto.setText(personal.getPuesto());
+		}else {
+			textField_NombreCompleto.setText("");
+			textField_Correo.setText("");
+			textField_Telefono.setText("");
+			textField_Puesto.setText("");
+		}
+		textField_NombreCompleto.setEditable(false);
+		textField_Correo.setEditable(false);
+		textField_Telefono.setEditable(false);
+		textField_Puesto.setEditable(false);
+		comboBoxPersonal.setEnabled(false);
+	}
+    
+	/**
+	 * @name muestraDialogoConMensaje
+	 * muestraDialogoConMensaje() es un método que muestra los dialogos de confirmación o error 
+	 *  
+	 */
+    
+	public void muestraDialogoConMensaje(String mensaje ) {
+		JOptionPane.showMessageDialog(this , mensaje);
+	}
+	
 }

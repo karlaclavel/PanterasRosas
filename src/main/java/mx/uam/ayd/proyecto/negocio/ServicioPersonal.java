@@ -12,7 +12,7 @@ import mx.uam.ayd.proyecto.datos.PersonalRepository;
 import mx.uam.ayd.proyecto.negocio.modelo.Personal;
 
 /**
- * Servicio relacionado con las secciones del catalogo
+ * Servicio relacionado con la entidad Personal 
  * 
  * @author erikamaya
  * @author berelucas
@@ -27,7 +27,7 @@ public class ServicioPersonal {
 	private PersonalRepository personalRepository; 
 	
 	/**
-	 * 
+	 * @name consultarPersonal 
 	 * Recupera un listado de todo el personal agregado en la base de datos 
 	 * 
 	 * @param 
@@ -36,22 +36,23 @@ public class ServicioPersonal {
 	
 	public List <Personal> consultarPersonal() {
 		
-		List <Personal> todoPersonal = new ArrayList<>();
+		List <Personal> listaPersonal = new ArrayList<>();
 		
 		for(Personal personal:personalRepository.findAll()) {
-		  	todoPersonal.add(personal);
+		  	listaPersonal.add(personal);
 		}
 				
-		return todoPersonal;
+		return listaPersonal;
 	}
 	
 	/**
 	 * 
 	 * Recupera al personal de acuerdo a su nombre 
 	 * 
+	 * @name obtenPersonal
 	 * @param nombre
 	 * @return un objeto de tipo Personal si este se encontro en la base de datos 
-	 * @throws IllegalArgumentException si el personal no existe
+	 * @throws IllegalArgumentException, si el personal no existe
 	 */
 	
 	public Personal obtenerPersonal(String nombre) {

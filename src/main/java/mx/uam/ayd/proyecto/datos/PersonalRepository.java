@@ -25,5 +25,6 @@ public interface PersonalRepository extends CrudRepository<Personal, Long> {
 	
 	public Personal findByNombre(String nombre);
 	public List <Personal>	findAll();
-
+    public Personal deleteByNombre(String nombre);
+    
 }
