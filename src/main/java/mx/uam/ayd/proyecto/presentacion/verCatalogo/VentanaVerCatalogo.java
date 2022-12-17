@@ -36,19 +36,23 @@ public class VentanaVerCatalogo extends JFrame {
 		setBackground(new Color(204, 204, 153));
 		setTitle("Ver Catálogo");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 627, 500);
+		setBounds(100, 100, 641, 500);
+		setResizable(false);
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(225,216,234));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
 
 		setContentPane(contentPane);
 		SpringLayout sl_contentPane = new SpringLayout();
 		contentPane.setLayout(sl_contentPane);
 		
 		JLabel lblNewLabel = new JLabel("Catálogo");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 25));
+		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel, 240, SpringLayout.WEST, contentPane);
+		lblNewLabel.setForeground(new Color(158, 0, 82));
 		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel, 10, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel, 273, SpringLayout.WEST, contentPane);
+		lblNewLabel.setFont(new Font("Sitka Subheading", Font.BOLD, 30));
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblImagen1 = new JLabel("");
@@ -76,9 +80,9 @@ public class VentanaVerCatalogo extends JFrame {
 		contentPane.add(lblImagen3);
 		
 		JEditorPane dtrpnDescrip1 = new JEditorPane();
+		sl_contentPane.putConstraint(SpringLayout.WEST, dtrpnDescrip1, 27, SpringLayout.WEST, contentPane);
 		dtrpnDescrip1.setForeground(new Color(0, 0, 0));
 		sl_contentPane.putConstraint(SpringLayout.NORTH, dtrpnDescrip1, 23, SpringLayout.SOUTH, lblImagen1);
-		sl_contentPane.putConstraint(SpringLayout.WEST, dtrpnDescrip1, 40, SpringLayout.WEST, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, dtrpnDescrip1, -118, SpringLayout.SOUTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.EAST, dtrpnDescrip1, -11, SpringLayout.EAST, lblImagen1);
 		dtrpnDescrip1.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -87,53 +91,56 @@ public class VentanaVerCatalogo extends JFrame {
 		
 		JEditorPane dtrpnDescrip2 = new JEditorPane();
 		sl_contentPane.putConstraint(SpringLayout.NORTH, dtrpnDescrip2, 23, SpringLayout.SOUTH, lblImagen2);
-		sl_contentPane.putConstraint(SpringLayout.WEST, dtrpnDescrip2, 67, SpringLayout.EAST, dtrpnDescrip1);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, dtrpnDescrip2, 0, SpringLayout.SOUTH, dtrpnDescrip1);
+		sl_contentPane.putConstraint(SpringLayout.WEST, dtrpnDescrip2, 57, SpringLayout.EAST, dtrpnDescrip1);
 		dtrpnDescrip2.setText("Core i3 Intel, 10100FComet Lake Quad Procesador de sobremesa   $5999");
 		dtrpnDescrip2.setForeground(Color.BLACK);
 		dtrpnDescrip2.setFont(new Font("Tahoma", Font.BOLD, 13));
 		contentPane.add(dtrpnDescrip2);
 		
 		JEditorPane dtrpnDescrip3 = new JEditorPane();
+		sl_contentPane.putConstraint(SpringLayout.NORTH, dtrpnDescrip3, 23, SpringLayout.SOUTH, lblImagen3);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, dtrpnDescrip3, -118, SpringLayout.SOUTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, dtrpnDescrip2, -42, SpringLayout.WEST, dtrpnDescrip3);
+		sl_contentPane.putConstraint(SpringLayout.WEST, dtrpnDescrip3, 0, SpringLayout.WEST, lblImagen3);
 		dtrpnDescrip3.setText("Impresora Multifuncional HP Smart Tank 615 wireless $5680");
-		sl_contentPane.putConstraint(SpringLayout.EAST, dtrpnDescrip2, -55, SpringLayout.WEST, dtrpnDescrip3);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, dtrpnDescrip3, 0, SpringLayout.NORTH, dtrpnDescrip1);
-		sl_contentPane.putConstraint(SpringLayout.WEST, dtrpnDescrip3, 13, SpringLayout.WEST, lblImagen3);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, dtrpnDescrip3, 0, SpringLayout.SOUTH, dtrpnDescrip1);
 		sl_contentPane.putConstraint(SpringLayout.EAST, dtrpnDescrip3, 0, SpringLayout.EAST, lblImagen3);
 		dtrpnDescrip3.setForeground(Color.BLACK);
 		dtrpnDescrip3.setFont(new Font("Tahoma", Font.BOLD, 13));
 		contentPane.add(dtrpnDescrip3);
 		
 		TextField textFieldPz1 = new TextField();
+		sl_contentPane.putConstraint(SpringLayout.NORTH, textFieldPz1, 6, SpringLayout.SOUTH, dtrpnDescrip1);
+		sl_contentPane.putConstraint(SpringLayout.WEST, textFieldPz1, 87, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, textFieldPz1, 130, SpringLayout.WEST, contentPane);
 		textFieldPz1.setFont(new Font("Tahoma", Font.BOLD, 16));
 		textFieldPz1.setText("2 pz");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, textFieldPz1, 6, SpringLayout.SOUTH, dtrpnDescrip1);
-		sl_contentPane.putConstraint(SpringLayout.WEST, textFieldPz1, 88, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, textFieldPz1, 131, SpringLayout.WEST, contentPane);
 		contentPane.add(textFieldPz1);
 		
 		TextField textFieldPz2 = new TextField();
-		sl_contentPane.putConstraint(SpringLayout.NORTH, textFieldPz2, 6, SpringLayout.SOUTH, dtrpnDescrip2);
-		sl_contentPane.putConstraint(SpringLayout.WEST, textFieldPz2, 179, SpringLayout.EAST, textFieldPz1);
+		sl_contentPane.putConstraint(SpringLayout.WEST, textFieldPz2, 175, SpringLayout.EAST, textFieldPz1);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, dtrpnDescrip2, -6, SpringLayout.NORTH, textFieldPz2);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, textFieldPz2, 0, SpringLayout.SOUTH, textFieldPz1);
 		textFieldPz2.setText("1 pz");
 		textFieldPz2.setFont(new Font("Tahoma", Font.BOLD, 16));
 		contentPane.add(textFieldPz2);
 		
 		TextField textFieldPz3 = new TextField();
-		sl_contentPane.putConstraint(SpringLayout.EAST, textFieldPz2, -158, SpringLayout.WEST, textFieldPz3);
+		sl_contentPane.putConstraint(SpringLayout.EAST, textFieldPz2, -146, SpringLayout.WEST, textFieldPz3);
 		sl_contentPane.putConstraint(SpringLayout.NORTH, textFieldPz3, 6, SpringLayout.SOUTH, dtrpnDescrip3);
-		sl_contentPane.putConstraint(SpringLayout.WEST, textFieldPz3, -90, SpringLayout.EAST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, textFieldPz3, -48, SpringLayout.EAST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, textFieldPz3, -107, SpringLayout.EAST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, textFieldPz3, -65, SpringLayout.EAST, contentPane);
 		textFieldPz3.setText("5 pz");
 		textFieldPz3.setFont(new Font("Tahoma", Font.BOLD, 16));
 		contentPane.add(textFieldPz3);
 		
 		JButton btnSalir = new JButton("Salir");
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnSalir, -10, SpringLayout.SOUTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnSalir, -255, SpringLayout.EAST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnSalir, -53, SpringLayout.SOUTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, btnSalir, 19, SpringLayout.WEST, lblNewLabel);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnSalir, -25, SpringLayout.SOUTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnSalir, 0, SpringLayout.EAST, lblNewLabel);
+		btnSalir.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnSalir.setForeground(new Color(0, 0, 0));
-		btnSalir.setBackground(new Color(255, 255, 255));
+		btnSalir.setBackground(new Color(255, 228, 225));
 		contentPane.add(btnSalir);
 		
 		btnSalir.addActionListener(new ActionListener() {

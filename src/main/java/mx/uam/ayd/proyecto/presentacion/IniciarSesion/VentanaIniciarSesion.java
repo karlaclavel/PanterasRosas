@@ -81,9 +81,10 @@ public class VentanaIniciarSesion extends JFrame {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(335, 450);
-		setResizable(false);
 		setTitle("Iniciar Sesión");
 		setBounds(100, 100, 335, 450);
+		setResizable(false);
+		setLocationRelativeTo(null);
 		
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(237, 216, 218));
@@ -115,7 +116,7 @@ public class VentanaIniciarSesion extends JFrame {
 		contentPane.add(lblNewLabelTitulo);
 		
 		JLabel lblNewLabelLogo = new JLabel("");
-		lblNewLabelLogo.setBounds(90, 10, 125, 110);
+		lblNewLabelLogo.setBounds(99, 10, 125, 110);
 		lblNewLabelLogo.setIcon(new ImageIcon(VentanaIniciarSesion.class.getResource("/mx/uam/ayd/imagen/logo.png")));
 		contentPane.add(lblNewLabelLogo);
 		
@@ -134,6 +135,7 @@ public class VentanaIniciarSesion extends JFrame {
 		/******** LISTENERS ******/
 		
 		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.setBackground(new Color(216, 227, 237));
 		btnAceptar.setBounds(115, 284, 85, 21);
 		contentPane.add(btnAceptar);
 		
@@ -177,7 +179,6 @@ public class VentanaIniciarSesion extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
 				
 				muestraDialogoConMensaje ("Codigo de verificación enviado al correo electronico registrado");
 				
@@ -237,6 +238,7 @@ public class VentanaIniciarSesion extends JFrame {
 				} catch (Exception ex) {
 					System.out.println("");
 				}
+				
 				
 			}
 			

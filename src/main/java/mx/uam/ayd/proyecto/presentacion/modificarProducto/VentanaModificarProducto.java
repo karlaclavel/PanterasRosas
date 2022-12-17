@@ -65,21 +65,25 @@ public class VentanaModificarProducto extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaModificarProducto() {
-		setBackground(new Color(204, 204, 153));
+		setBackground(new Color(255, 255, 255));
 		setTitle("Modificar Producto");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 721, 500);
+		setBounds(100, 100, 686, 519);
+		setResizable(false);
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(153, 204, 153));
+		contentPane.setBackground(new Color(225, 216, 234));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
 
 		setContentPane(contentPane);
 		SpringLayout sl_contentPane = new SpringLayout();
 		contentPane.setLayout(sl_contentPane);
 		
 		JLabel lblNewLabel = new JLabel("Selecciona el producto que deseas modificar");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel, 69, SpringLayout.NORTH, contentPane);
-		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setForeground(new Color(0, 0, 0));
 		contentPane.add(lblNewLabel);
 		
 		comboBoxProductos = new JComboBox<>();
@@ -90,14 +94,14 @@ public class VentanaModificarProducto extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("Modificar Producto");
 		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel_1, 10, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, lblNewLabel_1, 0, SpringLayout.EAST, comboBoxProductos);
-		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setFont(new Font("Script MT Bold", Font.PLAIN, 28));
+		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel_1, 195, SpringLayout.WEST, contentPane);
+		lblNewLabel_1.setForeground(new Color(158, 0, 82));
+		lblNewLabel_1.setFont(new Font("Sitka Subheading", Font.BOLD, 30));
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Nombre del producto *");
 		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel, 0, SpringLayout.WEST, lblNewLabel_2);
-		lblNewLabel_2.setForeground(new Color(255, 255, 255));
+		lblNewLabel_2.setForeground(new Color(0, 0, 0));
 		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel_2, 142, SpringLayout.NORTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel_2, 32, SpringLayout.WEST, contentPane);
 		contentPane.add(lblNewLabel_2);
@@ -105,8 +109,8 @@ public class VentanaModificarProducto extends JFrame {
 		JLabel lblNewLabel_3 = new JLabel("Rellena los siguientes campos que deseas modificar del producto seleccionado");
 		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel_3, 21, SpringLayout.SOUTH, lblNewLabel);
 		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel_3, 0, SpringLayout.WEST, lblNewLabel);
-		lblNewLabel_3.setForeground(new Color(255, 255, 255));
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblNewLabel_3.setForeground(new Color(128, 0, 128));
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 9));
 		contentPane.add(lblNewLabel_3);
 		
 		textFieldNombreProducto = new JTextField();
@@ -118,7 +122,7 @@ public class VentanaModificarProducto extends JFrame {
 		
 		JLabel lblNewLabel_5 = new JLabel("Marca del producto *");
 		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel_5, 32, SpringLayout.WEST, contentPane);
-		lblNewLabel_5.setForeground(new Color(255, 255, 255));
+		lblNewLabel_5.setForeground(new Color(0, 0, 0));
 		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel_5, 20, SpringLayout.SOUTH, lblNewLabel_2);
 		contentPane.add(lblNewLabel_5);
 		
@@ -130,7 +134,7 @@ public class VentanaModificarProducto extends JFrame {
 		
 		JLabel lblNewLabel_6 = new JLabel("Descripción *");
 		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel_6, 32, SpringLayout.WEST, contentPane);
-		lblNewLabel_6.setForeground(new Color(255, 255, 255));
+		lblNewLabel_6.setForeground(new Color(0, 0, 0));
 		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel_6, 22, SpringLayout.SOUTH, lblNewLabel_5);
 		contentPane.add(lblNewLabel_6);
 		
@@ -144,7 +148,7 @@ public class VentanaModificarProducto extends JFrame {
 		
 		JLabel lblNewLabel_5_1 = new JLabel("Precio del producto *");
 		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel_5_1, 32, SpringLayout.WEST, contentPane);
-		lblNewLabel_5_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_5_1.setForeground(new Color(0, 0, 0));
 		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel_5_1, 96, SpringLayout.SOUTH, lblNewLabel_6);
 		contentPane.add(lblNewLabel_5_1);
 		
@@ -155,7 +159,7 @@ public class VentanaModificarProducto extends JFrame {
 		contentPane.add(textFieldPecioProducto);
 		
 		JLabel lblNewLabel_5_1_1 = new JLabel("Descuento del producto ");
-		lblNewLabel_5_1_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_5_1_1.setForeground(new Color(0, 0, 0));
 		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel_5_1_1, 0, SpringLayout.NORTH, lblNewLabel_5_1);
 		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel_5_1_1, 31, SpringLayout.EAST, textFieldPecioProducto);
 		contentPane.add(lblNewLabel_5_1_1);
@@ -169,7 +173,7 @@ public class VentanaModificarProducto extends JFrame {
 		
 		JLabel lblNewLabel_7 = new JLabel("Número en existencia *");
 		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel_7, 32, SpringLayout.WEST, contentPane);
-		lblNewLabel_7.setForeground(new Color(255, 255, 255));
+		lblNewLabel_7.setForeground(new Color(0, 0, 0));
 		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel_7, 22, SpringLayout.SOUTH, lblNewLabel_5_1);
 		contentPane.add(lblNewLabel_7);
 		
@@ -180,21 +184,28 @@ public class VentanaModificarProducto extends JFrame {
 		contentPane.add(textFieldNumeroEnExistenciaProducto);
 		
 		JButton btnModificar = new JButton("Modificar");
-		btnModificar.setBackground(new Color(255, 255, 255));
+		btnModificar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnModificar.setForeground(new Color(0, 0, 0));
+		sl_contentPane.putConstraint(SpringLayout.WEST, btnModificar, -31, SpringLayout.WEST, comboBoxProductos);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnModificar, 75, SpringLayout.WEST, comboBoxProductos);
+		btnModificar.setBackground(new Color(255, 228, 225));
 		contentPane.add(btnModificar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnCancelar, 370, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnCancelar, -26, SpringLayout.SOUTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnModificar, 0, SpringLayout.NORTH, btnCancelar);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnModificar, -21, SpringLayout.WEST, btnCancelar);
-		btnCancelar.setBackground(new Color(255, 255, 255));
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnCancelar, 0, SpringLayout.NORTH, btnModificar);
+		sl_contentPane.putConstraint(SpringLayout.WEST, btnCancelar, 6, SpringLayout.EAST, btnModificar);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnCancelar, 0, SpringLayout.SOUTH, btnModificar);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnCancelar, 6, SpringLayout.EAST, comboBoxProductos);
+		btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnCancelar.setBackground(new Color(255, 228, 225));
 		contentPane.add(btnCancelar);
 		
 		JLabel lblSeccinDelProducto = new JLabel("Sección del producto");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnModificar, 42, SpringLayout.SOUTH, lblSeccinDelProducto);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnModificar, 72, SpringLayout.SOUTH, lblSeccinDelProducto);
 		sl_contentPane.putConstraint(SpringLayout.NORTH, lblSeccinDelProducto, 0, SpringLayout.NORTH, lblNewLabel_7);
 		sl_contentPane.putConstraint(SpringLayout.WEST, lblSeccinDelProducto, 31, SpringLayout.EAST, textFieldNumeroEnExistenciaProducto);
-		lblSeccinDelProducto.setForeground(Color.WHITE);
+		lblSeccinDelProducto.setForeground(new Color(0, 0, 0));
 		contentPane.add(lblSeccinDelProducto);
 		
 		rdbtnVerInformacion = new JRadioButton("Ver información");

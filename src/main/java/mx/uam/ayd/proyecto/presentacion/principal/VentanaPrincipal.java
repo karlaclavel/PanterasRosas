@@ -25,7 +25,7 @@ import javax.swing.SwingConstants;
 public class VentanaPrincipal extends JFrame {
 
 	private ControlPrincipal controlPrincipal;
-
+		
 	/**
 	 * Launch the application.
 	 */
@@ -49,9 +49,10 @@ public class VentanaPrincipal extends JFrame {
 		
 		setTitle("Menú principal/ServiceTEC");
 		setSize (576, 323);
-		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 576, 323);
+		setResizable(false);
+		setLocationRelativeTo(null);
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBackground(new Color(153, 102, 204));
@@ -103,15 +104,13 @@ public class VentanaPrincipal extends JFrame {
 		mnNewMenu_1.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
 		menuBar.add(mnNewMenu_1);
 		
-		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Ver");
+		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Lista");
 		mntmNewMenuItem_5.setBackground(new Color(204, 153, 204));
 		mntmNewMenuItem_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlPrincipal.obtenerDatos();
 			}
 		});
-		mntmNewMenuItem_5.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
-		mnNewMenu_1.add(mntmNewMenuItem_5);
 		
 		JMenuItem mntmNewMenuItem_6 = new JMenuItem("Agregar"); 
 		mntmNewMenuItem_6.setBackground(new Color(204, 153, 204));
@@ -122,6 +121,8 @@ public class VentanaPrincipal extends JFrame {
 		}); 
 		mntmNewMenuItem_6.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
 		mnNewMenu_1.add(mntmNewMenuItem_6);
+		mntmNewMenuItem_5.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
+		mnNewMenu_1.add(mntmNewMenuItem_5);
 		
 		JMenu mnNewMenu_3 = new JMenu("       Personal       ");
 		mnNewMenu_3.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
@@ -182,10 +183,10 @@ public class VentanaPrincipal extends JFrame {
 		lblLogo.setBounds(231, 30, 132, 133);
 		panel.add(lblLogo);
 		
-		JLabel lblTitulo = new JLabel("Service Tec");
-		lblTitulo.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 45));
+		JLabel lblTitulo = new JLabel("Service TEC");
+		lblTitulo.setFont(new Font("Typo Grotesk Black", Font.BOLD, 45));
 		lblTitulo.setForeground(new Color(255, 255, 255));
-		lblTitulo.setBounds(192, 141, 213, 60);
+		lblTitulo.setBounds(154, 138, 286, 60);
 		panel.add(lblTitulo);
 		
 		JLabel lblFondo = new JLabel("");
