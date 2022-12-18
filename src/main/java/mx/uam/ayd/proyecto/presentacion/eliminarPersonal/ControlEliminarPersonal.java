@@ -50,6 +50,30 @@ public class ControlEliminarPersonal {
 	}
 	
 	/**
+	 * 
+	 * Manda a llamar al método eliminarPersonal() del módulo ServicioPersonal pasandole los mismos parámetros recibidos 
+	 * 
+	 * @param personal
+	 * @return Mensaje de exito o de error 
+	 * 
+	 */
+	public void eliminarPersonal(String personalSeleccionado) {
+
+		try {
+
+			servicioPersonal.eliminarPersonal(personalSeleccionado);
+
+			ventana.muestraDialogoConMensaje("El personal con nombre: "+personalSeleccionado+" ha sido eliminado exitosamente");
+			termina();
+
+		} catch (Exception ex) {
+			ventana.muestraDialogoConMensaje("Error al eliminar al personal seleccionado: " + ex.getMessage());
+		}
+
+		termina();
+	}
+	
+	/**
 	 * @name termina
 	 * Termina la historia de usuario 11, se utiliza con el botón "cancelar" permitiendo cerrar la ventana y volver al menú principal 
 	 * 

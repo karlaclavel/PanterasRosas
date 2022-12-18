@@ -65,6 +65,40 @@ public class ServicioPersonal {
 			return personal; 
 	}
 	
+	/**
+	 * 
+	 * método eliminarPersonal() del módulo ServicioPersonal pasandole los mismos parámetros recibidos 
+	 * 
+	 * @param nombrePersonalAModificar
+	 * @return Mensaje de error 
+	 */
+	
+	public void eliminarPersonal(String nombrePersonalEliminar) {
+		
+		
+		Personal personalSeleccionado = personalRepository.deleteByNombre(nombrePersonalEliminar);
+		
+		if (personalSeleccionado != null) 
+			throw new IllegalArgumentException ("El personal no existe");
+		
+		log.info("Eliminando personal con nombre: " + nombrePersonalEliminar );
+		
+		personalRepository.deleteByNombre(nombrePersonalEliminar);
+	
+	}
+	
+	/**
+	 * 
+	 * método modificaPersonal() del módulo ServicioPersonal pasandole los mismos parámetros recibidos 
+	 * 
+	 * @param nombrePersonalAModificar
+	 * @param nombre
+	 * @param apellido
+	 * @param telefono
+	 * @param cargo
+	 * @return Mensaje de exito o de error 
+	 */
+	
 	public Personal modificaPersonal(String nombrePersonalAModificar, String nombre, String correo, String telefono, String puesto) {
 
 		
@@ -112,7 +146,6 @@ public class ServicioPersonal {
 		personal.setPuesto(puesto);
 		
 		personalRepository.save(personal);
-		
 		return true;
 	}
 

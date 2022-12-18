@@ -166,6 +166,11 @@ public class VentanaEliminarPersonal extends JFrame {
 		contentPane.add(textField_Puesto);
 		
 		JButton btnNewButton = new JButton("Eliminar ");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				control.eliminarPersonal(personalSeleccionado);
+			}
+		});
 		btnNewButton.setBackground(new Color(255, 228, 225));
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton.setBounds(137, 238, 100, 32);
@@ -175,6 +180,7 @@ public class VentanaEliminarPersonal extends JFrame {
 		btnCnacelar.setBackground(new Color(255, 228, 225));
 		btnCnacelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				control.termina();
 			}
 		});
 		btnCnacelar.setFont(new Font("Tahoma", Font.BOLD, 12));
