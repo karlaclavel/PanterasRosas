@@ -70,20 +70,23 @@ public class ServicioPersonal {
 	 * método eliminarPersonal() del módulo ServicioPersonal pasandole los mismos parámetros recibidos 
 	 * 
 	 * @param nombrePersonalAModificar
-	 * @return Mensaje de error 
+	 * @return personalSeleccionado
 	 */
 	
-	public void eliminarPersonal(String nombrePersonalEliminar) {
+	public Personal eliminarPersonal(String nombrePersonalEliminar) {
 		
 		
-		Personal personalSeleccionado = personalRepository.deleteByNombre(nombrePersonalEliminar);
+		Personal personalSeleccionado = personalRepository.findByNombre(nombrePersonalEliminar);
 		
-		if (personalSeleccionado != null) 
+		if (personalSeleccionado == null) { 
 			throw new IllegalArgumentException ("El personal no existe");
+		}
+		log.info("Eliminando personal con nombre: " + personalSeleccionado.getNombre());
 		
-		log.info("Eliminando personal con nombre: " + nombrePersonalEliminar );
-		
-		personalRepository.deleteByNombre(nombrePersonalEliminar);
+		if(personalSeleccionado.getNombre().equals(nombrePersonalEliminar)) {
+			personalRepository.delete(personalSeleccionado);
+		}
+		return personalSeleccionado;
 	
 	}
 	
