@@ -21,6 +21,7 @@ import mx.uam.ayd.proyecto.negocio.modelo.Personal;
 
 import java.awt.Color;
 import javax.swing.SpringLayout;
+import javax.swing.SwingConstants;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -82,17 +83,18 @@ public class VentanaVerPersonal extends JFrame {
 		
 		scrollPane.setViewportView(tablaPersonal);
 		
-		JButton ButtonCancelar = new JButton("Salir");
-		ButtonCancelar.addActionListener(new ActionListener() {
+		JButton ButtonSalir = new JButton("Salir");
+		ButtonSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlPersonal.termina();
 			}
 		});
-		ButtonCancelar.setForeground(Color.BLACK);
-		ButtonCancelar.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
-		ButtonCancelar.setBackground(new Color(255, 228, 225));
-		ButtonCancelar.setBounds(249, 226, 119, 23);
-		contentPane.add(ButtonCancelar);
+		ButtonSalir.setForeground(Color.BLACK);
+		ButtonSalir.setHorizontalAlignment(SwingConstants.CENTER);
+		ButtonSalir.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
+		ButtonSalir.setBackground(new Color(255, 228, 225));
+		ButtonSalir.setBounds(249, 226, 119, 23);
+		contentPane.add(ButtonSalir);
 		
 	}
 	
