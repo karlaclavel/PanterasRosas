@@ -13,6 +13,7 @@ import mx.uam.ayd.proyecto.presentacion.modificarPersonal.ControlModificarPerson
 import mx.uam.ayd.proyecto.presentacion.modificarProducto.ControlModificarProducto;
 import mx.uam.ayd.proyecto.presentacion.obtenerDatos.ControlObtenerDatos;
 import mx.uam.ayd.proyecto.presentacion.verCatalogo.ControlVerCatalogo;
+import mx.uam.ayd.proyecto.presentacion.verPersonal.ControlVerPersonal;
 import mx.uam.ayd.proyecto.presentacion.vizualizarProducto.ControlVizualizarProducto;
 
 @Component
@@ -48,6 +49,9 @@ public class ControlPrincipal{
 	
 	@Autowired
 	private ControlAgregarPersonal controlAgregarPersonal;
+	
+	@Autowired
+	private ControlVerPersonal controlVerPersonal;
 	
 	
 	/**
@@ -131,5 +135,10 @@ public class ControlPrincipal{
   public void agregarPersonal() {
 		controlAgregarPersonal.inicia();
 	}
-	
+  
+  
+  public void verPersonal() {
+		
+		controlVerPersonal.inicia();
+	}
 }

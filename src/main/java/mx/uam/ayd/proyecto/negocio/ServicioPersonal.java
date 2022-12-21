@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
 import mx.uam.ayd.proyecto.datos.PersonalRepository;
+import mx.uam.ayd.proyecto.negocio.modelo.Cliente;
 import mx.uam.ayd.proyecto.negocio.modelo.Personal;
 
 /**
@@ -113,6 +114,19 @@ public class ServicioPersonal {
 		personalRepository.save(personal);
 		
 		return true;
+	}
+	
+	/*Recupera una lista de todos los emleados que estan registrados 
+	 * 
+	 */
+	public List <Personal> recuperaTodosPersonal(){ 
+		
+		List <Personal> listaPersonal =new ArrayList<>();
+		
+		for(Personal personal:personalRepository.findAll()) {  
+			listaPersonal.add(personal);
+		}
+		return listaPersonal;
 	}
 
 }
