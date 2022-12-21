@@ -21,7 +21,6 @@ import mx.uam.ayd.proyecto.negocio.modelo.Personal;
 
 import java.awt.Color;
 import javax.swing.SpringLayout;
-import javax.swing.SwingConstants;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -90,7 +89,6 @@ public class VentanaVerPersonal extends JFrame {
 			}
 		});
 		ButtonSalir.setForeground(Color.BLACK);
-		ButtonSalir.setHorizontalAlignment(SwingConstants.CENTER);
 		ButtonSalir.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
 		ButtonSalir.setBackground(new Color(255, 228, 225));
 		ButtonSalir.setBounds(249, 226, 119, 23);
