@@ -42,7 +42,7 @@ public class ControlEliminarProducto {
 
 			servicioProducto.eliminarProducto(nombre);
 
-			ventana.muestraDialogoConMensaje("El producto ha sido eliminado exitosamente");
+			ventana.muestraDialogoConMensaje("El producto "+nombre+" sido eliminado exitosamente");
 			termina();
 
 		} catch (Exception ex) {

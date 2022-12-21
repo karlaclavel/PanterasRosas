@@ -63,6 +63,30 @@ class ServicioProductoTest {
 		seccionCatalogoPrueba = new SeccionCatalogo(); 
 		seccionCatalogoPrueba.setNombre("Procesador");
 		
+		productoPrueba = new Producto(); 
+		productoPrueba.setNombre("Impresora Deskjet Ink Advantage 2375");
+		productoPrueba.setMarca("HP");
+		productoPrueba.setDescripcion("HP Impresora Multifuncional Deskjet Ink Advantage 2375 + Software The Creativity Collection (6Y6X1AW)");
+		productoPrueba.setPrecio(2250);
+		productoPrueba.setDescuento(17);
+		productoPrueba.setExistencia(1);
+		productoPrueba.setTotalComprasProducto(0);
+		
+		seccionCatalogoPrueba = new SeccionCatalogo(); 
+		seccionCatalogoPrueba.setNombre("Impresora");
+		
+		productoPrueba = new Producto(); 
+		productoPrueba.setNombre("Laptop IP315ITL6");
+		productoPrueba.setMarca("Lenovo");
+		productoPrueba.setDescripcion("Laptop Lenovo IP315ITL6 15.6'' Intel Core i5 8 GB RAM 512 GB SSD Gris");
+		productoPrueba.setPrecio(13999);
+		productoPrueba.setDescuento(10);
+		productoPrueba.setExistencia(2);
+		productoPrueba.setTotalComprasProducto(0);
+		
+		seccionCatalogoPrueba = new SeccionCatalogo(); 
+		seccionCatalogoPrueba.setNombre("Laptops");
+		
 	}
 	
 	@AfterEach
@@ -211,6 +235,33 @@ class ServicioProductoTest {
 		assertNotEquals(null, producto);
 		
 	} 
+	
+	
+	@Test
+	void testEliminarProducto() {
+		
+		// Prueba 1: Corroborar que el metodo eliminarProducto funciona correctamente si el producto no existe en la BD
+		
+		
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+
+			servicioProducto.eliminarProducto("Impresora 1234");
+
+		});
+		
+		// Prueba 2: Corroborar que el metodo eliminarProducto funciona correctamente si el producto existe en la BD
+
+		String nombre = "Core i3";
+		
+		when(productoRepository.findByNombre(nombre)).thenReturn(productoPrueba);
+		
+		Producto producto = servicioProducto.eliminarProducto(nombre);
+	
+		assertNotEquals(null,producto);
+		
+	} 
+	
+	
 	@Test
 	void testRecuperaListaProductos() {
 		
