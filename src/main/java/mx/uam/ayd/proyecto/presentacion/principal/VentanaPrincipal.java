@@ -82,6 +82,11 @@ public class VentanaPrincipal extends JFrame {
 
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Eliminar");
 		mntmNewMenuItem_2.setBackground(new Color(204, 153, 204));
+		mntmNewMenuItem_2.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			controlPrincipal.eliminarProducto();		
+			}
+	});
 		mntmNewMenuItem_2.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
 		mnNewMenu.add(mntmNewMenuItem_2);
 		
