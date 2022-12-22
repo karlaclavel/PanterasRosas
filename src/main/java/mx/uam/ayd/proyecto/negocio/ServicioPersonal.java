@@ -13,7 +13,7 @@ import mx.uam.ayd.proyecto.negocio.modelo.Cliente;
 import mx.uam.ayd.proyecto.negocio.modelo.Personal;
 
 /**
- * Servicio relacionado con las secciones del catalogo
+ * Servicio relacionado con la entidad Personal 
  * 
  * @author erikamaya
  * @author berelucas
@@ -28,7 +28,7 @@ public class ServicioPersonal {
 	private PersonalRepository personalRepository; 
 	
 	/**
-	 * 
+	 * @name consultarPersonal 
 	 * Recupera un listado de todo el personal agregado en la base de datos 
 	 * 
 	 * @param 
@@ -37,22 +37,23 @@ public class ServicioPersonal {
 	
 	public List <Personal> consultarPersonal() {
 		
-		List <Personal> todoPersonal = new ArrayList<>();
+		List <Personal> listaPersonal = new ArrayList<>();
 		
 		for(Personal personal:personalRepository.findAll()) {
-		  	todoPersonal.add(personal);
+		  	listaPersonal.add(personal);
 		}
 				
-		return todoPersonal;
+		return listaPersonal;
 	}
 	
 	/**
 	 * 
 	 * Recupera al personal de acuerdo a su nombre 
 	 * 
+	 * @name obtenPersonal
 	 * @param nombre
 	 * @return un objeto de tipo Personal si este se encontro en la base de datos 
-	 * @throws IllegalArgumentException si el personal no existe
+	 * @throws IllegalArgumentException, si el personal no existe
 	 */
 	
 	public Personal obtenerPersonal(String nombre) {
@@ -64,6 +65,43 @@ public class ServicioPersonal {
 		}else
 			return personal; 
 	}
+	
+	/**
+	 * 
+	 * método eliminarPersonal() del módulo ServicioPersonal pasandole los mismos parámetros recibidos 
+	 * 
+	 * @param nombrePersonalAModificar
+	 * @return personalSeleccionado
+	 */
+	
+	public Personal eliminarPersonal(String nombrePersonalEliminar) {
+		
+		
+		Personal personalSeleccionado = personalRepository.findByNombre(nombrePersonalEliminar);
+		
+		if (personalSeleccionado == null) { 
+			throw new IllegalArgumentException ("El personal no existe");
+		}
+		log.info("Eliminando personal con nombre: " + personalSeleccionado.getNombre());
+		
+		if(personalSeleccionado.getNombre().equals(nombrePersonalEliminar)) {
+			personalRepository.delete(personalSeleccionado);
+		}
+		return personalSeleccionado;
+	
+	}
+	
+	/**
+	 * 
+	 * método modificaPersonal() del módulo ServicioPersonal pasandole los mismos parámetros recibidos 
+	 * 
+	 * @param nombrePersonalAModificar
+	 * @param nombre
+	 * @param apellido
+	 * @param telefono
+	 * @param cargo
+	 * @return Mensaje de exito o de error 
+	 */
 	
 	public Personal modificaPersonal(String nombrePersonalAModificar, String nombre, String correo, String telefono, String puesto) {
 
@@ -112,7 +150,6 @@ public class ServicioPersonal {
 		personal.setPuesto(puesto);
 		
 		personalRepository.save(personal);
-		
 		return true;
 	}
 	

@@ -133,6 +133,11 @@ public class VentanaPrincipal extends JFrame {
 		mnNewMenu_3.add(mntmNewMenuItem_9);
 		
 		JMenuItem mntmNewMenuItem_10 = new JMenuItem("Eliminar");
+		mntmNewMenuItem_10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlPrincipal.eliminarPersonal();
+			}
+		});
 		mntmNewMenuItem_10.setBackground(new Color(204, 153, 204));
 		mntmNewMenuItem_10.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
 		mnNewMenu_3.add(mntmNewMenuItem_10);
@@ -168,7 +173,7 @@ public class VentanaPrincipal extends JFrame {
 		panel.setLayout(null);
 		
 		JLabel lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon("D:\\Archivos\\Documentos\\SPRING TOOL SUITE\\workspace\\Service Tec\\src\\main\\java\\mx\\uam\\ayd\\imagen\\logo.png"));
+		lblLogo.setIcon(new ImageIcon("C:\\Users\\hp\\Documents\\ERIKA\\NOVENO TRIMESTRE\\PanterasRosas\\src\\main\\java\\mx\\uam\\ayd\\imagen\\logo.png"));
 		lblLogo.setBounds(231, 30, 132, 133);
 		panel.add(lblLogo);
 		
@@ -181,7 +186,7 @@ public class VentanaPrincipal extends JFrame {
 		JLabel lblFondo = new JLabel("");
 		lblFondo.setBounds(0, 0, 560, 257);
 		panel.add(lblFondo);
-		lblFondo.setIcon(new ImageIcon("D:\\Archivos\\Documentos\\SPRING TOOL SUITE\\workspace\\Service Tec\\src\\main\\java\\mx\\uam\\ayd\\imagen\\fondo (1).jpg"));
+		lblFondo.setIcon(new ImageIcon("C:\\Users\\hp\\Documents\\ERIKA\\NOVENO TRIMESTRE\\PanterasRosas\\src\\main\\java\\mx\\uam\\ayd\\imagen\\fondo (1).jpg"));
 	
   }
   
