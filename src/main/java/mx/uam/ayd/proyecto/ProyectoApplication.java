@@ -171,9 +171,35 @@ public class ProyectoApplication {
 		productoPrueba.setTotalComprasProducto(0);
 		
 		seccionProcesador.addProducto(productoPrueba);
-		
 		//productoRepository.save(productoPrueba);
 		seccionCatalogoRepository.save(seccionProcesador);
+		
+		var productoPrueba1 = new Producto();
+		productoPrueba1.setNombre("Impresora Deskjet Ink Advantage 2375");
+		productoPrueba1.setMarca("HP");
+		productoPrueba1.setDescripcion("HP Impresora Multifuncional Deskjet Ink Advantage 2375 + Software The Creativity Collection (6Y6X1AW)");
+		productoPrueba1.setPrecio(2250);
+		productoPrueba1.setDescuento(17);
+		productoPrueba1.setExistencia(1);
+		productoPrueba1.setTotalComprasProducto(0);
+		
+		seccionImpresora.addProducto(productoPrueba1);
+		//productoRepository.save(productoPrueba);
+		seccionCatalogoRepository.save(seccionImpresora);
+		
+		var productoPrueba2 = new Producto(); 
+		productoPrueba2.setNombre("Laptop IP315ITL6");
+		productoPrueba2.setMarca("Lenovo");
+		productoPrueba2.setDescripcion("Laptop Lenovo IP315ITL6 15.6'' Intel Core i5 8 GB RAM 512 GB SSD Gris");
+		productoPrueba2.setPrecio(13999);
+		productoPrueba2.setDescuento(10);
+		productoPrueba2.setExistencia(2);
+		productoPrueba2.setTotalComprasProducto(0);
+		
+		seccionLaptop.addProducto(productoPrueba2);
+		//productoRepository.save(productoPrueba);
+		seccionCatalogoRepository.save(seccionLaptop);
+
 		
 		var compraPrueba = new Compra();
 		compraPrueba.setCantidad(2);
