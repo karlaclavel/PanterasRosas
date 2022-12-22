@@ -24,6 +24,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.List;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
 @SuppressWarnings("serial")
 @Component
@@ -57,6 +58,10 @@ public class VentanaEliminarPersonal extends JFrame {
 		setTitle("Eliminar Personal");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 611, 335);
+		setResizable(false);
+		setLocationRelativeTo(null);
+		
+		
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(225,216,234));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -65,7 +70,8 @@ public class VentanaEliminarPersonal extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblTitulo = new JLabel("Eliminar Personal");
-		lblTitulo.setBounds(182, 28, 269, 38);
+		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitulo.setBounds(120, 28, 384, 38);
 		lblTitulo.setForeground(new Color(158,0,82));
 		lblTitulo.setFont(new Font("Sitka Text", Font.BOLD, 30));
 		contentPane.add(lblTitulo);

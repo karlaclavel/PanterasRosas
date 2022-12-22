@@ -41,6 +41,10 @@ public class VentanaEliminarProducto extends JFrame {
 		setTitle("Eliminar Producto");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 627, 500);
+		setResizable(false);
+		setLocationRelativeTo(null);
+		
+		
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(225,216,234));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -58,7 +62,7 @@ public class VentanaEliminarProducto extends JFrame {
 		
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.setForeground(new Color(0, 0, 0));
-		btnCancelar.setBackground(new Color(255, 255, 255));
+		btnCancelar.setBackground(new Color(255, 228, 225));
 		contentPane.add(btnCancelar);
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -92,7 +96,7 @@ public class VentanaEliminarProducto extends JFrame {
 			}
 		});
 		btnEliminar.setForeground(Color.BLACK);
-		btnEliminar.setBackground(Color.WHITE);
+		btnEliminar.setBackground(new Color(255, 228, 225));
 		contentPane.add(btnEliminar);
 		
 		

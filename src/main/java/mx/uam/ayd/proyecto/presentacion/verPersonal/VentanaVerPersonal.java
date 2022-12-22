@@ -42,6 +42,7 @@ public class VentanaVerPersonal extends JFrame {
 		setTitle("Personal ");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
+		
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(237, 216, 218));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -49,6 +50,8 @@ public class VentanaVerPersonal extends JFrame {
 		setTitle("Lista Personal");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
+		setResizable(false);
+		setLocationRelativeTo(null);
 		
 		setContentPane(contentPane);
 		SpringLayout sl_contentPane = new SpringLayout();
