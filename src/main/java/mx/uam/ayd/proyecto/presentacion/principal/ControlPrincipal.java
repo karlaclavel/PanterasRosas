@@ -10,10 +10,12 @@ import mx.uam.ayd.proyecto.presentacion.agregarPersonal.ControlAgregarPersonal;
 import mx.uam.ayd.proyecto.presentacion.agregarProducto.ControlAgregarProducto;
 import mx.uam.ayd.proyecto.presentacion.crearGarantia.ControlCrearGarantia;
 import mx.uam.ayd.proyecto.presentacion.eliminarPersonal.ControlEliminarPersonal;
+import mx.uam.ayd.proyecto.presentacion.eliminarProducto.ControlEliminarProducto;
 import mx.uam.ayd.proyecto.presentacion.modificarPersonal.ControlModificarPersonal;
 import mx.uam.ayd.proyecto.presentacion.modificarProducto.ControlModificarProducto;
 import mx.uam.ayd.proyecto.presentacion.obtenerDatos.ControlObtenerDatos;
 import mx.uam.ayd.proyecto.presentacion.verCatalogo.ControlVerCatalogo;
+import mx.uam.ayd.proyecto.presentacion.verPersonal.ControlVerPersonal;
 import mx.uam.ayd.proyecto.presentacion.vizualizarProducto.ControlVizualizarProducto;
 
 @Component
@@ -53,6 +55,12 @@ public class ControlPrincipal{
 	@Autowired
 	private ControlEliminarPersonal controlEliminarPersonal;
 	
+  @Autowired
+	private ControlVerPersonal controlVerPersonal;
+  
+  @Autowired
+	private ControlEliminarProducto controlEliminarProducto;
+
 	/**
 	 * Inicia el flujo de control de la ventana de inicio de sesion
 	 * 
@@ -80,6 +88,16 @@ public class ControlPrincipal{
 		controlModificarProducto.inicia();
 		
 	}
+	
+	/**
+	 * Método que arranca la historia de usuario "eliminar productos"
+	 * 
+	 */
+	public void eliminarProducto() {
+		
+		controlEliminarProducto.inicia();
+	}
+	
 	/**
 	 * Método que inicia la historia de usuario " Obtener Datos"
 	 * 
@@ -134,7 +152,8 @@ public class ControlPrincipal{
   public void agregarPersonal() {
 		controlAgregarPersonal.inicia();
 	}
-     /**
+
+   /**
 	 * Método que arranca la historia de usuario "Eliminar Personal"
 	 * 
 	 */
@@ -142,4 +161,12 @@ public class ControlPrincipal{
 	  controlEliminarPersonal.inicia();
   }
 	
+  /**
+	 * Método que arranca la historia de usuario "Lista ver Personal"
+	 * 
+	 */
+  public void verPersonal() {
+		controlVerPersonal.inicia();
+	}
+
 }

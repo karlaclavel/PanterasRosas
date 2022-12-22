@@ -217,6 +217,28 @@ public class ServicioProducto {
 			return producto;
 
 	}
+	
+	public Producto eliminarProducto(String nombreProductoEliminar) {
+
+		
+		Producto producto = productoRepository.findByNombre(nombreProductoEliminar);
+
+		if (producto == null) {
+			throw new IllegalArgumentException("El producto no existe");
+		}
+
+		log.info("Eliminando el producto con nombre: " + producto.getNombre());
+		
+		if(producto.getNombre().equals(nombreProductoEliminar)) {
+			productoRepository.delete(producto);
+			
+		}
+	
+		
+		return producto;
+
+}
+	
 	/**
 	 * 
 	 * Permite agregar recuperar la lista de usuarios
