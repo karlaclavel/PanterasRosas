@@ -14,6 +14,7 @@ import mx.uam.ayd.proyecto.presentacion.modificarPersonal.ControlModificarPerson
 import mx.uam.ayd.proyecto.presentacion.modificarProducto.ControlModificarProducto;
 import mx.uam.ayd.proyecto.presentacion.obtenerDatos.ControlObtenerDatos;
 import mx.uam.ayd.proyecto.presentacion.verCatalogo.ControlVerCatalogo;
+import mx.uam.ayd.proyecto.presentacion.verPersonal.ControlVerPersonal;
 import mx.uam.ayd.proyecto.presentacion.vizualizarProducto.ControlVizualizarProducto;
 
 @Component
@@ -51,9 +52,12 @@ public class ControlPrincipal{
 	private ControlAgregarPersonal controlAgregarPersonal;
 	
 	@Autowired
+	private ControlVerPersonal controlVerPersonal;
+  
+  @Autowired
 	private ControlEliminarProducto controlEliminarProducto;
-	
-	
+
+
 	/**
 	 * Inicia el flujo de control de la ventana de inicio de sesion
 	 * 
@@ -145,5 +149,10 @@ public class ControlPrincipal{
   public void agregarPersonal() {
 		controlAgregarPersonal.inicia();
 	}
-	
+  
+  
+  public void verPersonal() {
+		
+		controlVerPersonal.inicia();
+	}
 }
