@@ -44,5 +44,13 @@ public class ControlObtenerDatos {
 		controlHistorialCompra.inicia(idCliente);
 	}
 	
+	/**
+	 * Termina la historia de usuario
+	 * 
+	 */
+	public void termina() {
+		ventanaDatos.setVisible(false);		
+	}
+	
 	
 } 

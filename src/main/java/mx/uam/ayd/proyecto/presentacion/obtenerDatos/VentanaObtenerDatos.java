@@ -20,6 +20,10 @@ import javax.swing.SwingConstants;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
 @Component
@@ -27,9 +31,9 @@ public class VentanaObtenerDatos extends JFrame {
 
 	private JPanel contentPane;
 	private ControlObtenerDatos controlDatos;
-	private JTextField txtListaDeClientes;
 	private JTable tablaClientes;
 	private DefaultTableModel model;
+	private JButton btnNewButton;
 
 	/**
 	 * Launch the application.
@@ -51,71 +55,22 @@ public class VentanaObtenerDatos extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaObtenerDatos() {
-		setTitle("Clientes ");
+		
+		setTitle("Lista de clientes");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 355);
+		setResizable(false);
+		setLocationRelativeTo(null);
+
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(225, 216, 234));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
-		setTitle("Menú principal/ServiceTEC");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		
-		JMenuBar menuBar = new JMenuBar();
-		menuBar.setForeground(new Color(204, 204, 153));
-		menuBar.setBackground(new Color(204, 204, 153));
-		setJMenuBar(menuBar);
-		
-		JMenu mnNewMenu = new JMenu("            Catálogo          ");
-		mnNewMenu.setBackground(new Color(204, 204, 153));
-		mnNewMenu.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
-		menuBar.add(mnNewMenu);
-		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Agregar ");
-		mntmNewMenuItem.setBackground(new Color(204, 204, 153));
-		mntmNewMenuItem.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
-		mnNewMenu.add(mntmNewMenuItem);
-		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Modificar");
-		mntmNewMenuItem_1.setBackground(new Color(204, 204, 153));
-		mntmNewMenuItem_1.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
-		mnNewMenu.add(mntmNewMenuItem_1);
-		
-		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Eliminar");
-		mntmNewMenuItem_2.setBackground(new Color(204, 204, 153));
-		mntmNewMenuItem_2.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
-		mnNewMenu.add(mntmNewMenuItem_2);
-		
-		JMenu mnNewMenu_1 = new JMenu("      Clientes      ");
-		mnNewMenu_1.setBackground(new Color(204, 204, 153));
-		mnNewMenu_1.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
-		menuBar.add(mnNewMenu_1);
-		
-		JMenu mnNewMenu_2 = new JMenu("        Ventas        ");
-		mnNewMenu_2.setBackground(new Color(46, 139, 87));
-		mnNewMenu_2.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
-		menuBar.add(mnNewMenu_2);
-		
-		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Garantía ");
-		mntmNewMenuItem_3.setBackground(new Color(204, 204, 153));
-		mntmNewMenuItem_3.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
-		mnNewMenu_2.add(mntmNewMenuItem_3);
-
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		txtListaDeClientes = new JTextField();
-		txtListaDeClientes.setHorizontalAlignment(SwingConstants.CENTER);
-		txtListaDeClientes.setFont(new Font("Sitka Subheading", Font.PLAIN, 18));
-		txtListaDeClientes.setBackground(new Color(216,191,216));
-		txtListaDeClientes.setText("Lista de clientes");
-		txtListaDeClientes.setBounds(0, 0, 434, 29);
-		contentPane.add(txtListaDeClientes);
-		txtListaDeClientes.setColumns(10);
-		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 40, 414, 183);
+		scrollPane.setBounds(10, 67, 414, 183);
 		contentPane.add(scrollPane);
 		
 		tablaClientes = new JTable();
@@ -131,6 +86,23 @@ public class VentanaObtenerDatos extends JFrame {
 		//model.addColumn("Compra");
 		
 		scrollPane.setViewportView(tablaClientes);
+		
+		btnNewButton = new JButton("Atras");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlDatos.termina();
+			}
+		});
+		btnNewButton.setBackground(new Color(255, 228, 225));
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnNewButton.setBounds(177, 260, 100, 30);
+		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel = new JLabel("Lista de clientes");
+		lblNewLabel.setForeground(new Color(158, 0, 82));
+		lblNewLabel.setFont(new Font("Sitka Subheading", Font.BOLD, 30));
+		lblNewLabel.setBounds(106, 20, 237, 37);
+		contentPane.add(lblNewLabel);
 	}
 	
 	/*

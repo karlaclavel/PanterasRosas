@@ -22,6 +22,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
+import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
 
 
 @SuppressWarnings("serial")
@@ -63,81 +65,85 @@ public class VentanaModificarPersonal extends JFrame {
 	public VentanaModificarPersonal() {
 		setTitle("Modificar Personal");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 460, 300);
+		setBounds(100, 100, 471, 345);
+		setResizable(false);
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(225, 216, 234));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
+		
+		
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblTitulo = new JLabel("Modificar Personal ");
-		lblTitulo.setBounds(122, 11, 228, 32);
-		lblTitulo.setForeground(new Color(199, 21, 133));
-		lblTitulo.setFont(new Font("Sitka Subheading", Font.BOLD, 25));
+		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitulo.setBounds(87, 20, 299, 30);
+		lblTitulo.setForeground(new Color(158, 0, 82));
+		lblTitulo.setFont(new Font("Sitka Subheading", Font.BOLD, 30));
 		contentPane.add(lblTitulo);
 		
 		JLabel lblNewLabel = new JLabel("Selecciona al Personal que deseas modificar ");
-		lblNewLabel.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		lblNewLabel.setBounds(10, 45, 252, 14);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblNewLabel.setBounds(20, 65, 252, 14);
 		contentPane.add(lblNewLabel);
 		
 		comboBoxPersonal = new JComboBox();
 		comboBoxPersonal.setForeground(new Color(128, 0, 128));
-		comboBoxPersonal.setBounds(267, 42, 138, 22);
+		comboBoxPersonal.setBounds(278, 62, 128, 22);
 		contentPane.add(comboBoxPersonal);
 		
 		JLabel lblSelecciona = new JLabel("Ingresa los nuevos datos a modificar ");
 		lblSelecciona.setForeground(new Color(128, 0, 128));
-		lblSelecciona.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		lblSelecciona.setBounds(10, 70, 252, 22);
+		lblSelecciona.setFont(new Font("Tahoma", Font.PLAIN, 8));
+		lblSelecciona.setBounds(20, 89, 252, 22);
 		contentPane.add(lblSelecciona);
 		
 		JLabel lblNombreCompleto = new JLabel("Nombre ");
-		lblNombreCompleto.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		lblNombreCompleto.setBounds(20, 103, 71, 14);
+		lblNombreCompleto.setFont(new Font("Tahoma", Font.BOLD, 10));
+		lblNombreCompleto.setBounds(20, 121, 71, 14);
 		contentPane.add(lblNombreCompleto);
 		
 		textField_Correo = new JTextField();
 		textField_Correo.setForeground(new Color(0, 0, 0));
-		textField_Correo.setBounds(87, 138, 345, 20);
+		textField_Correo.setBounds(87, 158, 345, 20);
 		contentPane.add(textField_Correo);
 		textField_Correo.setColumns(10);
 		
 		JLabel lblCorreo = new JLabel("Correo");
-		lblCorreo.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		lblCorreo.setBounds(20, 140, 71, 14);
+		lblCorreo.setFont(new Font("Tahoma", Font.BOLD, 10));
+		lblCorreo.setBounds(20, 160, 71, 14);
 		contentPane.add(lblCorreo);
 		
 		textField_NombreCompleto = new JTextField();
 		textField_NombreCompleto.setForeground(new Color(0, 0, 0));
 		textField_NombreCompleto.setColumns(10);
-		textField_NombreCompleto.setBounds(87, 101, 345, 20);
+		textField_NombreCompleto.setBounds(87, 122, 345, 20);
 		contentPane.add(textField_NombreCompleto);
 		
 		JLabel lbltelefono = new JLabel("Teléfono ");
-		lbltelefono.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		lbltelefono.setBounds(20, 177, 71, 14);
+		lbltelefono.setFont(new Font("Tahoma", Font.BOLD, 10));
+		lbltelefono.setBounds(20, 197, 71, 14);
 		contentPane.add(lbltelefono);
 		
 		textField_telefono = new JTextField();
 		textField_telefono.setForeground(new Color(0, 0, 0));
 		textField_telefono.setColumns(10);
-		textField_telefono.setBounds(87, 175, 157, 20);
+		textField_telefono.setBounds(87, 195, 157, 20);
 		contentPane.add(textField_telefono);
 		
 		JLabel lblPuesto = new JLabel("Puesto");
-		lblPuesto.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		lblPuesto.setBounds(254, 176, 47, 17);
+		lblPuesto.setFont(new Font("Tahoma", Font.BOLD, 10));
+		lblPuesto.setBounds(254, 196, 47, 17);
 		contentPane.add(lblPuesto);
 		
 		textField_Puesto = new JTextField();
 		textField_Puesto.setForeground(new Color(0, 0, 0));
 		textField_Puesto.setColumns(10);
-		textField_Puesto.setBounds(299, 175, 133, 20);
+		textField_Puesto.setBounds(299, 195, 133, 20);
 		contentPane.add(textField_Puesto);
 		
-		JButton ButtonAceptar = new JButton("Aceptar");
+		JButton ButtonAceptar = new JButton("Modificar");
 		ButtonAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				control.modificaPersonal(personalSeleccionado,textField_NombreCompleto.getText(),textField_Correo.getText(),textField_telefono.getText(),textField_Puesto.getText());
@@ -145,8 +151,8 @@ public class VentanaModificarPersonal extends JFrame {
 		});
 		ButtonAceptar.setForeground(new Color(0, 0, 0));
 		ButtonAceptar.setBackground(new Color(255, 228, 225));
-		ButtonAceptar.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
-		ButtonAceptar.setBounds(100, 226, 112, 23);
+		ButtonAceptar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		ButtonAceptar.setBounds(127, 249, 100, 30);
 		contentPane.add(ButtonAceptar);
 		
 		JButton ButtonCancelar = new JButton("Cancelar");
@@ -156,9 +162,9 @@ public class VentanaModificarPersonal extends JFrame {
 			}
 		});
 		ButtonCancelar.setForeground(Color.BLACK);
-		ButtonCancelar.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
+		ButtonCancelar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		ButtonCancelar.setBackground(new Color(255, 228, 225));
-		ButtonCancelar.setBounds(249, 226, 119, 23);
+		ButtonCancelar.setBounds(236, 249, 100, 30);
 		contentPane.add(ButtonCancelar);
 		
 		rdbtnVerInformacion = new JRadioButton("");
@@ -182,8 +188,12 @@ public class VentanaModificarPersonal extends JFrame {
 				}
 			}
 		});
-		rdbtnVerInformacion.setBounds(411, 42, 21, 23);
+		rdbtnVerInformacion.setBounds(412, 61, 21, 23);
 		contentPane.add(rdbtnVerInformacion);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(211, 41, 1, 2);
+		contentPane.add(separator);
 	}
 	
         public void muestra(ControlModificarPersonal control, List <Personal> personal) {

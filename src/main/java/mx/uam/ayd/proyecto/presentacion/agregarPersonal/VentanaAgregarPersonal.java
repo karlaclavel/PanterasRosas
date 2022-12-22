@@ -36,7 +36,9 @@ public class VentanaAgregarPersonal extends JFrame {
 		
 		setTitle("Agregar Personal");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 467, 393);
+		setBounds(100, 100, 467, 355);
+		setResizable(false);
+		setLocationRelativeTo(null);
 		
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(225, 216, 234));
@@ -46,51 +48,53 @@ public class VentanaAgregarPersonal extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Personal");
+		lblNewLabel.setForeground(new Color(158, 0, 82));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("KG WhY YoU GoTtA Be So MeAn", Font.BOLD, 40));
-		lblNewLabel.setBounds(141, 13, 188, 65);
+		lblNewLabel.setFont(new Font("Sitka Subheading", Font.BOLD, 30));
+		lblNewLabel.setBounds(120, 20, 230, 30);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nombre");
-		lblNewLabel_1.setBounds(41, 129, 52, 13);
+		lblNewLabel_1.setBounds(41, 103, 52, 13);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Teléfono");
-		lblNewLabel_2.setBounds(41, 169, 52, 13);
+		lblNewLabel_2.setBounds(41, 138, 52, 13);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Correo");
-		lblNewLabel_3.setBounds(41, 207, 52, 13);
+		lblNewLabel_3.setBounds(41, 176, 52, 13);
 		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Puesto");
-		lblNewLabel_4.setBounds(41, 243, 68, 13);
+		lblNewLabel_4.setBounds(41, 212, 68, 13);
 		contentPane.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("Rellena los siguientes campos:");
+		lblNewLabel_5.setForeground(new Color(128, 0, 128));
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 8));
-		lblNewLabel_5.setBounds(41, 88, 403, 13);
+		lblNewLabel_5.setBounds(41, 68, 367, 13);
 		contentPane.add(lblNewLabel_5);
 		
 		/******** CUADROS DE TEXTO ******/
 		
 		textFieldNombre = new JTextField();
-		textFieldNombre.setBounds(119, 126, 257, 19);
+		textFieldNombre.setBounds(119, 100, 257, 19);
 		contentPane.add(textFieldNombre);
 		textFieldNombre.setColumns(10);
 		
 		textFieldTelefono = new JTextField();
-		textFieldTelefono.setBounds(119, 166, 257, 19);
+		textFieldTelefono.setBounds(119, 135, 257, 19);
 		contentPane.add(textFieldTelefono);
 		textFieldTelefono.setColumns(10);
 		
 		textFieldCorreo = new JTextField();
-		textFieldCorreo.setBounds(119, 204, 257, 19);
+		textFieldCorreo.setBounds(119, 173, 257, 19);
 		contentPane.add(textFieldCorreo);
 		textFieldCorreo.setColumns(10);
 		
 		textFieldPuesto = new JTextField();
-		textFieldPuesto.setBounds(119, 240, 257, 19);
+		textFieldPuesto.setBounds(119, 209, 257, 19);
 		contentPane.add(textFieldPuesto);
 		textFieldPuesto.setColumns(10);
 		
@@ -99,7 +103,9 @@ public class VentanaAgregarPersonal extends JFrame {
 		/******** LISTENERS ******/
 		
 		JButton NewButtonAgregar = new JButton("Agregar");
-		NewButtonAgregar.setBounds(130, 289, 99, 28);
+		NewButtonAgregar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		NewButtonAgregar.setBackground(new Color(255, 228, 225));
+		NewButtonAgregar.setBounds(130, 258, 99, 28);
 		contentPane.add(NewButtonAgregar);
 		
 		NewButtonAgregar.addActionListener(new ActionListener() {
@@ -117,7 +123,9 @@ public class VentanaAgregarPersonal extends JFrame {
 		});
 		
 		JButton NewButtonCancelar = new JButton("Cancelar");
-		NewButtonCancelar.setBounds(239, 289, 92, 28);
+		NewButtonCancelar.setBackground(new Color(255, 228, 225));
+		NewButtonCancelar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		NewButtonCancelar.setBounds(239, 258, 92, 28);
 		contentPane.add(NewButtonCancelar);
 		
 		NewButtonCancelar.addActionListener(new ActionListener() {
