@@ -3,6 +3,7 @@ package mx.uam.ayd.proyecto.negocio;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.AfterEach;
@@ -10,10 +11,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import mx.uam.ayd.proyecto.datos.PersonalRepository;
+import mx.uam.ayd.proyecto.negocio.modelo.Cliente;
 import mx.uam.ayd.proyecto.negocio.modelo.Personal;
 
 /**
@@ -31,6 +34,10 @@ class ServicioPersonalTest {
 	
 	@Mock
 	private ServicioPersonal servicioPersonal;
+	
+	@InjectMocks
+	private ServicioPersonal servicioPersonalDatos;
+	
 	
 	@Mock
 	private Personal personalPrueba;
@@ -102,7 +109,7 @@ class ServicioPersonalTest {
 	} 
 	
 	@BeforeEach
-	void setUp() throws Exception {
+	void setUp1() throws Exception {
 		
 		personalPrueba = new Personal();
 		personalPrueba.setNombre("Juan Cruz");
@@ -124,6 +131,61 @@ class ServicioPersonalTest {
 		assertEquals(true, resultado); 
 		
 	}
+	@Test
+	void testRecuperaTodosPersonal() {
+		//Caso de prueba No.1: Regresa una lista vacía
+				/*
+				 * Simulamos la reposición del repositorio usando un sustituto
+				*/
+				
+				List <Personal> personal = servicioPersonalDatos.recuperaTodosPersonal();
+				assertEquals(0,personal.size());
+	    //Caso de prueba No.2: Regresa una lista con todos los empleados que se encuentran en la base de datos.
+				/*
+				 * Como personalRepository.findAll() regresa un Iterable usamos ArrayList
+				
+				 */
+				ArrayList <Personal> listaPersonal = new ArrayList <>();
+				
+				Personal personal1=new Personal();
+				personal1.setNombre("Veronica Silva");
+				personal1.setTelefonoPersonal("5561330399");
+				personal1.setCorreo("vero@gmail.com");
+				personal1.setPuesto("Contadora");
+				
+				Personal personal2=new Personal();
+				personal2.setNombre("Berenice Lucas");
+				personal2.setTelefonoPersonal("5588220302");
+				personal2.setCorreo("bere@gmail.com");
+				personal2.setPuesto("Gerente");
+				
+				Personal personal3=new Personal();
+				personal3.setNombre("Erika Maya");
+				personal3.setTelefonoPersonal("5612752187");
+				personal3.setCorreo("erika@gmail.com");
+				personal3.setPuesto("Diseñadora");
+				
+				listaPersonal.add(personal1);
+				listaPersonal.add(personal2);
+				listaPersonal.add(personal3);
+				
+				when(personalRepository.findAll()).thenReturn(listaPersonal);
+				personal = servicioPersonalDatos.recuperaTodosPersonal();
+				assertEquals(3,personal.size());
+				
+	}
+	
+	@BeforeEach
+	void setUp () throws Exception {
+		
+		personalPrueba = new Personal ();
+		
+		personalPrueba.setNombre("Juan");
+		personalPrueba.setTelefonoPersonal("5561330399");
+		personalPrueba.setCorreo("juan123@gmail.com");
+		personalPrueba.setPuesto("Calle 33 #113 Col. Santa Cruz Meyehualco");
+	}
+	
 	
 	
 

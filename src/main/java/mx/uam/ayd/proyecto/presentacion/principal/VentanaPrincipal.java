@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import org.springframework.stereotype.Component;
 
+
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import java.awt.Color;
@@ -16,9 +18,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import java.awt.BorderLayout;
-import javax.swing.SwingConstants;
+
 
 @SuppressWarnings("serial")
 @Component
@@ -41,10 +41,9 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 	}*/
+=======
 
-	/**
-	 * Create the frame.
-	 */
+
 	public VentanaPrincipal() {
 		
 		setTitle("Menú principal/ServiceTEC");
@@ -85,6 +84,11 @@ public class VentanaPrincipal extends JFrame {
 
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Eliminar");
 		mntmNewMenuItem_2.setBackground(new Color(204, 153, 204));
+		mntmNewMenuItem_2.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			controlPrincipal.eliminarProducto();		
+			}
+	});
 		mntmNewMenuItem_2.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
 		mnNewMenu.add(mntmNewMenuItem_2);
 		
@@ -149,14 +153,24 @@ public class VentanaPrincipal extends JFrame {
 		mnNewMenu_3.add(mntmNewMenuItem_9);
 		
 		JMenuItem mntmNewMenuItem_10 = new JMenuItem("Eliminar");
+		mntmNewMenuItem_10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlPrincipal.eliminarPersonal();
+			}
+		});
 		mntmNewMenuItem_10.setBackground(new Color(204, 153, 204));
 		mntmNewMenuItem_10.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
 		mnNewMenu_3.add(mntmNewMenuItem_10);
 		
-		JMenuItem mntmNewMenuItem_11 = new JMenuItem("Lista");
+		JMenuItem mntmNewMenuItem_11 = new JMenuItem("Ver");
 		mntmNewMenuItem_11.setBackground(new Color(204, 153, 204));
 		mntmNewMenuItem_11.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
 		mnNewMenu_3.add(mntmNewMenuItem_11);
+		mntmNewMenuItem_11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlPrincipal.verPersonal();
+			}
+		});
 		
 		JMenu mnNewMenu_2 = new JMenu("        Ventas        ");
 		mnNewMenu_2.setFont(new Font("Sitka Subheading", Font.BOLD, 16));
@@ -201,4 +215,6 @@ public class VentanaPrincipal extends JFrame {
 		this.controlPrincipal = control;
 		setVisible(true);
 	}
+
+	
 }

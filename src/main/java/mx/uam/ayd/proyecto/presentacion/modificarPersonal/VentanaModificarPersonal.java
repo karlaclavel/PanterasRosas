@@ -1,8 +1,5 @@
 package mx.uam.ayd.proyecto.presentacion.modificarPersonal;
 
-import java.awt.EventQueue;
-
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -10,9 +7,6 @@ import javax.swing.border.EmptyBorder;
 import org.springframework.stereotype.Component;
 
 import mx.uam.ayd.proyecto.negocio.modelo.Personal;
-import mx.uam.ayd.proyecto.negocio.modelo.Producto;
-import mx.uam.ayd.proyecto.negocio.modelo.SeccionCatalogo;
-import mx.uam.ayd.proyecto.presentacion.modificarPersonal.ControlModificarPersonal;
 
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -46,7 +40,9 @@ public class VentanaModificarPersonal extends JFrame {
 	private ControlModificarPersonal control;
 	private JComboBox <String> comboBoxPersonal; 
 	private String personalSeleccionado="";
-	private String seccionDelPersonal=""; 
+	 
+	
+	
 	/**
 	 * Launch the application.
 	 */
@@ -224,7 +220,6 @@ public class VentanaModificarPersonal extends JFrame {
     		
     		personalSeleccionado = (String) comboBoxPersonal.getSelectedItem();
     		Personal personal=control.obtenerPersonal(personalSeleccionado); 
-    		seccionDelPersonal=personal.getNombre();
     		
     		if(personal!=null) {
     			textField_NombreCompleto.setText(personal.getNombre());

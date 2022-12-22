@@ -147,7 +147,7 @@ public class ProyectoApplication {
 		personalRepository.save(personal2);
 		
 		Personal personal3=new Personal();
-		personal3.setNombre("Veronica Sliva");
+		personal3.setNombre("Veronica Silva");
 		personal3.setCorreo("veroSil98@gmail.com");
 		personal3.setTelefonoPersonal("5590654455");
 		personal3.setPuesto("Contadora");

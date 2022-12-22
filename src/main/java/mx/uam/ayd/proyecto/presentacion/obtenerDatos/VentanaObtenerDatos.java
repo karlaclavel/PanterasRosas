@@ -83,7 +83,7 @@ public class VentanaObtenerDatos extends JFrame {
 		model.addColumn("Teléfono");
 		model.addColumn("Correo");
 		model.addColumn("Dirección");
-		model.addColumn("Compra");
+		//model.addColumn("Compra");
 		
 		scrollPane.setViewportView(tablaClientes);
 		
