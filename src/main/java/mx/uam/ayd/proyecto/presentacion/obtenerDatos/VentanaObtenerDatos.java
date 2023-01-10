@@ -58,7 +58,7 @@ public class VentanaObtenerDatos extends JFrame {
 		
 		setTitle("Lista de clientes");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 355);
+		setBounds(100, 100, 565, 356);
 		setResizable(false);
 		setLocationRelativeTo(null);
 
@@ -70,7 +70,7 @@ public class VentanaObtenerDatos extends JFrame {
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 67, 414, 183);
+		scrollPane.setBounds(10, 67, 531, 183);
 		contentPane.add(scrollPane);
 		
 		tablaClientes = new JTable();
@@ -95,13 +95,13 @@ public class VentanaObtenerDatos extends JFrame {
 		});
 		btnNewButton.setBackground(new Color(255, 228, 225));
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton.setBounds(177, 260, 100, 30);
+		btnNewButton.setBounds(243, 262, 100, 30);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("Lista de clientes");
 		lblNewLabel.setForeground(new Color(158, 0, 82));
 		lblNewLabel.setFont(new Font("Sitka Subheading", Font.BOLD, 30));
-		lblNewLabel.setBounds(106, 20, 237, 37);
+		lblNewLabel.setBounds(161, 20, 237, 37);
 		contentPane.add(lblNewLabel);
 	}
 	
